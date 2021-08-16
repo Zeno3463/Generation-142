@@ -1,0 +1,502 @@
+[gd_scene load_steps=43 format=2]
+
+[ext_resource path="res://sprites/Green Forest Tilemap.png" type="Texture" id=1]
+[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=2]
+
+[sub_resource type="NavigationPolygon" id=1]
+vertices = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
+polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
+
+[sub_resource type="OccluderPolygon2D" id=2]
+polygon = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=3]
+points = PoolVector2Array( 16, 16, 0, 15.9362, 0, 0, 16, 0 )
+
+[sub_resource type="NavigationPolygon" id=4]
+vertices = PoolVector2Array( 16, 16, 0, 16, 0, 0.0239964, 16, 0.0239964 )
+polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
+
+[sub_resource type="OccluderPolygon2D" id=5]
+polygon = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=6]
+points = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
+
+[sub_resource type="NavigationPolygon" id=7]
+vertices = PoolVector2Array( 16, 15, 0, 15, 0, 0, 16, 0 )
+polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
+
+[sub_resource type="OccluderPolygon2D" id=8]
+polygon = PoolVector2Array( 16, 15, 0, 15, 0, 0, 16, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=9]
+points = PoolVector2Array( 16, 15, 0, 15, 0, 0, 16, 0 )
+
+[sub_resource type="NavigationPolygon" id=10]
+vertices = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
+polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
+
+[sub_resource type="OccluderPolygon2D" id=11]
+polygon = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=12]
+points = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
+
+[sub_resource type="NavigationPolygon" id=13]
+vertices = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
+polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
+
+[sub_resource type="OccluderPolygon2D" id=14]
+polygon = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=15]
+points = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
+
+[sub_resource type="NavigationPolygon" id=16]
+vertices = PoolVector2Array( 16, 16, 0.0448303, 16, 0.0448303, 0, 16, 0 )
+polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
+
+[sub_resource type="OccluderPolygon2D" id=17]
+polygon = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=18]
+points = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
+
+[sub_resource type="NavigationPolygon" id=19]
+vertices = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
+polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
+
+[sub_resource type="OccluderPolygon2D" id=20]
+polygon = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=21]
+points = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
+
+[sub_resource type="NavigationPolygon" id=22]
+vertices = PoolVector2Array( 16, 16, 0.0344086, 16, 0, 0, 16, 0 )
+polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
+
+[sub_resource type="OccluderPolygon2D" id=23]
+polygon = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=24]
+points = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
+
+[sub_resource type="NavigationPolygon" id=25]
+vertices = PoolVector2Array( 16, 16, 0, 16, 0, 0.0577774, 16, 0.0577774 )
+polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
+
+[sub_resource type="OccluderPolygon2D" id=26]
+polygon = PoolVector2Array( 16, 16, 0, 16, 0, 0.0577774, 16, 0.0577774 )
+
+[sub_resource type="ConvexPolygonShape2D" id=27]
+points = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0.0577774 )
+
+[sub_resource type="NavigationPolygon" id=28]
+vertices = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
+polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
+
+[sub_resource type="OccluderPolygon2D" id=29]
+polygon = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=30]
+points = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
+
+[sub_resource type="NavigationPolygon" id=31]
+vertices = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
+polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
+
+[sub_resource type="OccluderPolygon2D" id=32]
+polygon = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=33]
+points = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
+
+[sub_resource type="NavigationPolygon" id=34]
+vertices = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
+polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
+
+[sub_resource type="OccluderPolygon2D" id=35]
+polygon = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=36]
+points = PoolVector2Array( 16, 16, 0.0448303, 16, 0, 0, 16, 0 )
+
+[sub_resource type="NavigationPolygon" id=37]
+vertices = PoolVector2Array( 16, 15, 0, 15, 0, 0, 16, 0 )
+polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
+
+[sub_resource type="OccluderPolygon2D" id=38]
+polygon = PoolVector2Array( 16, 15, 0, 15, 0, 0, 16, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=39]
+points = PoolVector2Array( 16, 15, 0, 15, 0, 0, 16, 0 )
+
+[sub_resource type="TileSet" id=40]
+0/name = "Green Forest Tilemap.png 0"
+0/texture = ExtResource( 1 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 16, 16 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/occluder = SubResource( 2 )
+0/navigation_offset = Vector2( 0, 0 )
+0/navigation = SubResource( 1 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape = SubResource( 3 )
+0/shape_one_way = false
+0/shape_one_way_margin = 1.0
+0/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 3 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+0/z_index = 0
+1/name = "Green Forest Tilemap.png 1"
+1/texture = ExtResource( 1 )
+1/tex_offset = Vector2( 0, 0 )
+1/modulate = Color( 1, 1, 1, 1 )
+1/region = Rect2( 17, 0, 16, 16 )
+1/tile_mode = 0
+1/occluder_offset = Vector2( 0, 0 )
+1/occluder = SubResource( 5 )
+1/navigation_offset = Vector2( 0, 0 )
+1/navigation = SubResource( 4 )
+1/shape_offset = Vector2( 0, 0 )
+1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+1/shape = SubResource( 6 )
+1/shape_one_way = false
+1/shape_one_way_margin = 1.0
+1/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 6 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+1/z_index = 0
+2/name = "Green Forest Tilemap.png 2"
+2/texture = ExtResource( 1 )
+2/tex_offset = Vector2( 0, 0 )
+2/modulate = Color( 1, 1, 1, 1 )
+2/region = Rect2( 34, 0, 16, 16 )
+2/tile_mode = 0
+2/occluder_offset = Vector2( 0, 0 )
+2/occluder = SubResource( 17 )
+2/navigation_offset = Vector2( 0, 0 )
+2/navigation = SubResource( 16 )
+2/shape_offset = Vector2( 0, 0 )
+2/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+2/shape = SubResource( 18 )
+2/shape_one_way = false
+2/shape_one_way_margin = 1.0
+2/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 18 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+2/z_index = 0
+3/name = "Green Forest Tilemap.png 3"
+3/texture = ExtResource( 1 )
+3/tex_offset = Vector2( 0, 0 )
+3/modulate = Color( 1, 1, 1, 1 )
+3/region = Rect2( 0, 17, 16, 16 )
+3/tile_mode = 0
+3/occluder_offset = Vector2( 0, 0 )
+3/occluder = SubResource( 20 )
+3/navigation_offset = Vector2( 0, 0 )
+3/navigation = SubResource( 19 )
+3/shape_offset = Vector2( 0, 0 )
+3/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+3/shape = SubResource( 21 )
+3/shape_one_way = false
+3/shape_one_way_margin = 1.0
+3/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 21 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+3/z_index = 0
+4/name = "Green Forest Tilemap.png 4"
+4/texture = ExtResource( 1 )
+4/tex_offset = Vector2( 0, 0 )
+4/modulate = Color( 1, 1, 1, 1 )
+4/region = Rect2( 17, 17, 16, 16 )
+4/tile_mode = 0
+4/occluder_offset = Vector2( 0, 0 )
+4/occluder = SubResource( 23 )
+4/navigation_offset = Vector2( 0, 0 )
+4/navigation = SubResource( 22 )
+4/shape_offset = Vector2( 0, 0 )
+4/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+4/shape = SubResource( 24 )
+4/shape_one_way = false
+4/shape_one_way_margin = 1.0
+4/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 24 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+4/z_index = 0
+5/name = "Green Forest Tilemap.png 5"
+5/texture = ExtResource( 1 )
+5/tex_offset = Vector2( 0, 0 )
+5/modulate = Color( 1, 1, 1, 1 )
+5/region = Rect2( 34, 17, 16, 16 )
+5/tile_mode = 0
+5/occluder_offset = Vector2( 0, 0 )
+5/occluder = SubResource( 26 )
+5/navigation_offset = Vector2( 0, 0 )
+5/navigation = SubResource( 25 )
+5/shape_offset = Vector2( 0, 0 )
+5/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+5/shape = SubResource( 27 )
+5/shape_one_way = false
+5/shape_one_way_margin = 1.0
+5/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 27 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+5/z_index = 0
+6/name = "Green Forest Tilemap.png 6"
+6/texture = ExtResource( 1 )
+6/tex_offset = Vector2( 0, 0 )
+6/modulate = Color( 1, 1, 1, 1 )
+6/region = Rect2( 0, 34, 16, 16 )
+6/tile_mode = 0
+6/occluder_offset = Vector2( 0, 0 )
+6/occluder = SubResource( 29 )
+6/navigation_offset = Vector2( 0, 0 )
+6/navigation = SubResource( 28 )
+6/shape_offset = Vector2( 0, 0 )
+6/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+6/shape = SubResource( 30 )
+6/shape_one_way = false
+6/shape_one_way_margin = 1.0
+6/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 30 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+6/z_index = 0
+7/name = "Green Forest Tilemap.png 7"
+7/texture = ExtResource( 1 )
+7/tex_offset = Vector2( 0, 0 )
+7/modulate = Color( 1, 1, 1, 1 )
+7/region = Rect2( 17, 34, 16, 16 )
+7/tile_mode = 0
+7/occluder_offset = Vector2( 0, 0 )
+7/occluder = SubResource( 32 )
+7/navigation_offset = Vector2( 0, 0 )
+7/navigation = SubResource( 31 )
+7/shape_offset = Vector2( 0, 0 )
+7/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+7/shape = SubResource( 33 )
+7/shape_one_way = false
+7/shape_one_way_margin = 1.0
+7/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 33 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+7/z_index = 0
+8/name = "Green Forest Tilemap.png 8"
+8/texture = ExtResource( 1 )
+8/tex_offset = Vector2( 0, 0 )
+8/modulate = Color( 1, 1, 1, 1 )
+8/region = Rect2( 34, 34, 16, 16 )
+8/tile_mode = 0
+8/occluder_offset = Vector2( 0, 0 )
+8/occluder = SubResource( 35 )
+8/navigation_offset = Vector2( 0, 0 )
+8/navigation = SubResource( 34 )
+8/shape_offset = Vector2( 0, 0 )
+8/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+8/shape = SubResource( 36 )
+8/shape_one_way = false
+8/shape_one_way_margin = 1.0
+8/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 36 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+8/z_index = 0
+9/name = "Green Forest Tilemap.png 9"
+9/texture = ExtResource( 1 )
+9/tex_offset = Vector2( 0, 0 )
+9/modulate = Color( 1, 1, 1, 1 )
+9/region = Rect2( 51, 0, 16, 15 )
+9/tile_mode = 0
+9/occluder_offset = Vector2( 0, 0 )
+9/occluder = SubResource( 38 )
+9/navigation_offset = Vector2( 0, 0 )
+9/navigation = SubResource( 37 )
+9/shape_offset = Vector2( 0, 0 )
+9/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+9/shape = SubResource( 39 )
+9/shape_one_way = false
+9/shape_one_way_margin = 1.0
+9/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 39 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+9/z_index = 0
+10/name = "Green Forest Tilemap.png 10"
+10/texture = ExtResource( 1 )
+10/tex_offset = Vector2( 0, 0 )
+10/modulate = Color( 1, 1, 1, 1 )
+10/region = Rect2( 68, 0, 16, 15 )
+10/tile_mode = 0
+10/occluder_offset = Vector2( 0, 0 )
+10/occluder = SubResource( 8 )
+10/navigation_offset = Vector2( 0, 0 )
+10/navigation = SubResource( 7 )
+10/shape_offset = Vector2( 0, 0 )
+10/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+10/shape = SubResource( 9 )
+10/shape_one_way = false
+10/shape_one_way_margin = 1.0
+10/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 9 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+10/z_index = 0
+11/name = "Green Forest Tilemap.png 11"
+11/texture = ExtResource( 1 )
+11/tex_offset = Vector2( 0, 0 )
+11/modulate = Color( 1, 1, 1, 1 )
+11/region = Rect2( 51, 16, 16, 16 )
+11/tile_mode = 0
+11/occluder_offset = Vector2( 0, 0 )
+11/occluder = SubResource( 11 )
+11/navigation_offset = Vector2( 0, 0 )
+11/navigation = SubResource( 10 )
+11/shape_offset = Vector2( 0, 0 )
+11/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+11/shape = SubResource( 12 )
+11/shape_one_way = false
+11/shape_one_way_margin = 1.0
+11/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 12 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+11/z_index = 0
+12/name = "Green Forest Tilemap.png 12"
+12/texture = ExtResource( 1 )
+12/tex_offset = Vector2( 0, 0 )
+12/modulate = Color( 1, 1, 1, 1 )
+12/region = Rect2( 68, 16, 16, 16 )
+12/tile_mode = 0
+12/occluder_offset = Vector2( 0, 0 )
+12/occluder = SubResource( 14 )
+12/navigation_offset = Vector2( 0, 0 )
+12/navigation = SubResource( 13 )
+12/shape_offset = Vector2( 0, 0 )
+12/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+12/shape = SubResource( 15 )
+12/shape_one_way = false
+12/shape_one_way_margin = 1.0
+12/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 15 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+12/z_index = 0
+13/name = "Green Forest Tilemap.png 13"
+13/texture = ExtResource( 1 )
+13/tex_offset = Vector2( 0, 0 )
+13/modulate = Color( 1, 1, 1, 1 )
+13/region = Rect2( 51, 34, 16, 16 )
+13/tile_mode = 0
+13/occluder_offset = Vector2( 0, 0 )
+13/navigation_offset = Vector2( 0, 0 )
+13/shape_offset = Vector2( 0, 0 )
+13/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+13/shape_one_way = false
+13/shape_one_way_margin = 0.0
+13/shapes = [  ]
+13/z_index = 0
+14/name = "Green Forest Tilemap.png 14"
+14/texture = ExtResource( 1 )
+14/tex_offset = Vector2( 0, 0 )
+14/modulate = Color( 1, 1, 1, 1 )
+14/region = Rect2( 68, 34, 16, 16 )
+14/tile_mode = 0
+14/occluder_offset = Vector2( 0, 0 )
+14/navigation_offset = Vector2( 0, 0 )
+14/shape_offset = Vector2( 0, 0 )
+14/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+14/shape_one_way = false
+14/shape_one_way_margin = 0.0
+14/shapes = [  ]
+14/z_index = 0
+15/name = "Green Forest Tilemap.png 15"
+15/texture = ExtResource( 1 )
+15/tex_offset = Vector2( 0, 0 )
+15/modulate = Color( 1, 1, 1, 1 )
+15/region = Rect2( 85, 34, 16, 16 )
+15/tile_mode = 0
+15/occluder_offset = Vector2( 0, 0 )
+15/navigation_offset = Vector2( 0, 0 )
+15/shape_offset = Vector2( 0, 0 )
+15/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+15/shape_one_way = false
+15/shape_one_way_margin = 0.0
+15/shapes = [  ]
+15/z_index = 0
+16/name = "Green Forest Tilemap.png 16"
+16/texture = ExtResource( 1 )
+16/tex_offset = Vector2( 0, 0 )
+16/modulate = Color( 1, 1, 1, 1 )
+16/region = Rect2( 0, 51, 16, 32 )
+16/tile_mode = 0
+16/occluder_offset = Vector2( 0, 0 )
+16/navigation_offset = Vector2( 0, 0 )
+16/shape_offset = Vector2( 0, 0 )
+16/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+16/shape_one_way = false
+16/shape_one_way_margin = 0.0
+16/shapes = [  ]
+16/z_index = 0
+
+[node name="Green Forest" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( -10.1404, -28.8567 )
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource( 40 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( -65539, 16, 0, -2, 13, 0, -1, 13, 0, -65536, 14, 0, -65535, 13, 0, -65534, 13, 0, 65530, 0, 0, 65531, 1, 0, 65532, 1, 0, 65533, 1, 0, 65534, 1, 0, 65535, 1, 0, 0, 1, 0, 1, 1, 0, 2, 1, 0, 3, 2, 0, 131057, 0, 0, 131058, 2, 0, 131066, 3, 0, 131067, 4, 0, 131068, 4, 0, 131069, 4, 0, 131070, 4, 0, 131071, 4, 0, 65536, 4, 0, 65537, 4, 0, 65538, 4, 0, 65539, 5, 0, 196593, 6, 0, 196594, 8, 0, 196602, 3, 0, 196603, 4, 0, 196604, 4, 0, 196605, 4, 0, 196606, 4, 0, 196607, 4, 0, 131072, 4, 0, 131073, 4, 0, 131074, 4, 0, 131075, 5, 0, 262132, 0, 0, 262133, 2, 0, 262138, 3, 0, 262139, 4, 0, 262140, 4, 0, 262141, 4, 0, 262142, 4, 0, 262143, 4, 0, 196608, 4, 0, 196609, 4, 0, 196610, 4, 0, 196611, 5, 0, 327668, 6, 0, 327669, 8, 0, 327674, 3, 0, 327675, 4, 0, 327676, 4, 0, 327677, 4, 0, 327678, 4, 0, 327679, 4, 0, 262144, 4, 0, 262145, 4, 0, 262146, 4, 0, 262147, 5, 0, 393206, 1, 0, 393207, 1, 0, 393208, 1, 0, 393209, 1, 0, 393210, 4, 0, 393211, 4, 0, 393212, 4, 0, 393213, 4, 0, 393214, 4, 0, 393215, 4, 0, 327680, 4, 0, 327681, 4, 0, 327682, 4, 0, 327683, 5, 0 )
