@@ -11,7 +11,7 @@ config_version=4
 [application]
 
 config/name="Metroidvania-game"
-run/main_scene="res://scenes/Green Forest.tscn"
+run/main_scene="res://scenes/Blue Forest.tscn"
 config/icon="res://icon.png"
 
 [display]

@@ -7,17 +7,21 @@ export var fall_gravity = 10
 export var low_jump_gravity = 10
 
 var vel = Vector2.ZERO
+var is_walking = false
 
 func _physics_process(delta):
 	# horizontal movement
 	if Input.is_action_pressed("left"):
 		$AnimatedSprite.flip_h = true
 		vel.x = -speed
+		is_walking = true
 	elif Input.is_action_pressed("right"):
 		$AnimatedSprite.flip_h = false
 		vel.x = speed
+		is_walking = true
 	else: 
 		vel.x = 0
+		is_walking = false
 	
 	# falling
 	if is_on_floor():
@@ -36,7 +40,7 @@ func _physics_process(delta):
 	# handle animation play
 	if vel == Vector2.ZERO:
 		$AnimatedSprite.play("default")
-	elif vel.x != 0 and vel.y == 0:
+	elif is_walking and vel.y == 0:
 		$AnimatedSprite.play("walk")
 	elif vel.y > 5:
 		$AnimatedSprite.play("fall")

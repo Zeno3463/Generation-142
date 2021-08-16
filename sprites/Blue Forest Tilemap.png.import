@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Green Forest Tilemap.png-dda5d06c598d80f4033611e075ec13eb.stex"
+path="res://.import/Blue Forest Tilemap.png-d441f15e254ed4dcb5cde73ef2219d6a.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/Green Forest Tilemap.png"
-dest_files=[ "res://.import/Green Forest Tilemap.png-dda5d06c598d80f4033611e075ec13eb.stex" ]
+source_file="res://sprites/Blue Forest Tilemap.png"
+dest_files=[ "res://.import/Blue Forest Tilemap.png-d441f15e254ed4dcb5cde73ef2219d6a.stex" ]
 
 [params]
 
