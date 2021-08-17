@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Blue Forest Tilemap.png-d441f15e254ed4dcb5cde73ef2219d6a.stex"
+path="res://.import/Player Fall.png-bec70ec5cdc663104e4654819cefd0bd.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/Blue Forest Tilemap.png"
-dest_files=[ "res://.import/Blue Forest Tilemap.png-d441f15e254ed4dcb5cde73ef2219d6a.stex" ]
+source_file="res://sprites/Player/Player Fall.png"
+dest_files=[ "res://.import/Player Fall.png-bec70ec5cdc663104e4654819cefd0bd.stex" ]
 
 [params]
 

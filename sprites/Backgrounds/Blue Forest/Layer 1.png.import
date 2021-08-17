@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Player Jump.png-4dccdd4291c8c8458aa660836a577c78.stex"
+path="res://.import/Layer 1.png-94a9ba8bb4e18db96be3df6885d1d304.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/Player Jump.png"
-dest_files=[ "res://.import/Player Jump.png-4dccdd4291c8c8458aa660836a577c78.stex" ]
+source_file="res://sprites/Backgrounds/Blue Forest/Layer 1.png"
+dest_files=[ "res://.import/Layer 1.png-94a9ba8bb4e18db96be3df6885d1d304.stex" ]
 
 [params]
 

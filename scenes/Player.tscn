@@ -1,10 +1,15 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=35 format=2]
 
-[ext_resource path="res://sprites/Player Idle.png" type="Texture" id=1]
+[ext_resource path="res://sprites/Player/Player Idle.png" type="Texture" id=1]
 [ext_resource path="res://scripts/Player.gd" type="Script" id=2]
-[ext_resource path="res://sprites/Player Walk.png" type="Texture" id=3]
-[ext_resource path="res://sprites/Player Jump.png" type="Texture" id=4]
-[ext_resource path="res://sprites/Player Fall.png" type="Texture" id=5]
+[ext_resource path="res://sprites/Player/Player Walk.png" type="Texture" id=3]
+[ext_resource path="res://sprites/Player/Player Jump.png" type="Texture" id=4]
+[ext_resource path="res://sprites/Player/Player Fall.png" type="Texture" id=5]
+[ext_resource path="res://sprites/Player/Player Double Jump.png" type="Texture" id=6]
+[ext_resource path="res://sprites/Lighting/APfkB6p - Imgur.png" type="Texture" id=7]
+[ext_resource path="res://sprites/Lighting/White Square.png" type="Texture" id=8]
+[ext_resource path="res://scripts/trail.gd" type="Script" id=9]
+[ext_resource path="res://sprites/Player/Player Attack.png" type="Texture" id=10]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 4.45234, 7.1302 )
@@ -49,16 +54,60 @@ region = Rect2( 64, 0, 16, 16 )
 atlas = ExtResource( 3 )
 region = Rect2( 80, 0, 16, 16 )
 
-[sub_resource type="SpriteFrames" id=12]
+[sub_resource type="AtlasTexture" id=12]
+atlas = ExtResource( 6 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=13]
+atlas = ExtResource( 6 )
+region = Rect2( 16, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=14]
+atlas = ExtResource( 6 )
+region = Rect2( 32, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=15]
+atlas = ExtResource( 6 )
+region = Rect2( 48, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=16]
+atlas = ExtResource( 6 )
+region = Rect2( 64, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=17]
+atlas = ExtResource( 6 )
+region = Rect2( 80, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=18]
+atlas = ExtResource( 6 )
+region = Rect2( 96, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=21]
+atlas = ExtResource( 10 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=22]
+atlas = ExtResource( 10 )
+region = Rect2( 16, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=23]
+atlas = ExtResource( 10 )
+region = Rect2( 32, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=24]
+atlas = ExtResource( 10 )
+region = Rect2( 48, 0, 16, 16 )
+
+[sub_resource type="SpriteFrames" id=19]
 animations = [ {
 "frames": [ SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 4 ) ],
+"frames": [ SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ) ],
 "loop": true,
-"name": "jump",
+"name": "walk",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 5 ) ],
@@ -66,11 +115,24 @@ animations = [ {
 "name": "fall",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ) ],
+"frames": [ ExtResource( 4 ) ],
 "loop": true,
-"name": "walk",
+"name": "jump",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ) ],
+"loop": true,
+"name": "double jump",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 21 ), SubResource( 22 ), SubResource( 23 ), SubResource( 24 ) ],
+"loop": true,
+"name": "attack",
 "speed": 5.0
 } ]
+
+[sub_resource type="Curve" id=20]
+_data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
 
 [node name="Player" type="KinematicBody2D"]
 script = ExtResource( 2 )
@@ -80,12 +142,39 @@ position = Vector2( -0.397747, -0.397746 )
 shape = SubResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+modulate = Color( 0.576471, 0.576471, 0.576471, 1 )
 position = Vector2( 0, -0.370039 )
-frames = SubResource( 12 )
-animation = "fall"
+frames = SubResource( 19 )
+animation = "attack"
+frame = 1
 speed_scale = 2.0
 playing = true
 
-[node name="Camera2D" type="Camera2D" parent="."]
-current = true
-zoom = Vector2( 0.2, 0.2 )
+[node name="Effects" type="Node2D" parent="."]
+
+[node name="Light" type="Node2D" parent="Effects"]
+
+[node name="Light2D" type="Light2D" parent="Effects/Light"]
+texture = ExtResource( 7 )
+shadow_enabled = true
+
+[node name="Shadow" type="Sprite" parent="Effects/Light"]
+modulate = Color( 0.490196, 0.490196, 0.490196, 0.0862745 )
+scale = Vector2( 22.9682, 22.9682 )
+texture = ExtResource( 8 )
+
+[node name="Trail" type="Node2D" parent="Effects"]
+
+[node name="Line2D" type="Line2D" parent="Effects/Trail"]
+visible = false
+z_index = -1
+points = PoolVector2Array( -0.401726, 0.0342216 )
+width = 5.0
+width_curve = SubResource( 20 )
+default_color = Color( 0.435294, 0.278431, 0.168627, 0.619608 )
+script = ExtResource( 9 )
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

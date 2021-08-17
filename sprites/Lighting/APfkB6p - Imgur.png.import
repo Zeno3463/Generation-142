@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Player Attack.png-afc3035cc82b467c29c01041d4568a2d.stex"
+path="res://.import/APfkB6p - Imgur.png-b180da02163dbf3348413d1c8d98b479.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/Player Attack.png"
-dest_files=[ "res://.import/Player Attack.png-afc3035cc82b467c29c01041d4568a2d.stex" ]
+source_file="res://sprites/Lighting/APfkB6p - Imgur.png"
+dest_files=[ "res://.import/APfkB6p - Imgur.png-b180da02163dbf3348413d1c8d98b479.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

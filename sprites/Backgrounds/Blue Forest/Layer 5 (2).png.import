@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Player Double Jump.png-7250acb930990ecc6278da56ff70fcb0.stex"
+path="res://.import/Layer 5 (2).png-9a21322a3286594944a6005c724fdc35.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/Player Double Jump.png"
-dest_files=[ "res://.import/Player Double Jump.png-7250acb930990ecc6278da56ff70fcb0.stex" ]
+source_file="res://sprites/Backgrounds/Blue Forest/Layer 5 (2).png"
+dest_files=[ "res://.import/Layer 5 (2).png-9a21322a3286594944a6005c724fdc35.stex" ]
 
 [params]
 
