@@ -8,10 +8,26 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "KinematicBody2D",
+"class": "Enemy_Class",
+"language": "GDScript",
+"path": "res://scripts/Classes/Enemy Class.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "Player_Class",
+"language": "GDScript",
+"path": "res://scripts/Classes/Player Class.gd"
+} ]
+_global_script_class_icons={
+"Enemy_Class": "",
+"Player_Class": ""
+}
+
 [application]
 
 config/name="Metroidvania-game"
-run/main_scene="res://scenes/Blue Forest.tscn"
+run/main_scene="res://scenes/Levels/Blue Forest/Blue Forest Section 0.tscn"
 config/icon="res://icon.png"
 
 [autoload]
