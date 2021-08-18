@@ -1,0 +1,478 @@
+[gd_scene load_steps=41 format=2]
+
+[ext_resource path="res://sprites/Tilemaps/Blue Forest Tilemap.png" type="Texture" id=2]
+[ext_resource path="res://sprites/Backgrounds/Blue Forest/Layer 3.png" type="Texture" id=3]
+[ext_resource path="res://sprites/Backgrounds/Blue Forest/Layer 4.png" type="Texture" id=4]
+[ext_resource path="res://sprites/Backgrounds/Blue Forest/Layer 5.png" type="Texture" id=5]
+[ext_resource path="res://sprites/Backgrounds/Blue Forest/Layer 2.png" type="Texture" id=6]
+[ext_resource path="res://sprites/Backgrounds/Blue Forest/Layer 1.png" type="Texture" id=7]
+[ext_resource path="res://scenes/Next Level Teleporter.tscn" type="PackedScene" id=11]
+
+[sub_resource type="NavigationPolygon" id=1]
+vertices = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
+polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
+
+[sub_resource type="OccluderPolygon2D" id=2]
+polygon = PoolVector2Array( 5.15812, 0, 5.10404, 0.993359, 2.77826, 1.10153, 2.77826, 2.02103, 1.80468, 2.02103, 1.80468, 2.88643, 0.939272, 2.94052, 0.939272, 5.04995, 0, 5.04995, 0, 16, 16, 16, 16, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=3]
+points = PoolVector2Array( 16, 0, 16, 16, 0, 16, 0, 5.0229, 5.04995, 5.0229, 4.94177, 0 )
+
+[sub_resource type="NavigationPolygon" id=4]
+vertices = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
+polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
+
+[sub_resource type="OccluderPolygon2D" id=5]
+polygon = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=6]
+points = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
+
+[sub_resource type="NavigationPolygon" id=7]
+vertices = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
+polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
+
+[sub_resource type="OccluderPolygon2D" id=8]
+polygon = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=9]
+points = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
+
+[sub_resource type="NavigationPolygon" id=10]
+vertices = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
+polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
+
+[sub_resource type="OccluderPolygon2D" id=11]
+polygon = PoolVector2Array( 0.073864, 9.83094, 0.93927, 9.93912, 0.93927, 11.8322, 2.1292, 11.8863, 2.02103, 13.9416, 2.88643, 13.9416, 2.99461, 14.9693, 4.77951, 14.9693, 4.8336, 15.7265, 16, 15.997, 16, 0, 0, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=12]
+points = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
+
+[sub_resource type="OccluderPolygon2D" id=13]
+polygon = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="OccluderPolygon2D" id=14]
+polygon = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="NavigationPolygon" id=15]
+vertices = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
+polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
+
+[sub_resource type="OccluderPolygon2D" id=16]
+polygon = PoolVector2Array( 10.7504, 0, 10.8045, 1.04745, 13.0762, 1.04745, 13.0762, 2.1292, 14.0498, 2.18329, 13.9957, 2.94052, 14.9693, 2.99461, 15.0234, 4.94177, 15.997, 4.99586, 16, 16, 0, 16, 0, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=17]
+points = PoolVector2Array( 0, 0, 10.9668, 0.0197754, 10.9668, 4.99586, 16, 5.04995, 16, 16, 0, 16, 0, 0, 0, 16 )
+
+[sub_resource type="NavigationPolygon" id=18]
+vertices = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
+polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
+
+[sub_resource type="OccluderPolygon2D" id=19]
+polygon = PoolVector2Array( 2.07997, 0, 2.02588, 0.93927, 0.944126, 0.93927, 0.998215, 2.07512, 0, 1.96694, 0, 13.9204, 1.0523, 14.0285, 0.998215, 15.7593, 1.91771, 15.7593, 1.97179, 14.0826, 2.94538, 13.9744, 2.89129, 13.2172, 4.13531, 13.055, 4.02713, 13.9744, 4.78436, 13.9744, 4.94662, 11.9191, 6.08247, 12.0273, 6.13657, 13.8122, 7.00197, 13.8663, 7.05605, 12.9468, 8.08372, 12.9468, 8.19189, 14.948, 8.89504, 15.0021, 9.00322, 12.9468, 10.0309, 12.9468, 10.0309, 13.8663, 10.8963, 13.8663, 10.9504, 14.7858, 11.8699, 14.7858, 11.924, 13.8663, 13.0057, 13.8663, 12.8975, 12.8386, 15.0611, 12.8386, 15.0611, 15.0021, 16, 15.0562, 16, 2.07512, 14.9529, 1.91285, 15.007, 1.04745, 13.9793, 0.93927, 13.9793, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=20]
+points = PoolVector2Array( 13.9252, 0, 14.0334, 0.993359, 14.8988, 0.993359, 14.8988, 2.02103, 16, 2.07512, 16, 14.0285, 0, 14.0285, 0, 2.07512, 1.0523, 2.1292, 0.998215, 0.93927, 2.02588, 0.885182, 1.97179, 0 )
+
+[sub_resource type="OccluderPolygon2D" id=21]
+polygon = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="NavigationPolygon" id=22]
+vertices = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
+polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
+
+[sub_resource type="OccluderPolygon2D" id=23]
+polygon = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=24]
+points = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
+
+[sub_resource type="OccluderPolygon2D" id=25]
+polygon = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="NavigationPolygon" id=26]
+vertices = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
+polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
+
+[sub_resource type="OccluderPolygon2D" id=27]
+polygon = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=28]
+points = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
+
+[sub_resource type="OccluderPolygon2D" id=29]
+polygon = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="NavigationPolygon" id=30]
+vertices = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
+polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
+
+[sub_resource type="OccluderPolygon2D" id=31]
+polygon = PoolVector2Array( 11.075, 16, 11.0209, 14.9152, 13.0762, 14.9152, 13.1303, 14.1039, 14.158, 14.0498, 14.0498, 12.968, 14.9693, 12.914, 15.0234, 10.8586, 16, 10.8586, 16, 0, 0, 0, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=32]
+points = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
+
+[sub_resource type="TileSet" id=33]
+0/name = "Blue Forest Tilemap.png 0"
+0/texture = ExtResource( 2 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 16, 16 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/occluder = SubResource( 2 )
+0/navigation_offset = Vector2( 0, 0 )
+0/navigation = SubResource( 1 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape = SubResource( 3 )
+0/shape_one_way = false
+0/shape_one_way_margin = 1.0
+0/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 3 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+0/z_index = 0
+1/name = "Blue Forest Tilemap.png 1"
+1/texture = ExtResource( 2 )
+1/tex_offset = Vector2( 0, 0 )
+1/modulate = Color( 1, 1, 1, 1 )
+1/region = Rect2( 17, 0, 16, 16 )
+1/tile_mode = 0
+1/occluder_offset = Vector2( 0, 0 )
+1/occluder = SubResource( 5 )
+1/navigation_offset = Vector2( 0, 0 )
+1/navigation = SubResource( 4 )
+1/shape_offset = Vector2( 0, 0 )
+1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+1/shape = SubResource( 6 )
+1/shape_one_way = false
+1/shape_one_way_margin = 1.0
+1/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 6 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+1/z_index = 0
+2/name = "Blue Forest Tilemap.png 2"
+2/texture = ExtResource( 2 )
+2/tex_offset = Vector2( 0, 0 )
+2/modulate = Color( 1, 1, 1, 1 )
+2/region = Rect2( 34, 0, 16, 16 )
+2/tile_mode = 0
+2/occluder_offset = Vector2( 0, 0 )
+2/occluder = SubResource( 16 )
+2/navigation_offset = Vector2( 0, 0 )
+2/navigation = SubResource( 15 )
+2/shape_offset = Vector2( 0, 0 )
+2/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+2/shape = SubResource( 17 )
+2/shape_one_way = false
+2/shape_one_way_margin = 1.0
+2/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 17 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+2/z_index = 0
+3/name = "Blue Forest Tilemap.png 3"
+3/texture = ExtResource( 2 )
+3/tex_offset = Vector2( 0, 0 )
+3/modulate = Color( 1, 1, 1, 1 )
+3/region = Rect2( 51, 0, 16, 16 )
+3/tile_mode = 0
+3/occluder_offset = Vector2( 0, 0 )
+3/occluder = SubResource( 19 )
+3/navigation_offset = Vector2( 0, 0 )
+3/navigation = SubResource( 18 )
+3/shape_offset = Vector2( 0, 0 )
+3/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+3/shape = SubResource( 20 )
+3/shape_one_way = false
+3/shape_one_way_margin = 1.0
+3/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 20 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+3/z_index = 0
+4/name = "Blue Forest Tilemap.png 4"
+4/texture = ExtResource( 2 )
+4/tex_offset = Vector2( 0, 0 )
+4/modulate = Color( 1, 1, 1, 1 )
+4/region = Rect2( 68, 0, 16, 16 )
+4/tile_mode = 0
+4/occluder_offset = Vector2( 0, 0 )
+4/occluder = SubResource( 21 )
+4/navigation_offset = Vector2( 0, 0 )
+4/shape_offset = Vector2( 0, 0 )
+4/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+4/shape_one_way = false
+4/shape_one_way_margin = 0.0
+4/shapes = [  ]
+4/z_index = 0
+5/name = "Blue Forest Tilemap.png 5"
+5/texture = ExtResource( 2 )
+5/tex_offset = Vector2( 0, 0 )
+5/modulate = Color( 1, 1, 1, 1 )
+5/region = Rect2( 0, 17, 16, 16 )
+5/tile_mode = 0
+5/occluder_offset = Vector2( 0, 0 )
+5/occluder = SubResource( 23 )
+5/navigation_offset = Vector2( 0, 0 )
+5/navigation = SubResource( 22 )
+5/shape_offset = Vector2( 0, 0 )
+5/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+5/shape = SubResource( 24 )
+5/shape_one_way = false
+5/shape_one_way_margin = 1.0
+5/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 24 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+5/z_index = 0
+6/name = "Blue Forest Tilemap.png 6"
+6/texture = ExtResource( 2 )
+6/tex_offset = Vector2( 0, 0 )
+6/modulate = Color( 1, 1, 1, 1 )
+6/region = Rect2( 17, 17, 16, 16 )
+6/tile_mode = 0
+6/occluder_offset = Vector2( 0, 0 )
+6/occluder = SubResource( 25 )
+6/navigation_offset = Vector2( 0, 0 )
+6/shape_offset = Vector2( 0, 0 )
+6/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+6/shape_one_way = false
+6/shape_one_way_margin = 0.0
+6/shapes = [  ]
+6/z_index = 0
+7/name = "Blue Forest Tilemap.png 7"
+7/texture = ExtResource( 2 )
+7/tex_offset = Vector2( 0, 0 )
+7/modulate = Color( 1, 1, 1, 1 )
+7/region = Rect2( 34, 17, 16, 16 )
+7/tile_mode = 0
+7/occluder_offset = Vector2( 0, 0 )
+7/occluder = SubResource( 27 )
+7/navigation_offset = Vector2( 0, 0 )
+7/navigation = SubResource( 26 )
+7/shape_offset = Vector2( 0, 0 )
+7/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+7/shape = SubResource( 28 )
+7/shape_one_way = false
+7/shape_one_way_margin = 1.0
+7/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 28 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+7/z_index = 0
+8/name = "Blue Forest Tilemap.png 8"
+8/texture = ExtResource( 2 )
+8/tex_offset = Vector2( 0, 0 )
+8/modulate = Color( 1, 1, 1, 1 )
+8/region = Rect2( 51, 17, 16, 16 )
+8/tile_mode = 0
+8/occluder_offset = Vector2( 0, 0 )
+8/occluder = SubResource( 29 )
+8/navigation_offset = Vector2( 0, 0 )
+8/shape_offset = Vector2( 0, 0 )
+8/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+8/shape_one_way = false
+8/shape_one_way_margin = 0.0
+8/shapes = [  ]
+8/z_index = 0
+9/name = "Blue Forest Tilemap.png 9"
+9/texture = ExtResource( 2 )
+9/tex_offset = Vector2( 0, 0 )
+9/modulate = Color( 1, 1, 1, 1 )
+9/region = Rect2( 34, 34, 16, 16 )
+9/tile_mode = 0
+9/occluder_offset = Vector2( 0, 0 )
+9/occluder = SubResource( 31 )
+9/navigation_offset = Vector2( 0, 0 )
+9/navigation = SubResource( 30 )
+9/shape_offset = Vector2( 0, 0 )
+9/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+9/shape = SubResource( 32 )
+9/shape_one_way = false
+9/shape_one_way_margin = 1.0
+9/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 32 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+9/z_index = 0
+10/name = "Blue Forest Tilemap.png 10"
+10/texture = ExtResource( 2 )
+10/tex_offset = Vector2( 0, 0 )
+10/modulate = Color( 1, 1, 1, 1 )
+10/region = Rect2( 17, 34, 16, 16 )
+10/tile_mode = 0
+10/occluder_offset = Vector2( 0, 0 )
+10/occluder = SubResource( 8 )
+10/navigation_offset = Vector2( 0, 0 )
+10/navigation = SubResource( 7 )
+10/shape_offset = Vector2( 0, 0 )
+10/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+10/shape = SubResource( 9 )
+10/shape_one_way = false
+10/shape_one_way_margin = 1.0
+10/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 9 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+10/z_index = 0
+11/name = "Blue Forest Tilemap.png 11"
+11/texture = ExtResource( 2 )
+11/tex_offset = Vector2( 0, 0 )
+11/modulate = Color( 1, 1, 1, 1 )
+11/region = Rect2( 0, 34, 16, 16 )
+11/tile_mode = 0
+11/occluder_offset = Vector2( 0, 0 )
+11/occluder = SubResource( 11 )
+11/navigation_offset = Vector2( 0, 0 )
+11/navigation = SubResource( 10 )
+11/shape_offset = Vector2( 0, 0 )
+11/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+11/shape = SubResource( 12 )
+11/shape_one_way = false
+11/shape_one_way_margin = 1.0
+11/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 12 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+11/z_index = 0
+12/name = "Blue Forest Tilemap.png 12"
+12/texture = ExtResource( 2 )
+12/tex_offset = Vector2( 0, 0 )
+12/modulate = Color( 1, 1, 1, 1 )
+12/region = Rect2( 68, 17, 16, 16 )
+12/tile_mode = 0
+12/occluder_offset = Vector2( 0, 0 )
+12/occluder = SubResource( 13 )
+12/navigation_offset = Vector2( 0, 0 )
+12/shape_offset = Vector2( 0, 0 )
+12/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+12/shape_one_way = false
+12/shape_one_way_margin = 0.0
+12/shapes = [  ]
+12/z_index = 0
+13/name = "Blue Forest Tilemap.png 13"
+13/texture = ExtResource( 2 )
+13/tex_offset = Vector2( 0, 0 )
+13/modulate = Color( 1, 1, 1, 1 )
+13/region = Rect2( 51, 34, 16, 16 )
+13/tile_mode = 0
+13/occluder_offset = Vector2( 0, 0 )
+13/occluder = SubResource( 14 )
+13/navigation_offset = Vector2( 0, 0 )
+13/shape_offset = Vector2( 0, 0 )
+13/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+13/shape_one_way = false
+13/shape_one_way_margin = 0.0
+13/shapes = [  ]
+13/z_index = 0
+
+[node name="Blue Forest" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource( 33 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 196512, 0, 0, 262048, 5, 0, 327566, 1, 0, 327567, 1, 0, 327568, 1, 0, 327569, 1, 0, 327570, 1, 0, 327571, 1, 0, 327572, 1, 0, 327573, 1, 0, 327574, 1, 0, 327575, 1, 0, 327576, 1, 0, 327577, 1, 0, 327578, 1, 0, 327579, 1, 0, 327580, 1, 0, 327581, 1, 0, 327582, 1, 0, 327583, 1, 0, 327584, 8, 0, 393102, 6, 0, 393103, 6, 0, 393104, 6, 0, 393105, 6, 0, 393106, 6, 0, 393107, 6, 0, 393108, 6, 0, 393109, 6, 0, 393110, 6, 0, 393111, 6, 0, 393112, 6, 0, 393113, 6, 0, 393114, 6, 0, 393115, 6, 0, 393116, 6, 0, 393117, 6, 0, 393118, 6, 0, 393119, 6, 0, 393120, 6, 0, 458638, 6, 0, 458639, 6, 0, 458640, 6, 0, 458641, 6, 0, 458642, 6, 0, 458643, 6, 0, 458644, 6, 0, 458645, 6, 0, 458646, 6, 0, 458647, 6, 0, 458648, 6, 0, 458649, 6, 0, 458650, 6, 0, 458651, 6, 0, 458652, 6, 0, 458653, 6, 0, 458654, 6, 0, 458655, 6, 0, 458656, 6, 0, 524174, 6, 0, 524175, 6, 0, 524176, 6, 0, 524177, 6, 0, 524178, 6, 0, 524179, 6, 0, 524180, 6, 0, 524181, 6, 0, 524182, 6, 0, 524183, 6, 0, 524184, 6, 0, 524185, 6, 0, 524186, 6, 0, 524187, 6, 0, 524188, 6, 0, 524189, 6, 0, 524190, 6, 0, 524191, 6, 0, 524192, 6, 0, 589710, 6, 0, 589711, 6, 0, 589712, 6, 0, 589713, 6, 0, 589714, 6, 0, 589715, 6, 0, 589716, 6, 0, 589717, 6, 0, 589718, 6, 0, 589719, 6, 0, 589720, 6, 0, 589721, 6, 0, 589722, 6, 0, 589723, 6, 0, 589724, 6, 0, 589725, 6, 0, 589726, 6, 0, 589727, 6, 0, 589728, 6, 0, 655246, 6, 0, 655247, 6, 0, 655248, 6, 0, 655249, 6, 0, 655250, 6, 0, 655251, 6, 0, 655252, 6, 0, 655253, 6, 0, 655254, 6, 0, 655255, 6, 0, 655256, 6, 0, 655257, 6, 0, 655258, 6, 0, 655259, 6, 0, 655260, 6, 0, 655261, 6, 0, 655262, 6, 0, 655263, 6, 0, 655264, 6, 0, 720782, 6, 0, 720783, 6, 0, 720784, 6, 0, 720785, 6, 0, 720786, 6, 0, 720787, 6, 0, 720788, 6, 0, 720789, 6, 0, 720790, 6, 0, 720791, 6, 0, 720792, 6, 0, 720793, 6, 0, 720794, 6, 0, 720795, 6, 0, 720796, 6, 0, 720797, 6, 0, 720798, 6, 0, 720799, 6, 0, 720800, 6, 0, 786318, 6, 0, 786319, 6, 0, 786320, 6, 0, 786321, 6, 0, 786322, 6, 0, 786323, 6, 0, 786324, 6, 0, 786325, 6, 0, 786326, 6, 0, 786327, 6, 0, 786328, 6, 0, 786329, 6, 0, 786330, 6, 0, 786331, 6, 0, 786332, 6, 0, 786333, 6, 0, 786334, 6, 0, 786335, 6, 0, 786336, 6, 0, 851854, 6, 0, 851855, 6, 0, 851856, 6, 0, 851857, 6, 0, 851858, 6, 0, 851859, 6, 0, 851860, 6, 0, 851861, 6, 0, 851862, 6, 0, 851863, 6, 0, 851864, 6, 0, 851865, 6, 0, 851866, 6, 0, 851867, 6, 0, 851868, 6, 0, 851869, 6, 0, 851870, 6, 0, 851871, 6, 0, 851872, 6, 0, 917390, 6, 0, 917391, 6, 0, 917392, 6, 0, 917393, 6, 0, 917394, 6, 0, 917395, 6, 0, 917396, 6, 0, 917397, 6, 0, 917398, 6, 0, 917399, 6, 0, 917400, 6, 0, 917401, 6, 0, 917402, 6, 0, 917403, 6, 0, 917404, 6, 0, 917405, 6, 0, 917406, 6, 0, 917407, 6, 0, 917408, 6, 0, 982926, 6, 0, 982927, 6, 0, 982928, 6, 0, 982929, 6, 0, 982930, 6, 0, 982931, 6, 0, 982932, 6, 0, 982933, 6, 0, 982934, 6, 0, 982935, 6, 0, 982936, 6, 0, 982937, 6, 0, 982938, 6, 0, 982939, 6, 0, 982940, 6, 0, 982941, 6, 0, 982942, 6, 0, 982943, 6, 0, 982944, 6, 0, 1048462, 6, 0, 1048463, 6, 0, 1048464, 6, 0, 1048465, 6, 0, 1048466, 6, 0, 1048467, 6, 0, 1048468, 6, 0, 1048469, 6, 0, 1048470, 6, 0, 1048471, 6, 0, 1048472, 6, 0, 1048473, 6, 0, 1048474, 6, 0, 1048475, 6, 0, 1048476, 6, 0, 1048477, 6, 0, 1048478, 6, 0, 1048479, 6, 0, 1048480, 6, 0, 1113998, 6, 0, 1113999, 6, 0, 1114000, 6, 0, 1114001, 6, 0, 1114002, 6, 0, 1114003, 6, 0, 1114004, 6, 0, 1114005, 6, 0, 1114006, 6, 0, 1114007, 6, 0, 1114008, 6, 0, 1114009, 6, 0, 1114010, 6, 0, 1114011, 6, 0, 1114012, 6, 0, 1114013, 6, 0, 1114014, 6, 0, 1114015, 6, 0, 1114016, 6, 0, 1179534, 6, 0, 1179535, 6, 0, 1179536, 6, 0, 1179537, 6, 0, 1179538, 6, 0, 1179539, 6, 0, 1179540, 6, 0, 1179541, 6, 0, 1179542, 6, 0, 1179543, 6, 0, 1179544, 6, 0, 1179545, 6, 0, 1179546, 6, 0, 1179547, 6, 0, 1179548, 6, 0, 1179549, 6, 0, 1179550, 6, 0, 1179551, 6, 0, 1179552, 6, 0, 1245070, 6, 0, 1245071, 6, 0, 1245072, 6, 0, 1245073, 6, 0, 1245074, 6, 0, 1245075, 6, 0, 1245076, 6, 0, 1245077, 6, 0, 1245078, 6, 0, 1245079, 6, 0, 1245080, 6, 0, 1245081, 6, 0, 1245082, 6, 0, 1245083, 6, 0, 1245084, 6, 0, 1245085, 6, 0, 1245086, 6, 0, 1245087, 6, 0, 1245088, 6, 0, 1310606, 6, 0, 1310607, 6, 0, 1310608, 6, 0, 1310609, 6, 0, 1310610, 6, 0, 1310611, 6, 0, 1310612, 6, 0, 1310613, 6, 0, 1310614, 6, 0, 1310615, 6, 0, 1310616, 6, 0, 1310617, 6, 0, 1310618, 6, 0, 1310619, 6, 0, 1310620, 6, 0, 1310621, 6, 0, 1310622, 6, 0, 1310623, 6, 0, 1310624, 6, 0, 1376142, 6, 0, 1376143, 6, 0, 1376144, 6, 0, 1376145, 6, 0, 1376146, 6, 0, 1376147, 6, 0, 1376148, 6, 0, 1376149, 6, 0, 1376150, 6, 0, 1376151, 6, 0, 1376152, 6, 0, 1376153, 6, 0, 1376154, 6, 0, 1376155, 6, 0, 1376156, 6, 0, 1376157, 6, 0, 1376158, 6, 0, 1376159, 6, 0, 1376160, 6, 0, 1441678, 6, 0, 1441679, 6, 0, 1441680, 6, 0, 1441681, 6, 0, 1441682, 6, 0, 1441683, 6, 0, 1441684, 6, 0, 1441685, 6, 0, 1441686, 6, 0, 1441687, 6, 0, 1441688, 6, 0, 1441689, 6, 0, 1441690, 6, 0, 1441691, 6, 0, 1441692, 6, 0, 1441693, 6, 0, 1441694, 6, 0, 1441695, 6, 0, 1441696, 6, 0, 1507214, 6, 0, 1507215, 6, 0, 1507216, 6, 0, 1507217, 6, 0, 1507218, 6, 0, 1507219, 6, 0, 1507220, 6, 0, 1507221, 6, 0, 1507222, 6, 0, 1507223, 6, 0, 1507224, 6, 0, 1507225, 6, 0, 1507226, 6, 0, 1507227, 6, 0, 1507228, 6, 0, 1507229, 6, 0, 1507230, 6, 0, 1507231, 6, 0, 1507232, 6, 0, 1572750, 6, 0, 1572751, 6, 0, 1572752, 6, 0, 1572753, 6, 0, 1572754, 6, 0, 1572755, 6, 0, 1572756, 6, 0, 1572757, 6, 0, 1572758, 6, 0, 1572759, 6, 0, 1572760, 6, 0, 1572761, 6, 0, 1572762, 6, 0, 1572763, 6, 0, 1572764, 6, 0, 1572765, 6, 0, 1572766, 6, 0, 1572767, 6, 0, 1572768, 6, 0, 1638286, 6, 0, 1638287, 6, 0, 1638288, 6, 0, 1638289, 6, 0, 1638290, 6, 0, 1638291, 6, 0, 1638292, 6, 0, 1638293, 6, 0, 1638294, 6, 0, 1638295, 6, 0, 1638296, 6, 0, 1638297, 6, 0, 1638298, 6, 0, 1638299, 6, 0, 1638300, 6, 0, 1638301, 6, 0, 1638302, 6, 0, 1638303, 6, 0, 1638304, 6, 0, 1703822, 6, 0, 1703823, 6, 0, 1703824, 6, 0, 1703825, 6, 0, 1703826, 6, 0, 1703827, 6, 0, 1703828, 6, 0, 1703829, 6, 0, 1703830, 6, 0, 1703831, 6, 0, 1703832, 6, 0, 1703833, 6, 0, 1703834, 6, 0, 1703835, 6, 0, 1703836, 6, 0, 1703837, 6, 0, 1703838, 6, 0, 1703839, 6, 0, 1703840, 6, 0, 1769358, 6, 0, 1769359, 6, 0, 1769360, 6, 0, 1769361, 6, 0, 1769362, 6, 0, 1769363, 6, 0, 1769364, 6, 0, 1769365, 6, 0, 1769366, 6, 0, 1769367, 6, 0, 1769368, 6, 0, 1769369, 6, 0, 1769370, 6, 0, 1769371, 6, 0, 1769372, 6, 0, 1769373, 6, 0, 1769374, 6, 0, 1769375, 6, 0, 1769376, 6, 0, 1834894, 6, 0, 1834895, 6, 0, 1834896, 6, 0, 1834897, 6, 0, 1834898, 6, 0, 1834899, 6, 0, 1834900, 6, 0, 1834901, 6, 0, 1834902, 6, 0, 1834903, 6, 0, 1834904, 6, 0, 1834905, 6, 0, 1834906, 6, 0, 1834907, 6, 0, 1834908, 6, 0, 1834909, 6, 0, 1834910, 6, 0, 1834911, 6, 0, 1834912, 6, 0, 1900430, 6, 0, 1900431, 6, 0, 1900432, 6, 0, 1900433, 6, 0, 1900434, 6, 0, 1900435, 6, 0, 1900436, 6, 0, 1900437, 6, 0, 1900438, 6, 0, 1900439, 6, 0, 1900440, 6, 0, 1900441, 6, 0, 1900442, 6, 0, 1900443, 6, 0, 1900444, 6, 0, 1900445, 6, 0, 1900446, 6, 0, 1900447, 6, 0, 1900448, 6, 0, 1965966, 6, 0, 1965967, 6, 0, 1965968, 6, 0, 1965969, 6, 0, 1965970, 6, 0, 1965971, 6, 0, 1965972, 6, 0, 1965973, 6, 0, 1965974, 6, 0, 1965975, 6, 0, 1965976, 6, 0, 1965977, 6, 0, 1965978, 6, 0, 1965979, 6, 0, 1965980, 6, 0, 1965981, 6, 0, 1965982, 6, 0, 1965983, 6, 0, 1965984, 6, 0, 2031502, 6, 0, 2031503, 6, 0, 2031504, 6, 0, 2031505, 6, 0, 2031506, 6, 0, 2031507, 6, 0, 2031508, 6, 0, 2031509, 6, 0, 2031510, 6, 0, 2031511, 6, 0, 2031512, 6, 0, 2031513, 6, 0, 2031514, 6, 0, 2031515, 6, 0, 2031516, 6, 0, 2031517, 6, 0, 2031518, 6, 0, 2031519, 6, 0, 2031520, 6, 0, 2097038, 6, 0, 2097039, 6, 0, 2097040, 6, 0, 2097041, 6, 0, 2097042, 6, 0, 2097043, 6, 0, 2097044, 6, 0, 2097045, 6, 0, 2097046, 6, 0, 2097047, 6, 0, 2097048, 6, 0, 2097049, 6, 0, 2097050, 6, 0, 2097051, 6, 0, 2097052, 6, 0, 2097053, 6, 0, 2097054, 6, 0, 2097055, 6, 0, 2097056, 6, 0 )
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+follow_viewport_scale = 0.1
+
+[node name="ParallaxLayer5" type="ParallaxLayer" parent="ParallaxBackground"]
+modulate = Color( 0.698039, 0.698039, 0.698039, 1 )
+motion_scale = Vector2( 0.1, 0.1 )
+motion_mirroring = Vector2( 384, 192 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer5"]
+texture = ExtResource( 5 )
+
+[node name="Sprite2" type="Sprite" parent="ParallaxBackground/ParallaxLayer5"]
+position = Vector2( 188.901, 0 )
+texture = ExtResource( 5 )
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground"]
+modulate = Color( 0.698039, 0.698039, 0.698039, 1 )
+motion_scale = Vector2( 0.2, 0.2 )
+motion_mirroring = Vector2( 384, 0 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer4"]
+texture = ExtResource( 4 )
+
+[node name="Sprite2" type="Sprite" parent="ParallaxBackground/ParallaxLayer4"]
+position = Vector2( 270.652, 0 )
+texture = ExtResource( 4 )
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+modulate = Color( 0.698039, 0.698039, 0.698039, 1 )
+motion_scale = Vector2( 0.3, 0.3 )
+motion_mirroring = Vector2( 384, 0 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer3"]
+texture = ExtResource( 3 )
+
+[node name="Sprite2" type="Sprite" parent="ParallaxBackground/ParallaxLayer3"]
+position = Vector2( 288.069, 0 )
+texture = ExtResource( 3 )
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+modulate = Color( 0.698039, 0.698039, 0.698039, 1 )
+motion_scale = Vector2( 0.4, 0.4 )
+motion_mirroring = Vector2( 384, 0 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer2"]
+texture = ExtResource( 6 )
+
+[node name="Sprite2" type="Sprite" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2( 256.365, 0 )
+texture = ExtResource( 6 )
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+modulate = Color( 0.698039, 0.698039, 0.698039, 1 )
+motion_scale = Vector2( 0.5, 0.5 )
+motion_mirroring = Vector2( 384, 0 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+texture = ExtResource( 7 )
+
+[node name="Sprite2" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2( 264.302, 0 )
+texture = ExtResource( 7 )
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="Next Level Teleporters" type="Node2D" parent="."]
+
+[node name="Next Level Teleporter2" parent="Next Level Teleporters" instance=ExtResource( 11 )]
+position = Vector2( -1659.73, 13.7088 )
+scale = Vector2( 1, 13.6 )
+next_level_path = "res://scenes/Levels/Blue Forest/Blue Forest Section 1.tscn"
