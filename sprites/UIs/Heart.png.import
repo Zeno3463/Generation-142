@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Slime Dead By Stomp.png-052daff82d991e3a65d0854d5b994fd0.stex"
+path="res://.import/Heart.png-6563e53b85a14e5e1714ef3ba46b9dd2.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/Enemies/Blue Forest/Slime Dead By Stomp.png"
-dest_files=[ "res://.import/Slime Dead By Stomp.png-052daff82d991e3a65d0854d5b994fd0.stex" ]
+source_file="res://sprites/UIs/Heart.png"
+dest_files=[ "res://.import/Heart.png-6563e53b85a14e5e1714ef3ba46b9dd2.stex" ]
 
 [params]
 

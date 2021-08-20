@@ -1,23 +1,25 @@
+# the player will inherit this class
+
 extends KinematicBody2D
 
 class_name Player_Class
 
-# basic movement
+# basic movement variables
 export var speed = 70
 export var jump_force = -150
 export var gravity = 5
 export var fall_gravity = 10
 export var low_jump_gravity = 10
-
-# double jump
-export var double_jump_animation_speed = 4
 export var normal_animation_speed = 2
 
-# dash
+# double jump variables
+export var double_jump_animation_speed = 4
+
+# dash variables
 export var dash_duration = 0.15
 export var dash_multiplier = 4
 
-# attack
+# attack variables
 export var attack_duration = 0.2
 export var attack_animation_speed = 4
 
@@ -34,13 +36,15 @@ var is_attacking = false
 # can perform abilities
 var can_double_jump = true
 var can_dash = true
-var can_attack = true
+var can_attack = false
 
 # node references
 var player_animated_sprite = null
 var attack_effect_animated_sprite = null
 var attack_effect_parent = null
 var trail_effect = null
+var timer = null
+onready var ui_controller = get_tree().get_root().get_node("/root/Ui")
 
 # functions
 func move_left():
@@ -60,7 +64,9 @@ func stop_moving():
 	is_walking = false
 
 func fall():
-	if is_on_floor() or is_on_ceiling():
+	if is_on_ceiling():
+		vel.y = 0
+	if is_on_floor():
 		double_jump_animation_played = false
 		jump_count = 0
 		dashed = false
@@ -78,6 +84,8 @@ func jump():
 	jump_count += 1
 
 func load_animation():
+	# this function will load the animation respective to the action
+	# the player is performing at the current time
 	if is_attacking:
 		player_animated_sprite.play("attack")
 		attack_effect_animated_sprite.visible = true
@@ -96,6 +104,10 @@ func load_animation():
 		player_animated_sprite.play("jump")
 	
 func reset_timer():
+	# this function will reset all the value of the variables
+	
+	# this function is mainly used when a certain animation
+	# is finished loaded
 	trail_effect.visible = false
 	attack_effect_animated_sprite.stop()
 	attack_effect_animated_sprite.frame = 0
@@ -104,20 +116,25 @@ func reset_timer():
 	is_attacking = false
 
 func end_double_jump_animation():
-	if str($AnimatedSprite.animation) == "double jump":
-		$AnimatedSprite.speed_scale = normal_animation_speed
-		double_jump_animation_played = true
+	player_animated_sprite.speed_scale = normal_animation_speed
+	double_jump_animation_played = true
 
 func start_performing_an_action(action_name, action_duration):
+	# this function is called when the player presses a certain button
+	# that triggers an action
+	
 	set(action_name, true)
-	$Timer.wait_time = action_duration
-	$Timer.start()
+	timer.wait_time = action_duration
+	timer.start()
 
 func dash():
 	vel.y = 0
-	$Effects/Dash/Line2D.visible = true
-	if $AnimatedSprite.flip_h: vel.x = -speed * dash_multiplier
+	trail_effect.visible = true
+	if player_animated_sprite.flip_h: vel.x = -speed * dash_multiplier
 	else: vel.x = speed * dash_multiplier
 
 func attack():
 	pass
+	
+func take_damage():
+	ui_controller.take_out_one_life()

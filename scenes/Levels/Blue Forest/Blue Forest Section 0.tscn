@@ -503,4 +503,4 @@ position = Vector2( -550.922, 132.021 )
 [node name="Next Level Teleporter" parent="Next Level Teleporters" instance=ExtResource( 11 )]
 position = Vector2( -911.407, 121.854 )
 scale = Vector2( 1, 13.6 )
-next_level_path = "res://scenes/Levels/Blue Forest/Blue Forest Section 1.tscn"
+next_section_path = "res://scenes/Levels/Blue Forest/Blue Forest Section 1.tscn"

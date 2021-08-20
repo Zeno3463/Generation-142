@@ -6,6 +6,7 @@ func _ready():
 	attack_effect_animated_sprite = $Effects/Attack/AnimatedSprite
 	attack_effect_parent = $Effects/Attack
 	trail_effect = $Effects/Dash/Line2D
+	timer = $Timer
 
 func _physics_process(_delta):
 	# horizontal movement
@@ -15,10 +16,9 @@ func _physics_process(_delta):
 		move_right()
 	else: 
 		stop_moving()
-	
-	# falling
+		
 	fall()
-
+		
 	# jumping
 	if Input.is_action_just_pressed("ui_up") and jump_count < jump_count_limit:
 		jump()
@@ -40,14 +40,18 @@ func _physics_process(_delta):
 		start_performing_an_action("is_attacking", attack_duration)
 	if is_attacking: attack()
 		
-	# handle animation play
 	load_animation()
-
 	move_and_slide(vel, Vector2.UP)
 
 # system functions
 func _on_AnimatedSprite_animation_finished():
-	end_double_jump_animation()
+	if str($AnimatedSprite.animation) == "double jump":
+		end_double_jump_animation()
 
 func _on_Timer_timeout():
 	reset_timer()
+
+func _on_Vunerable_Area_body_entered(body):
+	# if enemy hits player, damage the player
+	if body is Enemy_Class:
+		take_damage()

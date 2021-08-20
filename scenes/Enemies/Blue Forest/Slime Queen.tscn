@@ -1,0 +1,70 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://sprites/Enemies/Blue Forest/Slime Queen/Slime Queen Walk.png" type="Texture" id=1]
+[ext_resource path="res://scripts/Slime Queen.gd" type="Script" id=2]
+[ext_resource path="res://scripts/trail.gd" type="Script" id=3]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 16.5021
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 1 )
+region = Rect2( 32, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 1 )
+region = Rect2( 64, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 1 )
+region = Rect2( 96, 0, 32, 32 )
+
+[sub_resource type="SpriteFrames" id=6]
+animations = [ {
+"frames": [ SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="Curve" id=7]
+_data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 12.6305, 2.67032 )
+
+[node name="Slime Queen" type="KinematicBody2D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 6 )
+frame = 1
+playing = true
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Line2D" type="Line2D" parent="."]
+z_index = -1
+points = PoolVector2Array( -0.401726, 0.0342216 )
+width_curve = SubResource( 7 )
+default_color = Color( 0.435294, 0.278431, 0.168627, 0.619608 )
+script = ExtResource( 3 )
+trail_length = 30
+
+[node name="Vunerable Area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Vunerable Area"]
+position = Vector2( 0.334087, -14.5885 )
+shape = SubResource( 8 )
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="body_entered" from="Vunerable Area" to="." method="_on_Vunerable_Area_body_entered"]

@@ -33,6 +33,7 @@ config/icon="res://icon.png"
 [autoload]
 
 Player="*res://scenes/Player.tscn"
+Ui="*res://scenes/UI.tscn"
 
 [display]
 

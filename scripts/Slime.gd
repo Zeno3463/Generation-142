@@ -21,6 +21,7 @@ func _physics_process(delta):
 	
 	move_and_slide(vel, Vector2.UP)
 
+# system functions
 func _on_Edge_Detector_body_exited(body):
 	# if enemy is on edge, switch the direction of movement
 	if not body is Enemy_Class:
@@ -29,4 +30,5 @@ func _on_Edge_Detector_body_exited(body):
 func _on_Vunerable_Area_body_entered(body):
 	# if the player hits the enemy, destroy the enemy
 	if body == player:
+		player.jump()
 		die()

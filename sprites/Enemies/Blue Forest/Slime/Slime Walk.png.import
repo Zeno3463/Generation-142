@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Slime Walk.png-97908360ecf4bd17b719ce85ff41515a.stex"
+path="res://.import/Slime Walk.png-9db0f9a7d70cda53b7914bc7accb4cb1.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/Enemies/Blue Forest/Slime Walk.png"
-dest_files=[ "res://.import/Slime Walk.png-97908360ecf4bd17b719ce85ff41515a.stex" ]
+source_file="res://sprites/Enemies/Blue Forest/Slime/Slime Walk.png"
+dest_files=[ "res://.import/Slime Walk.png-9db0f9a7d70cda53b7914bc7accb4cb1.stex" ]
 
 [params]
 
