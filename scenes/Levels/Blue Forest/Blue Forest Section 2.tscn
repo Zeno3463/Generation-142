@@ -404,7 +404,7 @@ extents = Vector2( 18.7223, 138.762 )
 [sub_resource type="RectangleShape2D" id=35]
 extents = Vector2( 189.012, 10 )
 
-[node name="Blue Forest" type="Node2D"]
+[node name="Level Node" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource( 33 )
@@ -506,3 +506,6 @@ shape = SubResource( 35 )
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Wall"]
 position = Vector2( -1806.39, 73.402 )
 shape = SubResource( 35 )
+
+[node name="Player Starting Pos" type="Position2D" parent="."]
+position = Vector2( -1689.91, 58.4608 )

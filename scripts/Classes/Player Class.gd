@@ -32,6 +32,7 @@ var dashed = false
 var is_walking = false
 var is_dashing = false
 var is_attacking = false
+var is_dead = false
 
 # can perform abilities
 var can_double_jump = true

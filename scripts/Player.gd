@@ -40,7 +40,7 @@ func _physics_process(_delta):
 		start_performing_an_action("is_attacking", attack_duration)
 	if is_attacking: attack()
 		
-	load_animation()
+	if not is_dead: load_animation()
 	move_and_slide(vel, Vector2.UP)
 
 # system functions

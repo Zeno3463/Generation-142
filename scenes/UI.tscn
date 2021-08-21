@@ -1,6 +1,22 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://scripts/UI.gd" type="Script" id=2]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Fade In"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
 
 [node name="UI" type="CanvasLayer"]
 script = ExtResource( 2 )
@@ -13,3 +29,23 @@ margin_bottom = 47.3416
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Scene Transtion" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="Scene Transtion"]
+margin_left = -48.0
+margin_top = -33.0
+margin_right = 1061.0
+margin_bottom = 637.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Scene Transtion"]
+"anims/Fade In" = SubResource( 1 )
