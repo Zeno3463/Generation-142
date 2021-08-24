@@ -50,13 +50,13 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=10]
-extents = Vector2( 7.83674, 3.70421 )
+extents = Vector2( 7.34571, 3.70421 )
 
 [sub_resource type="RectangleShape2D" id=11]
 extents = Vector2( 3.02191, 2.90752 )
 
 [sub_resource type="RectangleShape2D" id=12]
-extents = Vector2( 7.05948, 1.34502 )
+extents = Vector2( 4.0271, 1.34502 )
 
 [node name="Slime" type="KinematicBody2D"]
 script = ExtResource( 1 )
@@ -64,7 +64,7 @@ script = ExtResource( 1 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 modulate = Color( 0.482353, 0.482353, 0.482353, 1 )
 frames = SubResource( 9 )
-frame = 5
+frame = 1
 speed_scale = 2.0
 playing = true
 

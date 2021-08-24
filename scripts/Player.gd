@@ -5,10 +5,14 @@ func _ready():
 	player_animated_sprite = $AnimatedSprite
 	attack_effect_animated_sprite = $Effects/Attack/AnimatedSprite
 	attack_effect_parent = $Effects/Attack
+	attack_area = $"Attack Area"
 	trail_effect = $Effects/Dash/Line2D
 	timer = $Timer
 
 func _physics_process(_delta):
+	
+	if is_dead: return
+	
 	# horizontal movement
 	if Input.is_action_pressed("ui_left"):
 		move_left()
@@ -40,7 +44,7 @@ func _physics_process(_delta):
 		start_performing_an_action("is_attacking", attack_duration)
 	if is_attacking: attack()
 		
-	if not is_dead: load_animation()
+	load_animation()
 	move_and_slide(vel, Vector2.UP)
 
 # system functions
@@ -53,5 +57,10 @@ func _on_Timer_timeout():
 
 func _on_Vunerable_Area_body_entered(body):
 	# if enemy hits player, damage the player
-	if body is Enemy_Class:
+	if body is Enemy_Class and not is_hurt and not is_dead:
 		take_damage()
+		start_performing_an_action("is_hurt", hurt_duration)
+
+func _on_Attack_Area_body_entered(body):
+	if body is Enemy_Class:
+		body.queue_free()

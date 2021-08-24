@@ -29,6 +29,6 @@ func _on_Edge_Detector_body_exited(body):
 
 func _on_Vunerable_Area_body_entered(body):
 	# if the player hits the enemy, destroy the enemy
-	if body == player:
+	if body == player and not player.is_hurt:
 		player.jump()
 		die()

@@ -22,6 +22,10 @@ export var dash_multiplier = 4
 # attack variables
 export var attack_duration = 0.2
 export var attack_animation_speed = 4
+var enemies_that_are_in_the_attack_area = []
+
+# hurt variables
+export var hurt_duration = 1
 
 # private variables
 var vel = Vector2.ZERO
@@ -33,16 +37,18 @@ var is_walking = false
 var is_dashing = false
 var is_attacking = false
 var is_dead = false
+var is_hurt = false
 
 # can perform abilities
 var can_double_jump = true
 var can_dash = true
-var can_attack = false
+var can_attack = true
 
 # node references
 var player_animated_sprite = null
 var attack_effect_animated_sprite = null
 var attack_effect_parent = null
+var attack_area = null
 var trail_effect = null
 var timer = null
 onready var ui_controller = get_tree().get_root().get_node("/root/Ui")
@@ -50,12 +56,14 @@ onready var ui_controller = get_tree().get_root().get_node("/root/Ui")
 # functions
 func move_left():
 	player_animated_sprite.flip_h = true
+	attack_area.scale.x = -1
 	attack_effect_parent.scale.x = -1
 	vel.x = -speed
 	is_walking = true
 	
 func move_right():
 	player_animated_sprite.flip_h = false
+	attack_area.scale.x = 1
 	attack_effect_parent.scale.x = 1
 	vel.x = speed
 	is_walking = true
@@ -95,6 +103,8 @@ func load_animation():
 	elif jump_count == jump_count_limit and not double_jump_animation_played and can_double_jump:
 		player_animated_sprite.play("double jump")
 		player_animated_sprite.speed_scale = double_jump_animation_speed
+	elif is_hurt:
+		player_animated_sprite.play("damage")
 	elif vel == Vector2.ZERO:
 		player_animated_sprite.play("default")
 	elif is_walking and vel.y == 0:
@@ -115,6 +125,8 @@ func reset_timer():
 	attack_effect_animated_sprite.visible = false
 	is_dashing = false
 	is_attacking = false
+	is_hurt = false
+	attack_area.get_node("CollisionShape2D").disabled = true
 
 func end_double_jump_animation():
 	player_animated_sprite.speed_scale = normal_animation_speed
@@ -135,7 +147,7 @@ func dash():
 	else: vel.x = speed * dash_multiplier
 
 func attack():
-	pass
+	attack_area.get_node("CollisionShape2D").disabled = false
 	
 func take_damage():
 	ui_controller.take_out_one_life()
