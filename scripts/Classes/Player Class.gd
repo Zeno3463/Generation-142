@@ -17,7 +17,7 @@ export var double_jump_animation_speed = 4
 
 # dash variables
 export var dash_duration = 0.15
-export var dash_multiplier = 4
+export var dash_vel_multiplier = 4
 
 # attack variables
 export var attack_duration = 0.2
@@ -45,28 +45,24 @@ var can_dash = true
 var can_attack = true
 
 # node references
-var player_animated_sprite = null
-var attack_effect_animated_sprite = null
-var attack_effect_parent = null
-var attack_area = null
-var trail_effect = null
-var timer = null
+var player_animated_sprite: AnimatedSprite = null
+var attack_effect_animated_sprite: AnimatedSprite = null
+var attack_effect_parent: Node2D = null
+var attack_area: Area2D = null
+var trail_effect: Line2D = null
+var timer: Timer = null
 onready var ui_controller = get_tree().get_root().get_node("/root/Ui")
 
-# functions
+# public functions
 func move_left():
-	player_animated_sprite.flip_h = true
-	attack_area.scale.x = -1
-	attack_effect_parent.scale.x = -1
 	vel.x = -speed
 	is_walking = true
+	_flip_player_sprite_to_face_the_direction_it_is_moving()
 	
 func move_right():
-	player_animated_sprite.flip_h = false
-	attack_area.scale.x = 1
-	attack_effect_parent.scale.x = 1
 	vel.x = speed
 	is_walking = true
+	_flip_player_sprite_to_face_the_direction_it_is_moving()
 	
 func stop_moving():
 	vel.x = 0
@@ -89,12 +85,12 @@ func fall():
 		vel.y += gravity
 
 func jump():
+	is_dashing = false
+	dashed = false
 	vel.y = jump_force
 	jump_count += 1
 
-func load_animation():
-	# this function will load the animation respective to the action
-	# the player is performing at the current time
+func load_animation_according_to_current_action():
 	if is_attacking:
 		player_animated_sprite.play("attack")
 		attack_effect_animated_sprite.visible = true
@@ -114,11 +110,7 @@ func load_animation():
 	elif vel.y < 0:
 		player_animated_sprite.play("jump")
 	
-func reset_timer():
-	# this function will reset all the value of the variables
-	
-	# this function is mainly used when a certain animation
-	# is finished loaded
+func reset_everything_to_default():
 	trail_effect.visible = false
 	attack_effect_animated_sprite.stop()
 	attack_effect_animated_sprite.frame = 0
@@ -143,11 +135,45 @@ func start_performing_an_action(action_name, action_duration):
 func dash():
 	vel.y = 0
 	trail_effect.visible = true
-	if player_animated_sprite.flip_h: vel.x = -speed * dash_multiplier
-	else: vel.x = speed * dash_multiplier
+	if player_animated_sprite.flip_h: vel.x = -speed * dash_vel_multiplier
+	else: vel.x = speed * dash_vel_multiplier
 
 func attack():
 	attack_area.get_node("CollisionShape2D").disabled = false
 	
 func take_damage():
+	is_dashing = false
+	is_attacking = false
 	ui_controller.take_out_one_life()
+	start_performing_an_action("is_hurt", hurt_duration)
+	
+# private functions
+func _flip_player_sprite_to_face_the_direction_it_is_moving():
+	var is_moving_right = vel.x > 0
+	if is_moving_right:
+		player_animated_sprite.flip_h = false
+		attack_area.scale.x = 1
+		attack_effect_parent.scale.x = 1
+	else:
+		player_animated_sprite.flip_h = true
+		attack_area.scale.x = -1
+		attack_effect_parent.scale.x = -1
+		
+# system functions
+func _on_AnimatedSprite_animation_finished():
+	if str($AnimatedSprite.animation) == "double jump":
+		end_double_jump_animation()
+
+func _on_Timer_timeout():
+	reset_everything_to_default()
+
+func _on_Vunerable_Area_body_entered(body):
+	# if enemy hits player, damage the player
+	if body is Enemy_Class and not is_hurt and not is_dead and not body.is_dead:
+		take_damage()
+
+func _on_Attack_Area_body_entered(body):
+	# if player hits enemy, damage the enemy
+	if body is Enemy_Class:
+		body.enemy_dead_animation_name = "die by hit"
+		body.die()

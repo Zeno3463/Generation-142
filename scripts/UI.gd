@@ -3,15 +3,64 @@ extends CanvasLayer
 export var lives = 5
 export var heart_sprite_size = 40
 export var margin_btw_heart_sprites = 10
-var heart_sprite = preload("res://sprites/UIs/Heart.png")
+export var num_of_hits_to_get_extra_life = 2
+
+export var display_dialogue_speed_btw_char = 0.05
+export var display_dialogue_speed_btw_sentence = 0.5
+export var display_dialogue_speed_btw_sections = 1
+
+# private variables
+var num_of_hits = 0
+var is_displaying_dialogue = false
+
+# node references
 onready var player = get_tree().get_root().get_node("/root/Player")
 
+# sprite references
+var heart_sprite = preload("res://sprites/UIs/Heart.png")
+var empty_heart_sprite = preload("res://sprites/UIs/Empty Heart.png")
+var half_empty_heart_sprite = preload("res://sprites/UIs/Half Empty Heart.png")
+var filable_heart_sprite = preload("res://sprites/UIs/Fillable Heart.png")
+
+# system functions
 func _ready():
+	if OS.get_name() == "Windows": OS.window_fullscreen = true
 	reset_lives()
+	
+func _process(_delta):
+	# if the player presses F11, exit full screen mode
+	if Input.is_action_just_pressed("exit_full_screen"): OS.window_fullscreen = false
+	
+	# if the player kills enough enemies, add a new life to the player
+	if num_of_hits >= num_of_hits_to_get_extra_life:
+		# if the player does not have max life, add a new life to the player
+		if $Lives.get_child_count() <= lives:
+			num_of_hits = 0
+			add_one_life()
+	
+	# change the sprite of fillable heart according to the kill count
+	match num_of_hits:
+		0: $"Lives/Half Heart Sprite".texture = empty_heart_sprite
+		1: $"Lives/Half Heart Sprite".texture = half_empty_heart_sprite
+		2: $"Lives/Half Heart Sprite".texture = filable_heart_sprite
+		
+	# hide the power up explainer when escape is pressed
+	if Input.is_action_just_pressed("ui_cancel"):
+		$"Power Up Explainer".visible = false
+		get_tree().paused = false
+		
+# public functions
+func add_one_life():
+	var heart_texture = TextureRect.new()
+	heart_texture.texture = heart_sprite
+	heart_texture.expand = true
+	heart_texture.rect_size = Vector2.ONE * 40
+	heart_texture.rect_position.x = $Lives.get_child_count() * (heart_sprite_size + margin_btw_heart_sprites)
+	$Lives.add_child(heart_texture)
 		
 func take_out_one_life():
 	# if the player ran out of lives, restart the scene
-	if $Lives.get_child_count() <= 0:
+	if $Lives.get_child_count() <= 1:
 		
 		# get the player respawn pos of the scene
 		var player_starting_pos = get_tree().get_root().get_node("/root/Level Node/Player Starting Pos")
@@ -34,12 +83,12 @@ func take_out_one_life():
 		reset_lives()
 		
 		# reload the scene
-		get_tree().change_scene(get_tree().current_scene.get_path())
+		get_tree().reload_current_scene() # warning-ignore:return_value_discarded
 		
 		# reset the player position to the spawn position
 		player.global_position = player_starting_pos.global_position
 	else:
-		var child = $Lives.get_child(0)
+		var child = $Lives.get_child($Lives.get_child_count()-1)
 		$Lives.remove_child(child)
 		child.queue_free()
 
@@ -48,17 +97,26 @@ func reset_lives():
 	
 	load_fade_out_animation()
 	
+	# delete all the lifes
 	for i in $Lives.get_children():
-		$Lives.remove_child(i)
-		i.queue_free()
+		if i.name != "Half Heart Sprite":
+			$Lives.remove_child(i)
+			i.queue_free()
 	
+	# add new lifes
 	for i in len(range(lives)):
-		var heart_texture = TextureRect.new()
-		heart_texture.texture = heart_sprite
-		heart_texture.expand = true
-		heart_texture.rect_size = Vector2.ONE * 40
-		heart_texture.rect_position.x = i * (heart_sprite_size + margin_btw_heart_sprites)
-		$Lives.add_child(heart_texture)
+		add_one_life()
+		
+func display_the_dialogue(content):
+	is_displaying_dialogue = true
+	for sentence in content:
+		for character in sentence:
+			$Dialogue/Label.text += character
+			if character == ".": yield(get_tree().create_timer(display_dialogue_speed_btw_sentence), "timeout")
+			else: yield(get_tree().create_timer(display_dialogue_speed_btw_char), "timeout")
+		yield(get_tree().create_timer(display_dialogue_speed_btw_sections), "timeout")
+		$Dialogue/Label.text = ""
+	is_displaying_dialogue = false
 		
 func load_fade_in_animation():
 	$"Scene Transtion/AnimationPlayer".play("Fade In")

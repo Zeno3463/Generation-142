@@ -74,64 +74,64 @@ atlas = ExtResource( 3 )
 region = Rect2( 80, 0, 16, 16 )
 
 [sub_resource type="AtlasTexture" id=16]
-atlas = ExtResource( 12 )
+atlas = ExtResource( 6 )
 region = Rect2( 0, 0, 16, 16 )
 
 [sub_resource type="AtlasTexture" id=17]
-atlas = ExtResource( 12 )
+atlas = ExtResource( 6 )
 region = Rect2( 16, 0, 16, 16 )
 
 [sub_resource type="AtlasTexture" id=18]
-atlas = ExtResource( 12 )
+atlas = ExtResource( 6 )
 region = Rect2( 32, 0, 16, 16 )
 
 [sub_resource type="AtlasTexture" id=19]
-atlas = ExtResource( 12 )
+atlas = ExtResource( 6 )
 region = Rect2( 48, 0, 16, 16 )
 
 [sub_resource type="AtlasTexture" id=20]
-atlas = ExtResource( 12 )
+atlas = ExtResource( 6 )
 region = Rect2( 64, 0, 16, 16 )
 
 [sub_resource type="AtlasTexture" id=21]
-atlas = ExtResource( 12 )
+atlas = ExtResource( 6 )
 region = Rect2( 80, 0, 16, 16 )
 
 [sub_resource type="AtlasTexture" id=22]
-atlas = ExtResource( 12 )
+atlas = ExtResource( 6 )
 region = Rect2( 96, 0, 16, 16 )
 
 [sub_resource type="AtlasTexture" id=23]
 atlas = ExtResource( 12 )
-region = Rect2( 112, 0, 16, 16 )
-
-[sub_resource type="AtlasTexture" id=24]
-atlas = ExtResource( 6 )
 region = Rect2( 0, 0, 16, 16 )
 
-[sub_resource type="AtlasTexture" id=25]
-atlas = ExtResource( 6 )
+[sub_resource type="AtlasTexture" id=24]
+atlas = ExtResource( 12 )
 region = Rect2( 16, 0, 16, 16 )
 
-[sub_resource type="AtlasTexture" id=26]
-atlas = ExtResource( 6 )
+[sub_resource type="AtlasTexture" id=25]
+atlas = ExtResource( 12 )
 region = Rect2( 32, 0, 16, 16 )
 
-[sub_resource type="AtlasTexture" id=27]
-atlas = ExtResource( 6 )
+[sub_resource type="AtlasTexture" id=26]
+atlas = ExtResource( 12 )
 region = Rect2( 48, 0, 16, 16 )
 
-[sub_resource type="AtlasTexture" id=28]
-atlas = ExtResource( 6 )
+[sub_resource type="AtlasTexture" id=27]
+atlas = ExtResource( 12 )
 region = Rect2( 64, 0, 16, 16 )
 
-[sub_resource type="AtlasTexture" id=29]
-atlas = ExtResource( 6 )
+[sub_resource type="AtlasTexture" id=28]
+atlas = ExtResource( 12 )
 region = Rect2( 80, 0, 16, 16 )
 
-[sub_resource type="AtlasTexture" id=30]
-atlas = ExtResource( 6 )
+[sub_resource type="AtlasTexture" id=29]
+atlas = ExtResource( 12 )
 region = Rect2( 96, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=30]
+atlas = ExtResource( 12 )
+region = Rect2( 112, 0, 16, 16 )
 
 [sub_resource type="AtlasTexture" id=31]
 atlas = ExtResource( 13 )
@@ -148,6 +148,11 @@ animations = [ {
 "name": "default",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "jump",
+"speed": 5.0
+}, {
 "frames": [ SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ) ],
 "loop": true,
 "name": "attack",
@@ -158,24 +163,19 @@ animations = [ {
 "name": "fall",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 4 ) ],
-"loop": true,
-"name": "jump",
-"speed": 5.0
-}, {
 "frames": [ SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ) ],
 "loop": true,
 "name": "walk",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ), SubResource( 21 ), SubResource( 22 ), SubResource( 23 ) ],
-"loop": true,
-"name": "dead",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 24 ), SubResource( 25 ), SubResource( 26 ), SubResource( 27 ), SubResource( 28 ), SubResource( 29 ), SubResource( 30 ) ],
+"frames": [ SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ), SubResource( 21 ), SubResource( 22 ) ],
 "loop": true,
 "name": "double jump",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 23 ), SubResource( 24 ), SubResource( 25 ), SubResource( 26 ), SubResource( 27 ), SubResource( 28 ), SubResource( 29 ), SubResource( 30 ) ],
+"loop": true,
+"name": "dead",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 31 ), SubResource( 32 ) ],
@@ -242,8 +242,9 @@ one_way_collision = true
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 modulate = Color( 0.482353, 0.482353, 0.482353, 1 )
 position = Vector2( 0, -0.370039 )
+z_index = 1
 frames = SubResource( 33 )
-frame = 2
+frame = 3
 speed_scale = 2.0
 playing = true
 
@@ -252,12 +253,13 @@ playing = true
 [node name="Light" type="Node2D" parent="Effects"]
 
 [node name="Light2D" type="Light2D" parent="Effects/Light"]
+scale = Vector2( 0.180572, 0.180572 )
 texture = ExtResource( 7 )
 shadow_enabled = true
 
 [node name="Shadow" type="Sprite" parent="Effects/Light"]
 modulate = Color( 0.490196, 0.490196, 0.490196, 0.0862745 )
-scale = Vector2( 22.9682, 22.9682 )
+scale = Vector2( 22.703, 22.703 )
 texture = ExtResource( 8 )
 
 [node name="Dash" type="Node2D" parent="Effects"]
@@ -286,7 +288,7 @@ speed_scale = 4.0
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( -0.397747, 0 )
 current = true
-zoom = Vector2( 0.25, 0.25 )
+zoom = Vector2( 0.3, 0.3 )
 smoothing_enabled = true
 
 [node name="Vunerable Area" type="Area2D" parent="."]
@@ -303,8 +305,3 @@ shape = SubResource( 43 )
 position = Vector2( 11.1036, 2.04637 )
 shape = SubResource( 44 )
 disabled = true
-
-[connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
-[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
-[connection signal="body_entered" from="Vunerable Area" to="." method="_on_Vunerable_Area_body_entered"]
-[connection signal="body_entered" from="Attack Area" to="." method="_on_Attack_Area_body_entered"]
