@@ -1,0 +1,103 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://scripts/Bat.gd" type="Script" id=1]
+[ext_resource path="res://sprites/Enemies/Under Cave/Bat/Bat Fly.png" type="Texture" id=2]
+[ext_resource path="res://sprites/Enemies/Under Cave/Bat/Bat Die By Stomp.png" type="Texture" id=3]
+[ext_resource path="res://sprites/Enemies/Blue Forest/Slime/Slime Dead By Hit.png" type="Texture" id=4]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 2 )
+region = Rect2( 16, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 2 )
+region = Rect2( 32, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 3 )
+region = Rect2( 16, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 4 )
+region = Rect2( 32, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 4 )
+region = Rect2( 64, 0, 16, 16 )
+
+[sub_resource type="SpriteFrames" id=8]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 4 ), SubResource( 5 ) ],
+"loop": true,
+"name": "die by stomp",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 6 ), SubResource( 7 ) ],
+"loop": true,
+"name": "die by hit",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=9]
+extents = Vector2( 6.12397, 4.38292 )
+
+[sub_resource type="RectangleShape2D" id=10]
+extents = Vector2( 5.71246, 1.34502 )
+
+[sub_resource type="CircleShape2D" id=11]
+radius = 87.8133
+
+[sub_resource type="RectangleShape2D" id=12]
+extents = Vector2( 6.80399, 4.44994 )
+
+[node name="Bat" type="KinematicBody2D"]
+z_index = 3
+collision_layer = 2
+collision_mask = 2
+script = ExtResource( 1 )
+speed = 50
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+modulate = Color( 0.482353, 0.482353, 0.482353, 1 )
+frames = SubResource( 8 )
+speed_scale = 2.0
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0.0325262, 0.313373 )
+shape = SubResource( 9 )
+one_way_collision = true
+
+[node name="Vunerable Area" type="Area2D" parent="."]
+position = Vector2( 0.140467, 0.23411 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Vunerable Area"]
+position = Vector2( -0.123037, -4.04471 )
+shape = SubResource( 10 )
+
+[node name="Attack Trigger Area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Attack Trigger Area"]
+shape = SubResource( 11 )
+
+[node name="Deadly Area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Deadly Area"]
+position = Vector2( -0.0638943, 2.06505 )
+shape = SubResource( 12 )
+
+[connection signal="body_entered" from="Attack Trigger Area" to="." method="_on_Attack_Trigger_Area_body_entered"]
+[connection signal="body_exited" from="Attack Trigger Area" to="." method="_on_Attack_Trigger_Area_body_exited"]

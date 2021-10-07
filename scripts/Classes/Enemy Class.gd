@@ -13,6 +13,15 @@ export var die_animation_speed = 3
 # diagonal movement variables
 var dir = Vector2.ONE
 
+# screen shake variables
+export var amplitude = 200
+export var frequency = 0.5
+export var time = 0.05
+
+# explosive particle variables
+export(Color) var particle_color
+var explosive_particle = preload("res://scenes/Objects/Explosive Particles.tscn")
+
 # private variables
 var vel = Vector2.ZERO
 var is_dead = false
@@ -25,6 +34,8 @@ onready var player = get_tree().get_root().get_node("/root/Player")
 var enemy_animated_sprite: AnimatedSprite = null
 var enemy_dead_animation_name = ""
 var enemy_shoot_animation_name = ""
+var enemy_vunerable_area: Area2D = null
+onready var camera: Camera2D = player.get_node("Camera2D")
 
 # functions
 func move_left():
@@ -34,6 +45,9 @@ func move_left():
 func move_right():
 	enemy_animated_sprite.flip_h = false
 	vel.x = speed
+	
+func jump():
+	vel.y = jump_force
 	
 func stop_moving():
 	vel.x = 0
@@ -61,9 +75,24 @@ func fall():
 	else:
 		vel.y += gravity
 	
-func die():
+func die(add_num_of_hits=true, spawn_particle=true):
 	is_dead = true
-	ui_controller.num_of_hits += 1
+	
+	if add_num_of_hits: 
+		# screen shake
+		camera.start(amplitude, frequency, time)
+		# add one life to player
+		ui_controller.num_of_hits += 1
+		
+	if spawn_particle:
+		# spawn particle
+		var explosive_particle_instance = explosive_particle.instance()
+		get_parent().add_child(explosive_particle_instance)
+		explosive_particle_instance.global_position = global_position
+		explosive_particle_instance.color = particle_color
+		explosive_particle_instance.emitting = true
+	
+	# play animation
 	enemy_animated_sprite.play(enemy_dead_animation_name)
 	enemy_animated_sprite.speed_scale = die_animation_speed
 	yield(enemy_animated_sprite, "animation_finished")
@@ -74,17 +103,18 @@ func _on_Edge_Detector_body_exited(body):
 	# if is on edge, change the direction
 	if body != self:
 		is_going_left = not is_going_left
-
-func _on_Vunerable_Area_body_entered(body):
+		
+func _physics_process(_delta):
 	# if player stomped enemy, damage the enemy
-	if body == player and not player.is_hurt:
-		enemy_dead_animation_name = "die by stomp"
-		player.jump_count = 0
-		player.jump()
-		die()
+	if enemy_vunerable_area != null:
+		if enemy_vunerable_area.overlaps_body(player) and not player.is_hurt and not is_dead:
+			enemy_dead_animation_name = "die by stomp"
+			player.jump_count = 0
+			player.jump()
+			die()
 		
 func _on_Deadly_Area_body_entered(body):
-	# if player stomped enemy, damage the enemy
+	# if player touches enemy, damage the player
 	if body == player and not player.is_hurt:
 		player.jump_count = 0
 		player.jump()

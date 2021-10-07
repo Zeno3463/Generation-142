@@ -8,6 +8,9 @@ func _ready():
 	attack_area = $"Attack Area"
 	trail_effect = $Effects/Dash/Line2D
 	timer = $Timer
+	camera = $Camera2D
+	power_blast_area = $"Power Blast Area"
+	power_blast_particle_system = $"Effects/Power Blast/CPUParticles2D"
 	
 	# connect the signals
 	$"Attack Area".connect("body_entered", self, "_on_Attack_Area_body_entered") # warning-ignore:return_value_discarded
@@ -51,6 +54,11 @@ func _physics_process(_delta):
 	if can_attack and Input.is_action_just_pressed("attack"):
 		start_performing_an_action("is_attacking", attack_duration)
 	if is_attacking: attack()
+		
+	# power blast
+	if can_power_blast and Input.is_action_just_pressed("power blast"):
+		start_performing_an_action("is_power_blasting", power_blast_duration)
+	if is_power_blasting: power_blast()
 		
 	load_animation_according_to_current_action()
 	move_and_slide(vel, Vector2.UP) # warning-ignore:return_value_discarded

@@ -27,6 +27,9 @@ var enemies_that_are_in_the_attack_area = []
 # hurt variables
 export var hurt_duration = 1
 
+# power blast variables
+export var power_blast_duration = 0.2
+
 # private variables
 var vel = Vector2.ZERO
 var jump_count = 0
@@ -38,11 +41,13 @@ var is_dashing = false
 var is_attacking = false
 var is_dead = false
 var is_hurt = false
+var is_power_blasting = false
 
 # can perform abilities
 var can_double_jump = true
 var can_dash = true
 var can_attack = true
+var can_power_blast = true
 
 # node references
 var player_animated_sprite: AnimatedSprite = null
@@ -51,6 +56,9 @@ var attack_effect_parent: Node2D = null
 var attack_area: Area2D = null
 var trail_effect: Line2D = null
 var timer: Timer = null
+var camera: Camera2D = null
+var power_blast_area: Area2D = null
+var power_blast_particle_system: CPUParticles2D = null
 onready var ui_controller = get_tree().get_root().get_node("/root/Ui")
 
 # public functions
@@ -96,6 +104,8 @@ func load_animation_according_to_current_action():
 		attack_effect_animated_sprite.visible = true
 		attack_effect_animated_sprite.play("default")
 		player_animated_sprite.speed_scale = attack_animation_speed
+	elif is_power_blasting:
+		pass
 	elif jump_count == jump_count_limit and not double_jump_animation_played and can_double_jump:
 		player_animated_sprite.play("double jump")
 		player_animated_sprite.speed_scale = double_jump_animation_speed
@@ -118,7 +128,8 @@ func reset_everything_to_default():
 	is_dashing = false
 	is_attacking = false
 	is_hurt = false
-	attack_area.get_node("CollisionShape2D").disabled = true
+	is_power_blasting = false
+	attack_area.get_node("CollisionShape2D").call_deferred("set", "disabled", true)
 
 func end_double_jump_animation():
 	player_animated_sprite.speed_scale = normal_animation_speed
@@ -132,6 +143,18 @@ func start_performing_an_action(action_name, action_duration):
 	timer.wait_time = action_duration
 	timer.start()
 
+func power_blast():
+	if ui_controller.get_node("Lives").get_child_count() > ui_controller.lives:
+		vel = Vector2.ZERO
+		camera.start()
+		power_blast_particle_system.emitting = true
+		var bodies = power_blast_area.get_overlapping_bodies()
+		for body in bodies:
+			if body is Enemy_Class and not body is Boss_Enemy_Class and not body.is_dead:
+				body.die(false)
+		while ui_controller.get_node("Lives").get_child_count() > 1:
+			ui_controller.take_out_one_life()
+
 func dash():
 	vel.y = 0
 	trail_effect.visible = true
@@ -142,8 +165,8 @@ func attack():
 	attack_area.get_node("CollisionShape2D").disabled = false
 	
 func take_damage():
-	is_dashing = false
-	is_attacking = false
+	camera.start()
+	reset_everything_to_default()
 	ui_controller.take_out_one_life()
 	start_performing_an_action("is_hurt", hurt_duration)
 	
@@ -174,6 +197,9 @@ func _on_Vunerable_Area_body_entered(body):
 
 func _on_Attack_Area_body_entered(body):
 	# if player hits enemy, damage the enemy
-	if body is Enemy_Class:
+	if body is Enemy_Class and not body is Boss_Enemy_Class:
 		body.enemy_dead_animation_name = "die by hit"
 		body.die()
+		
+	elif body is Crate_Class:
+		body.explode()

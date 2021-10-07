@@ -4,10 +4,10 @@ func _ready():
 	# initialize node references
 	enemy_animated_sprite = $AnimatedSprite
 	enemy_dead_animation_name = "die by stomp"
+	enemy_vunerable_area = $"Vunerable Area"
 	
 	# connect the signals
 	$"Edge Detector".connect("body_exited", self, "_on_Edge_Detector_body_exited") # warning-ignore:return_value_discarded
-	$"Vunerable Area".connect("body_entered", self, "_on_Vunerable_Area_body_entered") # warning-ignore:return_value_discarded
 
 func _physics_process(_delta):
 	if is_going_left:

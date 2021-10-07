@@ -9,9 +9,12 @@ export var display_dialogue_speed_btw_char = 0.05
 export var display_dialogue_speed_btw_sentence = 0.5
 export var display_dialogue_speed_btw_sections = 1
 
+export var level_display_popup_delay = 2
+
 # private variables
 var num_of_hits = 0
 var is_displaying_dialogue = false
+var is_displaying_level = false
 
 # node references
 onready var player = get_tree().get_root().get_node("/root/Player")
@@ -26,10 +29,11 @@ var filable_heart_sprite = preload("res://sprites/UIs/Fillable Heart.png")
 func _ready():
 	if OS.get_name() == "Windows": OS.window_fullscreen = true
 	reset_lives()
+	display_current_level("Section 1: Green Forest")
 	
 func _process(_delta):
 	# if the player presses F11, exit full screen mode
-	if Input.is_action_just_pressed("exit_full_screen"): OS.window_fullscreen = false
+	if Input.is_action_just_pressed("F11"): OS.window_fullscreen = not OS.window_fullscreen
 	
 	# if the player kills enough enemies, add a new life to the player
 	if num_of_hits >= num_of_hits_to_get_extra_life:
@@ -86,7 +90,7 @@ func take_out_one_life():
 		get_tree().reload_current_scene() # warning-ignore:return_value_discarded
 		
 		# reset the player position to the spawn position
-		player.global_position = player_starting_pos.global_position
+		if player: player.global_position = player_starting_pos.global_position
 	else:
 		var child = $Lives.get_child($Lives.get_child_count()-1)
 		$Lives.remove_child(child)
@@ -117,7 +121,17 @@ func display_the_dialogue(content):
 		yield(get_tree().create_timer(display_dialogue_speed_btw_sections), "timeout")
 		$Dialogue/Label.text = ""
 	is_displaying_dialogue = false
-		
+	
+func display_current_level(current_level):
+	is_displaying_level = true
+	$"Level Displayer/AnimationPlayer".stop()
+	$"Level Displayer/Label".text = current_level
+	$"Level Displayer/AnimationPlayer".play("Fade In")
+	yield($"Level Displayer/AnimationPlayer", "animation_finished")
+	yield(get_tree().create_timer(level_display_popup_delay), "timeout")
+	$"Level Displayer/AnimationPlayer".play_backwards("Fade In")
+	is_displaying_level = false
+	
 func load_fade_in_animation():
 	$"Scene Transtion/AnimationPlayer".play("Fade In")
 

@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 6.79929, 1.53173 )
 
-[sub_resource type="SpriteFrames" id=3]
+[sub_resource type="SpriteFrames" id=2]
 animations = [ {
 "frames": [ ExtResource( 1 ) ],
 "loop": true,
@@ -14,8 +14,8 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 1.26752, 1.05803 )
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 5.81752, 1.05803 )
 
 [node name="Arrow" type="KinematicBody2D"]
 collision_layer = 2
@@ -25,18 +25,19 @@ script = ExtResource( 2 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -0.0331078, 0.0331078 )
 shape = SubResource( 1 )
+disabled = true
 one_way_collision = true
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 modulate = Color( 0.482353, 0.482353, 0.482353, 1 )
 position = Vector2( 0.56284, -0.496624 )
-frames = SubResource( 3 )
+frames = SubResource( 2 )
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2( -1, 0 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2( 6.1235, 0.0278406 )
-shape = SubResource( 2 )
+position = Vector2( 0.631394, 0.132953 )
+shape = SubResource( 3 )
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]

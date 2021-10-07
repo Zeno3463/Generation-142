@@ -1,0 +1,72 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://scripts/Fire Ball.gd" type="Script" id=1]
+[ext_resource path="res://sprites/Enemies/Under Cave/Fire Ball/Fire Ball Idle.png" type="Texture" id=2]
+[ext_resource path="res://sprites/Lighting/APfkB6p - Imgur.png" type="Texture" id=3]
+[ext_resource path="res://scripts/trail.gd" type="Script" id=4]
+
+[sub_resource type="CircleShape2D" id=7]
+radius = 5.34983
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="SpriteFrames" id=6]
+animations = [ {
+"frames": [ SubResource( 9 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "die by stomp",
+"speed": 5.0
+} ]
+
+[sub_resource type="CircleShape2D" id=8]
+radius = 5.9887
+
+[sub_resource type="Curve" id=10]
+_data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[node name="Fire Ball" type="KinematicBody2D"]
+script = ExtResource( 1 )
+speed = 60
+particle_color = Color( 0.113725, 0, 0, 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0.0462551, 0.15045 )
+shape = SubResource( 7 )
+disabled = true
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+modulate = Color( 0.560784, 0.560784, 0.560784, 1 )
+frames = SubResource( 6 )
+playing = true
+
+[node name="Light2D" type="Light2D" parent="."]
+scale = Vector2( 0.0914252, 0.0914252 )
+texture = ExtResource( 3 )
+color = Color( 0.729412, 0, 0, 1 )
+energy = 2.0
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( -0.0393753, 0.0396833 )
+shape = SubResource( 8 )
+
+[node name="Line2D" type="Line2D" parent="."]
+z_index = -1
+points = PoolVector2Array( -0.401726, 0.0342216 )
+width_curve = SubResource( 10 )
+default_color = Color( 0.615686, 0, 0, 0.619608 )
+script = ExtResource( 4 )
+__meta__ = {
+"_editor_description_": ""
+}
+trail_length = 30
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]

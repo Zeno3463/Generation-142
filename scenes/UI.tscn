@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://sprites/UIs/Empty Heart.png" type="Texture" id=1]
 [ext_resource path="res://scripts/UI.gd" type="Script" id=2]
@@ -6,6 +6,8 @@
 [ext_resource path="res://sprites/Objects/Power Up.png" type="Texture" id=4]
 [ext_resource path="res://sprites/Lighting/APfkB6p - Imgur.png" type="Texture" id=5]
 [ext_resource path="res://sprites/Lighting/White Square.png" type="Texture" id=6]
+[ext_resource path="res://sprites/Maps/Full Map.png" type="Texture" id=7]
+[ext_resource path="res://scripts/Map.gd" type="Script" id=8]
 
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 3 )
@@ -72,6 +74,26 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
+[sub_resource type="DynamicFont" id=11]
+size = 50
+font_data = ExtResource( 3 )
+
+[sub_resource type="Animation" id=12]
+resource_name = "Fade In"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Label:custom_colors/font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
 [node name="UI" type="CanvasLayer"]
 pause_mode = 2
 script = ExtResource( 2 )
@@ -109,6 +131,37 @@ margin_bottom = 40.0
 texture = ExtResource( 1 )
 expand = true
 
+[node name="Map" type="Control" parent="."]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="Map"]
+modulate = Color( 0.615686, 0.615686, 0.615686, 0.980392 )
+position = Vector2( 513.158, 306.469 )
+scale = Vector2( 2.75705, 2.75705 )
+z_index = 1
+texture = ExtResource( 7 )
+
+[node name="Effects" type="Node2D" parent="Map"]
+
+[node name="Light" type="Node2D" parent="Map/Effects"]
+
+[node name="Light2D" type="Light2D" parent="Map/Effects/Light"]
+position = Vector2( 505.769, 312.105 )
+scale = Vector2( 1.00015, 0.842479 )
+texture = ExtResource( 5 )
+
+[node name="Shadow" type="Sprite" parent="Map/Effects"]
+modulate = Color( 0.133333, 0.133333, 0.133333, 0.45098 )
+position = Vector2( 512.524, 298.264 )
+scale = Vector2( 33.0327, 19.6415 )
+texture = ExtResource( 6 )
+
 [node name="Scene Transtion" type="Control" parent="."]
 margin_right = 40.0
 margin_bottom = 40.0
@@ -144,7 +197,7 @@ position = Vector2( 500, 200 )
 scale = Vector2( 15, 15 )
 z_index = 1
 frames = SubResource( 7 )
-frame = 1
+frame = 3
 playing = true
 
 [node name="Effects" type="Node2D" parent="Power Up Explainer"]
@@ -188,10 +241,10 @@ __meta__ = {
 }
 
 [node name="Label3" type="Label" parent="Power Up Explainer"]
-margin_left = 419.923
-margin_top = 539.84
-margin_right = 593.923
-margin_bottom = 590.84
+margin_left = 839.724
+margin_top = 537.595
+margin_right = 1013.72
+margin_bottom = 588.595
 custom_fonts/font = SubResource( 9 )
 text = "Press \"Q\" to return to game."
 align = 1
@@ -202,3 +255,26 @@ __meta__ = {
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Power Up Explainer"]
 "anims/Fade In" = SubResource( 10 )
+
+[node name="Level Displayer" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Level Displayer"]
+margin_left = 5.0
+margin_top = 524.0
+margin_right = 587.0
+margin_bottom = 598.0
+custom_fonts/font = SubResource( 11 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Green Forest"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Level Displayer"]
+"anims/Fade In" = SubResource( 12 )

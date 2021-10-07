@@ -31,6 +31,7 @@ animations = [ {
 [node name="Level Node" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
+z_index = 2
 tile_set = ExtResource( 2 )
 cell_size = Vector2( 16, 16 )
 format = 1

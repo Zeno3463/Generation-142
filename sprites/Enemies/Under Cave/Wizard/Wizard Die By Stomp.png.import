@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Jon.png-635dbee8af58bc9ff40b554722522c82.stex"
+path="res://.import/Wizard Die By Stomp.png-7aa64e8460cc27cd8d72b4ba6065a61a.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/Objects/Blue Forest/Jon.png"
-dest_files=[ "res://.import/Jon.png-635dbee8af58bc9ff40b554722522c82.stex" ]
+source_file="res://sprites/Enemies/Under Cave/Wizard/Wizard Die By Stomp.png"
+dest_files=[ "res://.import/Wizard Die By Stomp.png-7aa64e8460cc27cd8d72b4ba6065a61a.stex" ]
 
 [params]
 

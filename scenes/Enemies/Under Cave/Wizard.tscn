@@ -1,0 +1,110 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://scripts/Wizzard.gd" type="Script" id=1]
+[ext_resource path="res://sprites/Enemies/Under Cave/Wizard/Wizard Idle.png" type="Texture" id=2]
+[ext_resource path="res://sprites/Enemies/Under Cave/Wizard/Wizard Die By Stomp.png" type="Texture" id=3]
+[ext_resource path="res://sprites/Enemies/Under Cave/Wizard/Wizard Cast Spell.png" type="Texture" id=5]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 2 )
+region = Rect2( 16, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 2 )
+region = Rect2( 32, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 3 )
+region = Rect2( 16, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 3 )
+region = Rect2( 16, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 5 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 5 )
+region = Rect2( 16, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 5 )
+region = Rect2( 32, 0, 16, 16 )
+
+[sub_resource type="SpriteFrames" id=11]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 4 ), SubResource( 5 ) ],
+"loop": true,
+"name": "die by stomp",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 6 ), SubResource( 7 ) ],
+"loop": true,
+"name": "die by hit",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 8 ), SubResource( 9 ), SubResource( 10 ) ],
+"loop": true,
+"name": "cast",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=12]
+extents = Vector2( 6.03815, 5.26864 )
+
+[sub_resource type="CircleShape2D" id=13]
+radius = 87.8133
+
+[sub_resource type="RectangleShape2D" id=14]
+extents = Vector2( 5.92097, 2.17756 )
+
+[node name="Wizard" type="KinematicBody2D"]
+z_index = 3
+script = ExtResource( 1 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+modulate = Color( 0.482353, 0.482353, 0.482353, 1 )
+frames = SubResource( 11 )
+frame = 1
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0.0603659, 3.05334 )
+shape = SubResource( 12 )
+one_way_collision = true
+
+[node name="Attack Trigger Area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Attack Trigger Area"]
+shape = SubResource( 13 )
+
+[node name="Deadly Area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Deadly Area"]
+position = Vector2( 0.0434227, -2.94129 )
+shape = SubResource( 14 )
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="body_entered" from="Attack Trigger Area" to="." method="_on_Attack_Trigger_Area_body_entered"]
+[connection signal="body_exited" from="Attack Trigger Area" to="." method="_on_Attack_Trigger_Area_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
