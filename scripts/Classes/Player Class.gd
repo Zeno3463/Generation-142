@@ -29,6 +29,8 @@ export var hurt_duration = 1
 
 # power blast variables
 export var power_blast_duration = 0.2
+export var light_energy_while_blasting = 2
+export var default_light_energy = 1
 
 # private variables
 var vel = Vector2.ZERO
@@ -59,6 +61,7 @@ var timer: Timer = null
 var camera: Camera2D = null
 var power_blast_area: Area2D = null
 var power_blast_particle_system: CPUParticles2D = null
+var light: Light2D = null
 onready var ui_controller = get_tree().get_root().get_node("/root/Ui")
 
 # public functions
@@ -105,7 +108,7 @@ func load_animation_according_to_current_action():
 		attack_effect_animated_sprite.play("default")
 		player_animated_sprite.speed_scale = attack_animation_speed
 	elif is_power_blasting:
-		pass
+		player_animated_sprite.play("power blast")
 	elif jump_count == jump_count_limit and not double_jump_animation_played and can_double_jump:
 		player_animated_sprite.play("double jump")
 		player_animated_sprite.speed_scale = double_jump_animation_speed
@@ -121,6 +124,7 @@ func load_animation_according_to_current_action():
 		player_animated_sprite.play("jump")
 	
 func reset_everything_to_default():
+	light.energy = default_light_energy
 	trail_effect.visible = false
 	attack_effect_animated_sprite.stop()
 	attack_effect_animated_sprite.frame = 0
@@ -147,6 +151,7 @@ func power_blast():
 	if ui_controller.get_node("Lives").get_child_count() > ui_controller.lives:
 		vel = Vector2.ZERO
 		camera.start()
+		light.energy = light_energy_while_blasting
 		power_blast_particle_system.emitting = true
 		var bodies = power_blast_area.get_overlapping_bodies()
 		for body in bodies:

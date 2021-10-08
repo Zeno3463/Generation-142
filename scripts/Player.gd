@@ -11,6 +11,7 @@ func _ready():
 	camera = $Camera2D
 	power_blast_area = $"Power Blast Area"
 	power_blast_particle_system = $"Effects/Power Blast/CPUParticles2D"
+	light = $Effects/Light/Light2D
 	
 	# connect the signals
 	$"Attack Area".connect("body_entered", self, "_on_Attack_Area_body_entered") # warning-ignore:return_value_discarded
