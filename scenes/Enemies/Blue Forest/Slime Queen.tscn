@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=2]
+[gd_scene load_steps=43 format=2]
 
 [ext_resource path="res://sprites/Enemies/Blue Forest/Slime Queen/Slime Queen Walk.png" type="Texture" id=1]
 [ext_resource path="res://scripts/Slime Queen.gd" type="Script" id=2]
@@ -7,152 +7,153 @@
 [ext_resource path="res://sprites/UIs/Enemy Life Contariner.png" type="Texture" id=5]
 [ext_resource path="res://sprites/Enemies/Blue Forest/Slime Queen/Slime Queen Dead.png" type="Texture" id=6]
 [ext_resource path="res://sprites/Enemies/Blue Forest/Slime Queen/Slime Queen Damage.png" type="Texture" id=7]
+[ext_resource path="res://sprites/Lighting/APfkB6p - Imgur.png" type="Texture" id=8]
 
-[sub_resource type="CircleShape2D" id=11]
+[sub_resource type="CircleShape2D" id=1]
 radius = 16.5021
 
-[sub_resource type="AtlasTexture" id=12]
+[sub_resource type="AtlasTexture" id=2]
 atlas = ExtResource( 1 )
 region = Rect2( 0, 0, 32, 32 )
 
-[sub_resource type="AtlasTexture" id=13]
+[sub_resource type="AtlasTexture" id=3]
 atlas = ExtResource( 1 )
 region = Rect2( 32, 0, 32, 32 )
 
-[sub_resource type="AtlasTexture" id=14]
+[sub_resource type="AtlasTexture" id=4]
 atlas = ExtResource( 1 )
 region = Rect2( 64, 0, 32, 32 )
 
-[sub_resource type="AtlasTexture" id=15]
+[sub_resource type="AtlasTexture" id=5]
 atlas = ExtResource( 1 )
 region = Rect2( 96, 0, 32, 32 )
 
-[sub_resource type="AtlasTexture" id=16]
-atlas = ExtResource( 7 )
-region = Rect2( 32, 0, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=17]
-atlas = ExtResource( 7 )
-region = Rect2( 0, 0, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=18]
+[sub_resource type="AtlasTexture" id=6]
 atlas = ExtResource( 6 )
 region = Rect2( 0, 0, 64, 64 )
 
-[sub_resource type="AtlasTexture" id=19]
+[sub_resource type="AtlasTexture" id=7]
 atlas = ExtResource( 6 )
 region = Rect2( 64, 0, 64, 64 )
 
-[sub_resource type="AtlasTexture" id=20]
+[sub_resource type="AtlasTexture" id=8]
 atlas = ExtResource( 6 )
 region = Rect2( 128, 0, 64, 64 )
 
-[sub_resource type="AtlasTexture" id=21]
+[sub_resource type="AtlasTexture" id=9]
 atlas = ExtResource( 6 )
 region = Rect2( 192, 0, 64, 64 )
 
-[sub_resource type="AtlasTexture" id=22]
+[sub_resource type="AtlasTexture" id=10]
 atlas = ExtResource( 6 )
 region = Rect2( 0, 0, 64, 64 )
 
-[sub_resource type="AtlasTexture" id=23]
+[sub_resource type="AtlasTexture" id=11]
 atlas = ExtResource( 6 )
 region = Rect2( 64, 0, 64, 64 )
 
-[sub_resource type="AtlasTexture" id=24]
+[sub_resource type="AtlasTexture" id=12]
 atlas = ExtResource( 6 )
 region = Rect2( 128, 0, 64, 64 )
 
-[sub_resource type="AtlasTexture" id=25]
+[sub_resource type="AtlasTexture" id=13]
 atlas = ExtResource( 6 )
 region = Rect2( 192, 0, 64, 64 )
 
-[sub_resource type="AtlasTexture" id=26]
+[sub_resource type="AtlasTexture" id=14]
 atlas = ExtResource( 6 )
 region = Rect2( 256, 0, 64, 64 )
 
-[sub_resource type="AtlasTexture" id=27]
+[sub_resource type="AtlasTexture" id=15]
 atlas = ExtResource( 6 )
 region = Rect2( 320, 0, 64, 64 )
 
-[sub_resource type="AtlasTexture" id=28]
+[sub_resource type="AtlasTexture" id=16]
 atlas = ExtResource( 6 )
 region = Rect2( 384, 0, 64, 64 )
 
-[sub_resource type="AtlasTexture" id=29]
+[sub_resource type="AtlasTexture" id=17]
 atlas = ExtResource( 6 )
 region = Rect2( 448, 0, 64, 64 )
 
-[sub_resource type="AtlasTexture" id=30]
+[sub_resource type="AtlasTexture" id=18]
 atlas = ExtResource( 6 )
 region = Rect2( 512, 0, 64, 64 )
 
-[sub_resource type="AtlasTexture" id=31]
+[sub_resource type="AtlasTexture" id=19]
 atlas = ExtResource( 6 )
 region = Rect2( 576, 0, 64, 64 )
 
-[sub_resource type="AtlasTexture" id=32]
+[sub_resource type="AtlasTexture" id=20]
 atlas = ExtResource( 6 )
 region = Rect2( 640, 0, 64, 64 )
 
-[sub_resource type="AtlasTexture" id=33]
+[sub_resource type="AtlasTexture" id=21]
 atlas = ExtResource( 6 )
 region = Rect2( 704, 0, 64, 64 )
 
-[sub_resource type="AtlasTexture" id=34]
+[sub_resource type="AtlasTexture" id=22]
 atlas = ExtResource( 6 )
 region = Rect2( 768, 0, 64, 64 )
 
-[sub_resource type="AtlasTexture" id=35]
+[sub_resource type="AtlasTexture" id=23]
 atlas = ExtResource( 6 )
 region = Rect2( 832, 0, 64, 64 )
 
-[sub_resource type="AtlasTexture" id=36]
+[sub_resource type="AtlasTexture" id=24]
 atlas = ExtResource( 6 )
 region = Rect2( 896, 0, 64, 64 )
 
-[sub_resource type="AtlasTexture" id=37]
+[sub_resource type="AtlasTexture" id=25]
 atlas = ExtResource( 6 )
 region = Rect2( 960, 0, 64, 64 )
 
-[sub_resource type="AtlasTexture" id=38]
+[sub_resource type="AtlasTexture" id=26]
 atlas = ExtResource( 6 )
 region = Rect2( 1024, 0, 64, 64 )
 
-[sub_resource type="AtlasTexture" id=39]
+[sub_resource type="AtlasTexture" id=27]
 atlas = ExtResource( 6 )
 region = Rect2( 1088, 0, 64, 64 )
 
-[sub_resource type="AtlasTexture" id=40]
+[sub_resource type="AtlasTexture" id=28]
 atlas = ExtResource( 6 )
 region = Rect2( 1152, 0, 64, 64 )
 
-[sub_resource type="AtlasTexture" id=41]
+[sub_resource type="AtlasTexture" id=29]
 atlas = ExtResource( 6 )
 region = Rect2( 1216, 0, 64, 64 )
 
-[sub_resource type="SpriteFrames" id=42]
+[sub_resource type="AtlasTexture" id=30]
+atlas = ExtResource( 7 )
+region = Rect2( 32, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=31]
+atlas = ExtResource( 7 )
+region = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="SpriteFrames" id=32]
 animations = [ {
-"frames": [ SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ) ],
+"frames": [ SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 16 ), SubResource( 17 ) ],
-"loop": true,
-"name": "damage",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 18 ), SubResource( 19 ), SubResource( 20 ), SubResource( 21 ), SubResource( 22 ), SubResource( 23 ), SubResource( 24 ), SubResource( 25 ), SubResource( 26 ), SubResource( 27 ), SubResource( 28 ), SubResource( 29 ), SubResource( 30 ), SubResource( 31 ), SubResource( 32 ), SubResource( 33 ), SubResource( 34 ), SubResource( 35 ), SubResource( 36 ), SubResource( 37 ), SubResource( 38 ), SubResource( 39 ), SubResource( 40 ), SubResource( 41 ) ],
+"frames": [ SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ), SubResource( 21 ), SubResource( 22 ), SubResource( 23 ), SubResource( 24 ), SubResource( 25 ), SubResource( 26 ), SubResource( 27 ), SubResource( 28 ), SubResource( 29 ) ],
 "loop": true,
 "name": "dead",
 "speed": 5.0
+}, {
+"frames": [ SubResource( 30 ), SubResource( 31 ) ],
+"loop": true,
+"name": "damage",
+"speed": 5.0
 } ]
 
-[sub_resource type="Curve" id=10]
+[sub_resource type="Curve" id=33]
 _data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="RectangleShape2D" id=43]
+[sub_resource type="RectangleShape2D" id=34]
 extents = Vector2( 12.6305, 3.55239 )
 
 [node name="Slime Queen" type="KinematicBody2D"]
@@ -163,10 +164,10 @@ script = ExtResource( 2 )
 particle_color = Color( 0.109804, 0.0313726, 0.0196078, 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 11 )
+shape = SubResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-frames = SubResource( 42 )
+frames = SubResource( 32 )
 playing = true
 
 [node name="Timer" type="Timer" parent="."]
@@ -174,7 +175,7 @@ playing = true
 [node name="Line2D" type="Line2D" parent="."]
 z_index = -1
 points = PoolVector2Array( -0.401726, 0.0342216 )
-width_curve = SubResource( 10 )
+width_curve = SubResource( 33 )
 default_color = Color( 0.435294, 0.278431, 0.168627, 0.619608 )
 script = ExtResource( 3 )
 trail_length = 30
@@ -183,7 +184,7 @@ trail_length = 30
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Vunerable Area"]
 position = Vector2( -3.57628e-07, -17.818 )
-shape = SubResource( 43 )
+shape = SubResource( 34 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -201,6 +202,12 @@ nine_patch_stretch = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Light2D" type="Light2D" parent="."]
+scale = Vector2( 0.159194, 0.159194 )
+texture = ExtResource( 8 )
+color = Color( 0.584314, 0.129412, 0.0196078, 1 )
+energy = 2.0
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="body_entered" from="Vunerable Area" to="." method="_on_Vunerable_Area_body_entered"]

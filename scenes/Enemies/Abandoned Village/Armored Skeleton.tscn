@@ -1,9 +1,10 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://scripts/Skeleton.gd" type="Script" id=1]
 [ext_resource path="res://sprites/Enemies/Abandoned Village/Armored Skeleton/Armored Skeleton Walk.png" type="Texture" id=2]
 [ext_resource path="res://sprites/Enemies/Abandoned Village/Armored Skeleton/Armored Skeleton Dead.png" type="Texture" id=3]
 [ext_resource path="res://sprites/Enemies/Abandoned Village/Armored Skeleton/Armored Skeleton Attack.png" type="Texture" id=4]
+[ext_resource path="res://sprites/Lighting/APfkB6p - Imgur.png" type="Texture" id=5]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 2 )
@@ -130,7 +131,7 @@ particle_color = Color( 0.482353, 0.482353, 0.482353, 1 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 modulate = Color( 0.482353, 0.482353, 0.482353, 1 )
 frames = SubResource( 21 )
-frame = 4
+frame = 3
 speed_scale = 2.0
 playing = true
 
@@ -167,6 +168,11 @@ position = Vector2( 0.946274, -5.97461 )
 shape = SubResource( 26 )
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="Light2D" type="Light2D" parent="."]
+scale = Vector2( 0.0914252, 0.0914252 )
+texture = ExtResource( 5 )
+color = Color( 0.6, 0.6, 0.6, 1 )
 
 [connection signal="body_entered" from="Attack Trigger Area" to="." method="_on_Attack_Trigger_Area_body_entered"]
 [connection signal="body_exited" from="Attack Trigger Area" to="." method="_on_Attack_Trigger_Area_body_exited"]

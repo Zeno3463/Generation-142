@@ -59,7 +59,7 @@ position = Vector2( 1823.95, 504.103 )
 [node name="Power Ups" type="Node2D" parent="."]
 
 [node name="Power Up" parent="Power Ups" instance=ExtResource( 5 )]
-position = Vector2( 1863.88, 479.661 )
+position = Vector2( 1870.18, 469.582 )
 title = "Attack"
 description = "Congratulations! You have found an ore of wistom. With this ore, you are granted the power to attack. You can use this ability to kill enemies and break crates. Press \"X\" to perform an attack. "
 power_up = "can_attack"

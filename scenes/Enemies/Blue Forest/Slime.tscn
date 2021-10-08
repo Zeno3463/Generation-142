@@ -1,9 +1,10 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://scripts/Slime.gd" type="Script" id=1]
 [ext_resource path="res://sprites/Enemies/Blue Forest/Slime/Slime Walk.png" type="Texture" id=2]
 [ext_resource path="res://sprites/Enemies/Blue Forest/Slime/Slime Dead By Stomp.png" type="Texture" id=3]
 [ext_resource path="res://sprites/Enemies/Blue Forest/Slime/Slime Dead By Hit.png" type="Texture" id=4]
+[ext_resource path="res://sprites/Lighting/APfkB6p - Imgur.png" type="Texture" id=5]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 2 )
@@ -79,7 +80,7 @@ particle_color = Color( 0.0509804, 0.0156863, 0.00784314, 1 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 modulate = Color( 0.482353, 0.482353, 0.482353, 1 )
 frames = SubResource( 11 )
-frame = 4
+frame = 3
 speed_scale = 2.0
 playing = true
 
@@ -100,3 +101,9 @@ position = Vector2( 0.140467, 0.23411 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Vunerable Area"]
 position = Vector2( -0.201872, -5.41117 )
 shape = SubResource( 14 )
+
+[node name="Light2D" type="Light2D" parent="."]
+scale = Vector2( 0.0914252, 0.0914252 )
+texture = ExtResource( 5 )
+color = Color( 0.644531, 0.0810334, 0.0421715, 1 )
+energy = 2.0

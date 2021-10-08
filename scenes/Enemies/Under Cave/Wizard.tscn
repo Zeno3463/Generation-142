@@ -1,8 +1,9 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://scripts/Wizzard.gd" type="Script" id=1]
 [ext_resource path="res://sprites/Enemies/Under Cave/Wizard/Wizard Idle.png" type="Texture" id=2]
 [ext_resource path="res://sprites/Enemies/Under Cave/Wizard/Wizard Die By Stomp.png" type="Texture" id=3]
+[ext_resource path="res://sprites/Lighting/APfkB6p - Imgur.png" type="Texture" id=4]
 [ext_resource path="res://sprites/Enemies/Under Cave/Wizard/Wizard Cast Spell.png" type="Texture" id=5]
 
 [sub_resource type="AtlasTexture" id=1]
@@ -18,32 +19,32 @@ atlas = ExtResource( 2 )
 region = Rect2( 32, 0, 16, 16 )
 
 [sub_resource type="AtlasTexture" id=4]
-atlas = ExtResource( 3 )
+atlas = ExtResource( 5 )
 region = Rect2( 0, 0, 16, 16 )
 
 [sub_resource type="AtlasTexture" id=5]
-atlas = ExtResource( 3 )
+atlas = ExtResource( 5 )
 region = Rect2( 16, 0, 16, 16 )
 
 [sub_resource type="AtlasTexture" id=6]
-atlas = ExtResource( 3 )
-region = Rect2( 0, 0, 16, 16 )
+atlas = ExtResource( 5 )
+region = Rect2( 32, 0, 16, 16 )
 
 [sub_resource type="AtlasTexture" id=7]
 atlas = ExtResource( 3 )
-region = Rect2( 16, 0, 16, 16 )
-
-[sub_resource type="AtlasTexture" id=8]
-atlas = ExtResource( 5 )
 region = Rect2( 0, 0, 16, 16 )
 
-[sub_resource type="AtlasTexture" id=9]
-atlas = ExtResource( 5 )
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 3 )
 region = Rect2( 16, 0, 16, 16 )
 
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 16, 16 )
+
 [sub_resource type="AtlasTexture" id=10]
-atlas = ExtResource( 5 )
-region = Rect2( 32, 0, 16, 16 )
+atlas = ExtResource( 3 )
+region = Rect2( 16, 0, 16, 16 )
 
 [sub_resource type="SpriteFrames" id=11]
 animations = [ {
@@ -52,19 +53,19 @@ animations = [ {
 "name": "default",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 4 ), SubResource( 5 ) ],
+"frames": [ SubResource( 4 ), SubResource( 5 ), SubResource( 6 ) ],
+"loop": true,
+"name": "cast",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 7 ), SubResource( 8 ) ],
 "loop": true,
 "name": "die by stomp",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 6 ), SubResource( 7 ) ],
+"frames": [ SubResource( 9 ), SubResource( 10 ) ],
 "loop": true,
 "name": "die by hit",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 8 ), SubResource( 9 ), SubResource( 10 ) ],
-"loop": true,
-"name": "cast",
 "speed": 5.0
 } ]
 
@@ -104,6 +105,12 @@ position = Vector2( 0.0434227, -2.94129 )
 shape = SubResource( 14 )
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="Light2D" type="Light2D" parent="."]
+scale = Vector2( 0.0914252, 0.0914252 )
+texture = ExtResource( 4 )
+color = Color( 0.321569, 0, 0, 1 )
+energy = 2.0
 
 [connection signal="body_entered" from="Attack Trigger Area" to="." method="_on_Attack_Trigger_Area_body_entered"]
 [connection signal="body_exited" from="Attack Trigger Area" to="." method="_on_Attack_Trigger_Area_body_exited"]
