@@ -139,7 +139,7 @@ next_level_name = "Boss Fight: Slime Queen"
 position = Vector2( -964.02, 351.758 )
 scale = Vector2( 1, 13.6 )
 next_section_path = "res://scenes/Levels/Under Cave/Under Cave Section 0.tscn"
-next_level_name = "Section 3: Under Cave"
+next_level_name = "Section 4: Under Cave"
 
 [node name="Next Level Teleporter4" parent="Next Level Teleporters" instance=ExtResource( 11 )]
 position = Vector2( -927.372, -210.264 )
