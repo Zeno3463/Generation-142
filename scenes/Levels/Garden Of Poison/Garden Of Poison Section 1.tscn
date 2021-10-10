@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://sprites/Backgrounds/Blue Forest/Layer 1.png" type="Texture" id=1]
 [ext_resource path="res://sprites/Backgrounds/Blue Forest/Layer 2.png" type="Texture" id=2]
 [ext_resource path="res://tilesets/default tileset.tres" type="TileSet" id=3]
+[ext_resource path="res://scenes/Enemies/Garden Of Poison/Green Slime.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/Next Level Teleporter.tscn" type="PackedScene" id=7]
 [ext_resource path="res://sprites/Backgrounds/Blue Forest/Layer 1 (2).png" type="Texture" id=8]
 [ext_resource path="res://sprites/Backgrounds/Blue Forest/Layer 4.png" type="Texture" id=9]
@@ -96,6 +97,15 @@ position = Vector2( 264.302, 188.871 )
 texture = ExtResource( 8 )
 
 [node name="Enemies" type="Node2D" parent="."]
+
+[node name="Green Slime" parent="Enemies" instance=ExtResource( 4 )]
+position = Vector2( -2183.37, -597.209 )
+
+[node name="Green Slime2" parent="Enemies" instance=ExtResource( 4 )]
+position = Vector2( -2089.8, -549.618 )
+
+[node name="Green Slime3" parent="Enemies" instance=ExtResource( 4 )]
+position = Vector2( -2259.12, -549.017 )
 
 [node name="Next Level Teleporters" type="Node2D" parent="."]
 

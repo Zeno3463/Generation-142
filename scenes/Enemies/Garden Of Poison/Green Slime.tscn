@@ -1,0 +1,118 @@
+[gd_scene load_steps=20 format=2]
+
+[ext_resource path="res://scripts/Green Slime.gd" type="Script" id=1]
+[ext_resource path="res://sprites/Enemies/Garden Of Poison/Green Slime/Green Slime Idle.png" type="Texture" id=2]
+[ext_resource path="res://sprites/Enemies/Garden Of Poison/Green Slime/Green Slime Dead By Stomp.png" type="Texture" id=3]
+[ext_resource path="res://sprites/Enemies/Garden Of Poison/Green Slime/Green Slime Dead By Hit.png" type="Texture" id=4]
+[ext_resource path="res://sprites/Lighting/APfkB6p - Imgur.png" type="Texture" id=5]
+[ext_resource path="res://sprites/Enemies/Garden Of Poison/Green Slime/Green Slime Jump.png" type="Texture" id=6]
+[ext_resource path="res://sprites/Enemies/Garden Of Poison/Green Slime/Green Slime Fall.png" type="Texture" id=7]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 2 )
+region = Rect2( 16, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 6 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=15]
+atlas = ExtResource( 4 )
+region = Rect2( 48, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=16]
+atlas = ExtResource( 4 )
+region = Rect2( 64, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=13]
+atlas = ExtResource( 3 )
+region = Rect2( 48, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=14]
+atlas = ExtResource( 3 )
+region = Rect2( 64, 0, 16, 16 )
+
+[sub_resource type="SpriteFrames" id=8]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 3 ) ],
+"loop": true,
+"name": "jump",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "fall",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 15 ), SubResource( 16 ) ],
+"loop": true,
+"name": "die by hit",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 13 ), SubResource( 14 ) ],
+"loop": true,
+"name": "die by stomp",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=9]
+extents = Vector2( 6.03815, 3.70421 )
+
+[sub_resource type="RectangleShape2D" id=10]
+extents = Vector2( 3.02191, 2.90752 )
+
+[sub_resource type="RectangleShape2D" id=11]
+extents = Vector2( 4.0271, 1.34502 )
+
+[sub_resource type="CircleShape2D" id=12]
+radius = 89.2251
+
+[node name="Green Slime" type="KinematicBody2D"]
+script = ExtResource( 1 )
+particle_color = Color( 0, 0.0941176, 0.0117647, 1 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+modulate = Color( 0.482353, 0.482353, 0.482353, 1 )
+frames = SubResource( 8 )
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -0.125141, 2.04397 )
+shape = SubResource( 9 )
+one_way_collision = true
+
+[node name="Edge Detector" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Edge Detector"]
+position = Vector2( 11.8253, 8.89698 )
+shape = SubResource( 10 )
+
+[node name="Vunerable Area" type="Area2D" parent="."]
+position = Vector2( 0.140467, 0.23411 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Vunerable Area"]
+position = Vector2( -0.201872, -5.41117 )
+shape = SubResource( 11 )
+
+[node name="Attack Trigger Area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Attack Trigger Area"]
+shape = SubResource( 12 )
+
+[node name="Light2D" type="Light2D" parent="."]
+scale = Vector2( 0.0914252, 0.0914252 )
+texture = ExtResource( 5 )
+color = Color( 0, 0.262745, 0.0352941, 1 )
+energy = 2.0
+
+[connection signal="body_entered" from="Attack Trigger Area" to="." method="_on_Attack_Trigger_Area_body_entered"]
+[connection signal="body_exited" from="Attack Trigger Area" to="." method="_on_Attack_Trigger_Area_body_exited"]

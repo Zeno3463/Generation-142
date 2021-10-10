@@ -84,14 +84,7 @@ func rest():
 func use_special_attack():
 	# follow player
 	if not jumped:
-		var dist_to_player = global_position.x - curr_player_x_pos
-		vel.x = gravity * dist_to_player / jump_force * attack_move_speed
-		
-		# flip the animated sprite
-		if dist_to_player > 0:
-			enemy_animated_sprite.flip_h = true
-		else:
-			enemy_animated_sprite.flip_h = false
+		jump_onto_object(Vector2(curr_player_x_pos, 0), attack_move_speed)
 	
 	# jump
 	if is_on_floor():

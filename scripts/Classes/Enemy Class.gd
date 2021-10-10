@@ -69,6 +69,17 @@ func follow_object(object):
 	if vel.x < 0: enemy_animated_sprite.flip_h = true
 	else: enemy_animated_sprite.flip_h = false
 	
+func jump_onto_object(object_pos, jump_move_speed):
+	# follow player
+	var dist_to_object = global_position.x - object_pos.x
+	vel.x = gravity * dist_to_object / jump_force * jump_move_speed
+	
+	# flip the animated sprite
+	if dist_to_object > 0:
+		enemy_animated_sprite.flip_h = true
+	else:
+		enemy_animated_sprite.flip_h = false
+	
 func fall():
 	if is_on_floor():
 		vel.y = 0
