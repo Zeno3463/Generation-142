@@ -20,20 +20,20 @@ region = Rect2( 16, 0, 16, 16 )
 atlas = ExtResource( 6 )
 region = Rect2( 0, 0, 16, 16 )
 
-[sub_resource type="AtlasTexture" id=15]
-atlas = ExtResource( 4 )
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 3 )
 region = Rect2( 48, 0, 16, 16 )
 
-[sub_resource type="AtlasTexture" id=16]
-atlas = ExtResource( 4 )
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 3 )
 region = Rect2( 64, 0, 16, 16 )
 
-[sub_resource type="AtlasTexture" id=13]
-atlas = ExtResource( 3 )
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 4 )
 region = Rect2( 48, 0, 16, 16 )
 
-[sub_resource type="AtlasTexture" id=14]
-atlas = ExtResource( 3 )
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 4 )
 region = Rect2( 64, 0, 16, 16 )
 
 [sub_resource type="SpriteFrames" id=8]
@@ -43,24 +43,24 @@ animations = [ {
 "name": "default",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 3 ) ],
-"loop": true,
-"name": "jump",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 7 ) ],
 "loop": true,
 "name": "fall",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 15 ), SubResource( 16 ) ],
+"frames": [ SubResource( 3 ) ],
 "loop": true,
-"name": "die by hit",
+"name": "jump",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 13 ), SubResource( 14 ) ],
+"frames": [ SubResource( 4 ), SubResource( 5 ) ],
 "loop": true,
 "name": "die by stomp",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 6 ), SubResource( 7 ) ],
+"loop": true,
+"name": "die by hit",
 "speed": 5.0
 } ]
 
@@ -78,11 +78,13 @@ radius = 89.2251
 
 [node name="Green Slime" type="KinematicBody2D"]
 script = ExtResource( 1 )
+jump_force = -200
 particle_color = Color( 0, 0.0941176, 0.0117647, 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 modulate = Color( 0.482353, 0.482353, 0.482353, 1 )
 frames = SubResource( 8 )
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

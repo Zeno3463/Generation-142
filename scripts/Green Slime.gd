@@ -21,6 +21,9 @@ func _physics_process(_delta):
 	else:
 		enemy_animated_sprite.play("fall")
 
+	if is_on_ceiling():
+		vel.y = 0
+
 	if is_on_floor():
 		if not jumped and player_in_range:
 			jump()
