@@ -57,7 +57,7 @@ func _physics_process(_delta):
 	if is_attacking: attack()
 		
 	# power blast
-	if can_power_blast and Input.is_action_just_pressed("power blast"):
+	if can_power_blast and Input.is_action_just_pressed("power blast") and ui_controller.get_node("Lives").get_child_count() > ui_controller.lives:
 		start_performing_an_action("is_power_blasting", power_blast_duration)
 	if is_power_blasting: power_blast()
 		

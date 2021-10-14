@@ -148,17 +148,16 @@ func start_performing_an_action(action_name, action_duration):
 	timer.start()
 
 func power_blast():
-	if ui_controller.get_node("Lives").get_child_count() > ui_controller.lives:
-		vel = Vector2.ZERO
-		camera.start()
-		light.energy = light_energy_while_blasting
-		power_blast_particle_system.emitting = true
-		var bodies = power_blast_area.get_overlapping_bodies()
-		for body in bodies:
-			if body is Enemy_Class and not body is Boss_Enemy_Class and not body.is_dead:
-				body.die(false)
-		while ui_controller.get_node("Lives").get_child_count() > 1:
-			ui_controller.take_out_one_life()
+	vel = Vector2.ZERO
+	camera.start()
+	light.energy = light_energy_while_blasting
+	power_blast_particle_system.emitting = true
+	var bodies = power_blast_area.get_overlapping_bodies()
+	for body in bodies:
+		if body is Enemy_Class and not body is Boss_Enemy_Class and not body.is_dead:
+			body.die(false)
+	while ui_controller.get_node("Lives").get_child_count() > 1:
+		ui_controller.take_out_one_life()
 
 func dash():
 	vel.y = 0
