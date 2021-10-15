@@ -9,7 +9,7 @@ func _physics_process(_delta):
 	move_and_slide(vel) # warning-ignore:return_value_discarded
 
 func _on_Area2D_body_entered(body):
-	if body is TileMap:
+	if body is TileMap or body is StaticBody2D:
 		die(false)
 	elif body == player:
 		player.take_damage()

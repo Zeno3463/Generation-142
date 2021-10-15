@@ -1,8 +1,9 @@
 extends Boss_Enemy_Class
 
 # special attack variables
-var fireball_reference = preload("res://scenes/Enemies/Under Cave/Fire Ball.tscn")
-export var fireball_num = 6
+var fireball_reference = preload("res://scenes/Enemies/Garden Of Poison/Fire Ball 2.tscn")
+export var fireball_num_min = 3
+export var fireball_num_max = 6
 
 func _ready():
 	randomize()
@@ -39,7 +40,7 @@ func _on_Vunerable_Area_body_entered(body):
 		boss_take_damage()
 
 func special_attack():
-	for angle in range(0, 360, int(360/fireball_num)):
+	for angle in range(0, 360, int(360/rand_range(fireball_num_min, fireball_num_max))):
 		var fireball_instance = fireball_reference.instance()
 		fireball_instance.global_position = global_position
 		fireball_instance.vel = Vector2(cos(angle), sin(angle)).normalized() * fireball_instance.speed

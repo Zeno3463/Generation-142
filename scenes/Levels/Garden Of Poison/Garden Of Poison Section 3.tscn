@@ -128,8 +128,8 @@ position = Vector2( -2863.71, -951.975 )
 
 [node name="Wall For Slime Queen" type="StaticBody2D" parent="."]
 position = Vector2( -1295.02, -1105.35 )
-collision_layer = 4
-collision_mask = 4
+collision_layer = 12
+collision_mask = 12
 
 [node name="Wall For Slime Queen" type="CollisionShape2D" parent="Wall For Slime Queen"]
 position = Vector2( -1748.16, -103.175 )
