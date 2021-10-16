@@ -178,6 +178,7 @@ shape = SubResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 34 )
+frame = 1
 playing = true
 
 [node name="Timer" type="Timer" parent="."]
@@ -192,7 +193,7 @@ shape = SubResource( 35 )
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Life Count" type="TextureProgress" parent="CanvasLayer"]
-modulate = Color( 0.811765, 0.239216, 0.156863, 1 )
+modulate = Color( 0, 0.466667, 0.054902, 1 )
 margin_left = 66.276
 margin_top = 514.834
 margin_right = 966.276

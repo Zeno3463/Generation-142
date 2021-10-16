@@ -2,7 +2,7 @@ extends Node2D
 
 export(String) var title = ""
 export(String, MULTILINE) var description = ""
-export(String, "can_double_jump", "can_dash", "can_attack") var power_up = ""
+export(String, "can_double_jump", "can_dash", "can_attack", "can_power_blast") var power_up = ""
 export(Array, NodePath) var doors_to_open = []
 
 onready var player = get_tree().get_root().get_node("/root/Player")
