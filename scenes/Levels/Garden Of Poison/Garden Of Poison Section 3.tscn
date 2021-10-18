@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://sprites/Backgrounds/Blue Forest/Layer 1.png" type="Texture" id=1]
 [ext_resource path="res://sprites/Backgrounds/Blue Forest/Layer 2.png" type="Texture" id=2]
@@ -11,6 +11,9 @@
 [ext_resource path="res://sprites/Backgrounds/Blue Forest/Layer 4.png" type="Texture" id=9]
 [ext_resource path="res://sprites/Backgrounds/Blue Forest/Layer 3.png" type="Texture" id=10]
 [ext_resource path="res://sprites/Backgrounds/Blue Forest/Layer 5.png" type="Texture" id=11]
+[ext_resource path="res://scenes/Enemies/Blue Forest/Slime Queen.tscn" type="PackedScene" id=12]
+[ext_resource path="res://scenes/Enemies/Abandoned Village/Death Skull.tscn" type="PackedScene" id=13]
+[ext_resource path="res://scenes/Enemies/Under Cave/Dark Witch.tscn" type="PackedScene" id=14]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 368.365, 21.0192 )
@@ -107,9 +110,22 @@ texture = ExtResource( 8 )
 
 [node name="Enemies" type="Node2D" parent="."]
 
-[node name="Slime Queen" parent="Enemies" instance=ExtResource( 5 )]
+[node name="Slime God" parent="Enemies" instance=ExtResource( 5 )]
 position = Vector2( -3137.13, -1009.88 )
+life_count = 5
 doors_to_open = [ NodePath("../../Doors/Door2") ]
+
+[node name="Slime Queen" parent="Enemies" instance=ExtResource( 12 )]
+position = Vector2( -3037.2, -1123.06 )
+life_count = 5
+
+[node name="Death Skull" parent="Enemies" instance=ExtResource( 13 )]
+position = Vector2( -3023.71, -969.081 )
+life_count = 5
+
+[node name="Dark Witch" parent="Enemies" instance=ExtResource( 14 )]
+position = Vector2( -3037.2, -1057.98 )
+life_count = 5
 
 [node name="Next Level Teleporters" type="Node2D" parent="."]
 
