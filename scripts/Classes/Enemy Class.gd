@@ -112,7 +112,7 @@ func die(add_num_of_hits=true, spawn_particle=true):
 # system functions
 func _on_Edge_Detector_body_exited(body):
 	# if is on edge, change the direction
-	if body != self:
+	if body != self and body is TileMap:
 		is_going_left = not is_going_left
 		
 func _physics_process(_delta):
