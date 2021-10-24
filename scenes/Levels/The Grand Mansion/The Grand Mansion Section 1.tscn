@@ -520,21 +520,6 @@ position = Vector2( 1921.32, -968.204 )
 [node name="Wizard5" parent="Enemies" instance=ExtResource( 9 )]
 position = Vector2( 1955.31, -968.193 )
 
-[node name="Armored Skeleton3" parent="Enemies" instance=ExtResource( 8 )]
-position = Vector2( 1940.49, -971.086 )
-
-[node name="Armored Skeleton4" parent="Enemies" instance=ExtResource( 8 )]
-position = Vector2( 2001.6, -973.665 )
-
-[node name="Armored Skeleton5" parent="Enemies" instance=ExtResource( 8 )]
-position = Vector2( 2028.58, -973.372 )
-
-[node name="Armored Skeleton6" parent="Enemies" instance=ExtResource( 8 )]
-position = Vector2( 2058.01, -972.952 )
-
-[node name="Armored Skeleton7" parent="Enemies" instance=ExtResource( 8 )]
-position = Vector2( 2093.33, -972.952 )
-
 [node name="Wizard6" parent="Enemies" instance=ExtResource( 9 )]
 position = Vector2( 1978.12, -968.16 )
 

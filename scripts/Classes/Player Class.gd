@@ -156,7 +156,7 @@ func power_blast():
 	for body in bodies:
 		if body is Enemy_Class and not body is Boss_Enemy_Class and not body.is_dead:
 			body.die(false)
-	while ui_controller.get_node("Lives").get_child_count() > 1:
+	while ui_controller.get_node("Lives").get_child_count() > 3:
 		ui_controller.take_out_one_life()
 
 func dash():

@@ -37,6 +37,8 @@ func _ready():
 func _physics_process(_delta):
 	if is_dead: return
 	
+	if is_on_ceiling(): vel.y = 0
+	
 	# if death skull is tired, let the death skull rest
 	if attack_count >= attack_count_before_rest:
 		stop_moving()
@@ -47,6 +49,7 @@ func _physics_process(_delta):
 			use_special_attack()
 		# else, walk towards the player
 		else:
+			if not is_on_floor(): fall()
 			if global_position.x > player.global_position.x:
 				move_left()
 			elif global_position.x < player.global_position.x:

@@ -38,7 +38,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Metroidvania-game"
+config/name="Generation 142"
 run/main_scene="res://scenes/Levels/Blue Forest/Blue Forest Section 0.tscn"
 config/icon="res://icon.png"
 
