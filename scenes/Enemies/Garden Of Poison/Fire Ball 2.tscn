@@ -55,11 +55,11 @@ texture = ExtResource( 3 )
 color = Color( 0, 0.0352941, 0.00392157, 1 )
 energy = 2.0
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Fireball Area" type="Area2D" parent="."]
 collision_layer = 10
 collision_mask = 10
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fireball Area"]
 position = Vector2( -0.0393753, 0.0396833 )
 shape = SubResource( 4 )
 
@@ -74,4 +74,4 @@ __meta__ = {
 }
 trail_length = 30
 
-[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="body_entered" from="Fireball Area" to="." method="_on_Area2D_body_entered"]

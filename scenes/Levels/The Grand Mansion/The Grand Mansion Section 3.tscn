@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=2]
+[gd_scene load_steps=41 format=2]
 
 [ext_resource path="res://scenes/Enemies/Blue Forest/Slime Queen.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Enemies/Garden Of Poison/Slime God.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://scenes/Enemies/Under Cave/Dark Witch.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/Objects/Door.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/Next Level Teleporter.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scripts/Player Stuck On Wall Handler.gd" type="Script" id=8]
 
 [sub_resource type="OccluderPolygon2D" id=1]
 polygon = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
@@ -436,6 +437,9 @@ extents = Vector2( 368.365, 21.0192 )
 [sub_resource type="RectangleShape2D" id=31]
 extents = Vector2( 10, 163.67 )
 
+[sub_resource type="RectangleShape2D" id=32]
+extents = Vector2( 184.62, 10 )
+
 [node name="Level Node" type="Node2D"]
 
 [node name="TileMap3" type="TileMap" parent="."]
@@ -511,3 +515,12 @@ shape = SubResource( 31 )
 [node name="Wall For Slime Queen4" type="CollisionShape2D" parent="Wall For Slime Queen"]
 position = Vector2( -1588.48, 45.6014 )
 shape = SubResource( 31 )
+
+[node name="Player Stuck On Wall Handler" type="Area2D" parent="."]
+position = Vector2( 1791.96, -1474.36 )
+z_index = 10
+script = ExtResource( 8 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player Stuck On Wall Handler"]
+position = Vector2( 1669.33, 318.937 )
+shape = SubResource( 32 )

@@ -1,11 +1,15 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://tilesets/default tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://sprites/Backgrounds/Blue Forest/Layer 1 (2).png" type="Texture" id=2]
 [ext_resource path="res://scenes/Objects/Door.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/Enemies/Under Cave/Dark Witch.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/Objects/Power Up.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scripts/Player Stuck On Wall Handler.gd" type="Script" id=6]
 [ext_resource path="res://scenes/Next Level Teleporter.tscn" type="PackedScene" id=11]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 148.919, 10 )
 
 [node name="Level Node" type="Node2D"]
 
@@ -64,3 +68,11 @@ title = "Attack"
 description = "Congratulations! You have found an ore of wistom. With this ore, you are granted the power to attack. You can use this ability to kill enemies and break crates. Press \"X\" to perform an attack. "
 power_up = "can_attack"
 doors_to_open = [ NodePath("../../Doors/Door") ]
+
+[node name="Player Stuck On Wall Handler" type="Area2D" parent="."]
+z_index = 10
+script = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player Stuck On Wall Handler"]
+position = Vector2( 1670.59, 312.637 )
+shape = SubResource( 1 )

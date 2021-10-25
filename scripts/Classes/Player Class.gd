@@ -152,10 +152,19 @@ func power_blast():
 	camera.start()
 	light.energy = light_energy_while_blasting
 	power_blast_particle_system.emitting = true
+	
+	# get all the areas and bodies in the player's pov
+	# destroy all areas and bodies that belong to enemies
+	var areas = power_blast_area.get_overlapping_areas()
+	for area in areas:
+		if area.name == "Fireball Area":
+			area.get_parent().die(false)
 	var bodies = power_blast_area.get_overlapping_bodies()
 	for body in bodies:
 		if body is Enemy_Class and not body is Boss_Enemy_Class and not body.is_dead:
 			body.die(false)
+	
+	# cut down the player's life by a half
 	while ui_controller.get_node("Lives").get_child_count() > 3:
 		ui_controller.take_out_one_life()
 
