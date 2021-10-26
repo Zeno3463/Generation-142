@@ -90,7 +90,7 @@ func take_out_one_life():
 		get_tree().reload_current_scene() # warning-ignore:return_value_discarded
 		
 		# reset the player position to the spawn position
-		if player: player.global_position = player_starting_pos.global_position
+		if is_instance_valid(player): player.global_position = player_starting_pos.global_position
 	else:
 		var child = $Lives.get_child($Lives.get_child_count()-1)
 		$Lives.remove_child(child)

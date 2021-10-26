@@ -1,9 +1,8 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://scripts/Bat.gd" type="Script" id=1]
 [ext_resource path="res://sprites/Enemies/Under Cave/Bat/Bat Fly.png" type="Texture" id=2]
 [ext_resource path="res://sprites/Enemies/Under Cave/Bat/Bat Die By Stomp.png" type="Texture" id=3]
-[ext_resource path="res://sprites/Enemies/Blue Forest/Slime/Slime Dead By Hit.png" type="Texture" id=4]
 [ext_resource path="res://sprites/Lighting/APfkB6p - Imgur.png" type="Texture" id=5]
 
 [sub_resource type="AtlasTexture" id=1]
@@ -18,13 +17,13 @@ region = Rect2( 16, 0, 16, 16 )
 atlas = ExtResource( 2 )
 region = Rect2( 32, 0, 16, 16 )
 
-[sub_resource type="AtlasTexture" id=4]
-atlas = ExtResource( 4 )
-region = Rect2( 32, 0, 16, 16 )
+[sub_resource type="AtlasTexture" id=13]
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 16, 16 )
 
-[sub_resource type="AtlasTexture" id=5]
-atlas = ExtResource( 4 )
-region = Rect2( 64, 0, 16, 16 )
+[sub_resource type="AtlasTexture" id=14]
+atlas = ExtResource( 3 )
+region = Rect2( 16, 0, 16, 16 )
 
 [sub_resource type="AtlasTexture" id=6]
 atlas = ExtResource( 3 )
@@ -41,7 +40,7 @@ animations = [ {
 "name": "default",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 4 ), SubResource( 5 ) ],
+"frames": [ SubResource( 13 ), SubResource( 14 ) ],
 "loop": true,
 "name": "die by hit",
 "speed": 5.0
@@ -74,7 +73,6 @@ speed = 50
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 modulate = Color( 0.482353, 0.482353, 0.482353, 1 )
 frames = SubResource( 8 )
-frame = 2
 speed_scale = 2.0
 playing = true
 

@@ -150,14 +150,14 @@ animations = [ {
 "name": "default",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ) ],
-"loop": true,
-"name": "attack",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 5 ) ],
 "loop": true,
 "name": "fall",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ) ],
+"loop": true,
+"name": "attack",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 4 ) ],
@@ -170,11 +170,6 @@ animations = [ {
 "name": "walk",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 15 ) ],
-"loop": true,
-"name": "power blast",
-"speed": 5.0
-}, {
 "frames": [ SubResource( 16 ), SubResource( 17 ) ],
 "loop": true,
 "name": "damage",
@@ -183,6 +178,11 @@ animations = [ {
 "frames": [ SubResource( 18 ), SubResource( 19 ), SubResource( 20 ), SubResource( 21 ), SubResource( 22 ), SubResource( 23 ), SubResource( 24 ), SubResource( 25 ) ],
 "loop": true,
 "name": "dead",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 15 ) ],
+"loop": true,
+"name": "power blast",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 26 ), SubResource( 27 ), SubResource( 28 ), SubResource( 29 ), SubResource( 30 ), SubResource( 31 ), SubResource( 32 ) ],
@@ -254,7 +254,7 @@ modulate = Color( 0.482353, 0.482353, 0.482353, 1 )
 position = Vector2( 0, -0.370039 )
 z_index = 1
 frames = SubResource( 33 )
-frame = 1
+frame = 3
 speed_scale = 2.0
 playing = true
 
@@ -337,6 +337,8 @@ position = Vector2( -0.275206, -1.18064 )
 shape = SubResource( 43 )
 
 [node name="Attack Area" type="Area2D" parent="."]
+collision_layer = 3
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Attack Area"]
 position = Vector2( 11.1036, 0.668331 )
