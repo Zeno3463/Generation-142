@@ -6,6 +6,7 @@ class_name Boss_Enemy_Class
 
 export var life_count = 10
 export(Array, NodePath) var doors_to_open = []
+export(NodePath) var player_stuck_on_wall_handler = null
 
 # node references
 var life_bar: TextureProgress = null
@@ -32,6 +33,12 @@ func boss_take_damage():
 
 func boss_die():
 	die()
+	
+	# destroy the player stuck on wall handler
+	if player_stuck_on_wall_handler != null:
+		get_node(player_stuck_on_wall_handler).queue_free()
+		player_stuck_on_wall_handler = null
+
 	# open up all the necessary doors after the player killed the boss
 	for door in doors_to_open:
 		get_node(door).open()

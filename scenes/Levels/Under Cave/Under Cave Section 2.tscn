@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://tilesets/default tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://sprites/Backgrounds/Blue Forest/Layer 1 (2).png" type="Texture" id=2]
@@ -10,6 +10,9 @@
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 148.919, 10 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 10, 108.636 )
 
 [node name="Level Node" type="Node2D"]
 
@@ -51,6 +54,7 @@ position = Vector2( -0.374573, 3.09021 )
 [node name="Dark Wizzard" parent="Enemies" instance=ExtResource( 4 )]
 position = Vector2( 1730.96, 441.757 )
 doors_to_open = [ NodePath("../../Doors/Door2") ]
+player_stuck_on_wall_handler = NodePath("../../Player Stuck On Wall Handler")
 
 [node name="Doors" type="Node2D" parent="."]
 
@@ -76,3 +80,11 @@ script = ExtResource( 6 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player Stuck On Wall Handler"]
 position = Vector2( 1670.59, 312.637 )
 shape = SubResource( 1 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Player Stuck On Wall Handler"]
+position = Vector2( 1512.01, 423.999 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Player Stuck On Wall Handler"]
+position = Vector2( 1830.95, 419.545 )
+shape = SubResource( 2 )
