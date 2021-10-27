@@ -37,7 +37,7 @@ func _physics_process(_delta):
 		jump()
 		
 	# double jump
-	if can_double_jump:
+	if global_variables.can_double_jump:
 		jump_count_limit = 2
 	else:
 		jump_count_limit = 1
@@ -45,19 +45,19 @@ func _physics_process(_delta):
 	# dash
 	if is_on_wall():
 		is_dashing = false
-	if can_dash and Input.is_action_just_pressed("dash") and not is_dashing and not dashed:
+	if global_variables.can_dash and Input.is_action_just_pressed("dash") and not is_dashing and not dashed:
 		dashed = true
 		start_performing_an_action("is_dashing", dash_duration)
 	if is_dashing: dash()
 	else: trail_effect.visible = false
 		
 	# attack
-	if can_attack and Input.is_action_just_pressed("attack"):
+	if global_variables.can_attack and Input.is_action_just_pressed("attack"):
 		start_performing_an_action("is_attacking", attack_duration)
 	if is_attacking: attack()
 		
 	# power blast
-	if can_power_blast and Input.is_action_just_pressed("power blast") and ui_controller.get_node("Lives").get_child_count() > ui_controller.lives:
+	if global_variables.can_power_blast and Input.is_action_just_pressed("power blast") and ui_controller.get_node("Lives").get_child_count() > ui_controller.lives:
 		start_performing_an_action("is_power_blasting", power_blast_duration)
 	if is_power_blasting: power_blast()
 		

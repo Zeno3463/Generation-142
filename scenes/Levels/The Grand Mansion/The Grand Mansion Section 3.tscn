@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=2]
+[gd_scene load_steps=42 format=2]
 
 [ext_resource path="res://scenes/Enemies/Blue Forest/Slime Queen.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Enemies/Garden Of Poison/Slime God.tscn" type="PackedScene" id=2]
@@ -440,6 +440,9 @@ extents = Vector2( 10, 163.67 )
 [sub_resource type="RectangleShape2D" id=32]
 extents = Vector2( 184.62, 10 )
 
+[sub_resource type="RectangleShape2D" id=33]
+extents = Vector2( 10, 117.968 )
+
 [node name="Level Node" type="Node2D"]
 
 [node name="TileMap3" type="TileMap" parent="."]
@@ -481,6 +484,7 @@ life_count = 5
 [node name="Dark Witch" parent="Enemies" instance=ExtResource( 5 )]
 position = Vector2( 3471.44, -1027.92 )
 life_count = 5
+player_stuck_on_wall_handler = NodePath("../../Player Stuck On Wall Handler")
 
 [node name="NPCs" type="Node2D" parent="."]
 
@@ -524,3 +528,7 @@ script = ExtResource( 8 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player Stuck On Wall Handler"]
 position = Vector2( 1669.33, 318.937 )
 shape = SubResource( 32 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Player Stuck On Wall Handler"]
+position = Vector2( 1856.14, 443.517 )
+shape = SubResource( 33 )

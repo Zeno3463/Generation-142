@@ -46,7 +46,7 @@ config/icon="res://icon.png"
 
 Player="*res://scenes/Player.tscn"
 Ui="*res://scenes/UI.tscn"
-BossFightTracker="*res://scenes/Boss Fight Tracker.tscn"
+GlobalVariables="*res://scenes/Global Variables.tscn"
 
 [display]
 

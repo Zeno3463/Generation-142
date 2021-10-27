@@ -46,10 +46,7 @@ var is_hurt = false
 var is_power_blasting = false
 
 # can perform abilities
-var can_double_jump = true
-var can_dash = true
-var can_attack = true
-var can_power_blast = true
+onready var global_variables = get_tree().get_root().get_node("/root/GlobalVariables")
 
 # node references
 var player_animated_sprite: AnimatedSprite = null
@@ -109,7 +106,7 @@ func load_animation_according_to_current_action():
 		player_animated_sprite.speed_scale = attack_animation_speed
 	elif is_power_blasting:
 		player_animated_sprite.play("power blast")
-	elif jump_count == jump_count_limit and not double_jump_animation_played and can_double_jump:
+	elif jump_count == jump_count_limit and not double_jump_animation_played and global_variables.can_double_jump:
 		player_animated_sprite.play("double jump")
 		player_animated_sprite.speed_scale = double_jump_animation_speed
 	elif is_hurt:
