@@ -5,13 +5,13 @@
 [ext_resource path="res://fonts/IndieFlower-Regular.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://sprites/Backgrounds/Blue Forest/Layer 1 (2).png" type="Texture" id=4]
 
-[sub_resource type="RectangleShape2D" id=30]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 486.502, 10 )
 
-[sub_resource type="RectangleShape2D" id=31]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 10, 285.082 )
 
-[sub_resource type="DynamicFont" id=32]
+[sub_resource type="DynamicFont" id=3]
 size = 30
 font_data = ExtResource( 3 )
 
@@ -28,15 +28,15 @@ position = Vector2( 3643.44, -916.931 )
 z_index = 10
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-shape = SubResource( 30 )
+shape = SubResource( 1 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2( -495.382, -272.845 )
-shape = SubResource( 31 )
+shape = SubResource( 2 )
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2( 493.154, -274.259 )
-shape = SubResource( 31 )
+shape = SubResource( 2 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -48,7 +48,7 @@ script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-person_a = [ "What's up with the alarm?", "What?", "Wow! What generation is it?", "Wow, these AIs are getting smarter every day. Should I prepare it for Project Heatwave?", "Ok then. I'll restart the simu-" ]
+person_a = [ "What's up with the alarm?", "What?", "Wow! What generation is it?", "Wow, these AIs are getting smarter every day. Should I prepare it for Project Eteria?", "Ok then. I'll restart the simu-" ]
 person_b = [ "I don't know, I'll go take a look. Oh my god!", "A genome got out!", "Generation 142.", "Nah, I think it is safer to let this model train for a couple more generations." ]
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control"]
@@ -66,7 +66,7 @@ margin_left = 19.0
 margin_top = 19.0
 margin_right = 507.0
 margin_bottom = 324.0
-custom_fonts/font = SubResource( 32 )
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 autowrap = true
 __meta__ = {
@@ -78,7 +78,7 @@ margin_left = 671.0
 margin_top = 338.0
 margin_right = 1023.0
 margin_bottom = 595.0
-custom_fonts/font = SubResource( 32 )
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 autowrap = true
 __meta__ = {

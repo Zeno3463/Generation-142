@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://scenes/Objects/Door.tscn" type="PackedScene" id=1]
 [ext_resource path="res://tilesets/default tileset.tres" type="TileSet" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://scenes/Next Level Teleporter.tscn" type="PackedScene" id=11]
 [ext_resource path="res://scenes/Objects/NPC.tscn" type="PackedScene" id=12]
 [ext_resource path="res://sprites/Objects/Sign.png" type="Texture" id=13]
+[ext_resource path="res://scripts/Player Stuck On Wall Handler.gd" type="Script" id=14]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 368.365, 21.0192 )
@@ -27,6 +28,12 @@ animations = [ {
 "name": "default",
 "speed": 5.0
 } ]
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 184.62, 10 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 10, 117.968 )
 
 [node name="Level Node" type="Node2D"]
 
@@ -113,6 +120,7 @@ texture = ExtResource( 9 )
 [node name="Slime Queen" parent="Enemies" instance=ExtResource( 8 )]
 position = Vector2( -1809.79, -17.7178 )
 doors_to_open = [ NodePath("../../Doors/Door2") ]
+player_stuck_on_wall_handler = NodePath("../../Player Stuck On Wall Handler2")
 
 [node name="Next Level Teleporters" type="Node2D" parent="."]
 
@@ -172,3 +180,20 @@ content = [ "Meet the Slime Queen, your first boss fight. Jump on the Slime Quee
 position = Vector2( -2011.71, 185.76 )
 frames = SubResource( 3 )
 content = [ "This is an ore of wisdom. These ores can grant you abilities to help you overcome obstacles that you previously couldn't overcome. Make sure to keep an eye out for them." ]
+
+[node name="Player Stuck On Wall Handler2" type="Area2D" parent="."]
+position = Vector2( -3451.73, -405.459 )
+z_index = 10
+script = ExtResource( 14 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player Stuck On Wall Handler2"]
+position = Vector2( 1669.33, 318.937 )
+shape = SubResource( 4 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Player Stuck On Wall Handler2"]
+position = Vector2( 1856.14, 443.517 )
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Player Stuck On Wall Handler2"]
+position = Vector2( 1541.55, 455.663 )
+shape = SubResource( 5 )

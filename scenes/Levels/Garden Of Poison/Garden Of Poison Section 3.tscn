@@ -157,6 +157,6 @@ shape = SubResource( 2 )
 [node name="Power Up" parent="Power Ups" instance=ExtResource( 6 )]
 position = Vector2( -3278.42, -968.98 )
 title = "Power Blast"
-description = "Congratulations! You have found an ore of wistom. With this ore, you are granted the power to perform a power blast. Press \"C\" to blast all enemies within your field of view. You need to be in full health to perform this ability."
+description = "Congratulations! You have found an ore of wistom. With this ore, you are granted the power to perform a power blast. Press \"C\" or \"L\" to blast all enemies within your field of view. You need to be in full health to perform this ability."
 power_up = "can_power_blast"
 doors_to_open = [ NodePath("../../Doors/Door") ]

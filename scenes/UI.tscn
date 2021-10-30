@@ -132,6 +132,7 @@ texture = ExtResource( 1 )
 expand = true
 
 [node name="Map" type="Control" parent="."]
+visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 script = ExtResource( 8 )
@@ -159,19 +160,19 @@ region_rect = Rect2( 153.351, 135.86, 38.635, 47.2205 )
 
 [node name="Garden Of Poison Section 1" type="Sprite" parent="Map/Sections"]
 modulate = Color( 0.560784, 0.560784, 0.560784, 1 )
-position = Vector2( 118.66, 216.116 )
+position = Vector2( 119.783, 261.576 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 7 )
 region_enabled = true
-region_rect = Rect2( 64.2803, 32.1146, 81.9548, 73.5221 )
+region_rect = Rect2( 66.3244, 78.5979, 78.3002, 30.1782 )
 
 [node name="Garden Of Poison Section 2" type="Sprite" parent="Map/Sections"]
 modulate = Color( 0.560784, 0.560784, 0.560784, 1 )
-position = Vector2( 118.66, 216.116 )
+position = Vector2( 118.66, 192.544 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 7 )
 region_enabled = true
-region_rect = Rect2( 64.2803, 32.1146, 81.9548, 73.5221 )
+region_rect = Rect2( 66.3223, 35.7766, 77.2807, 43.2282 )
 
 [node name="Garden Of Poison Section 3" type="Sprite" parent="Map/Sections"]
 modulate = Color( 0.560784, 0.560784, 0.560784, 1 )
@@ -183,19 +184,19 @@ region_rect = Rect2( 38.1919, 29.7429, 26.352, 39.7915 )
 
 [node name="Under Cave Section 0" type="Sprite" parent="Map/Sections"]
 modulate = Color( 0.560784, 0.560784, 0.560784, 1 )
-position = Vector2( 535.072, 474.151 )
+position = Vector2( 454.816, 478.641 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 7 )
 region_enabled = true
-region_rect = Rect2( 221.601, 180.212, 188.417, 48.2242 )
+region_rect = Rect2( 223.049, 181.488, 110.402, 48.3164 )
 
 [node name="Under Cave Section 1" type="Sprite" parent="Map/Sections"]
 modulate = Color( 0.560784, 0.560784, 0.560784, 1 )
-position = Vector2( 535.072, 474.151 )
+position = Vector2( 642.267, 478.641 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 7 )
 region_enabled = true
-region_rect = Rect2( 221.601, 180.212, 188.417, 48.2242 )
+region_rect = Rect2( 332.698, 176.231, 75.8542, 59.3316 )
 
 [node name="Under Cave Section 2" type="Sprite" parent="Map/Sections"]
 modulate = Color( 0.560784, 0.560784, 0.560784, 1 )
@@ -207,23 +208,23 @@ region_rect = Rect2( 410.282, 158.339, 39.528, 50.8594 )
 
 [node name="The Grand Mansion Section 1" type="Sprite" parent="Map/Sections"]
 modulate = Color( 0.560784, 0.560784, 0.560784, 1 )
-position = Vector2( 777.898, 242.047 )
+position = Vector2( 722.399, 247.933 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 7 )
 region_enabled = true
-region_rect = Rect2( 406.288, 45.6993, 130.708, 77.6481 )
+region_rect = Rect2( 410.552, 48.0039, 66.5735, 80.005 )
 
 [node name="The Grand Mansion Section 2" type="Sprite" parent="Map/Sections"]
 modulate = Color( 0.560784, 0.560784, 0.560784, 1 )
-position = Vector2( 777.898, 242.047 )
+position = Vector2( 850.521, 237.92 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 7 )
 region_enabled = true
-region_rect = Rect2( 406.288, 45.6993, 130.708, 77.6481 )
+region_rect = Rect2( 477.418, 34.8644, 60.7337, 95.7724 )
 
 [node name="The Grand Mansion Section 3" type="Sprite" parent="Map/Sections"]
 modulate = Color( 0.560784, 0.560784, 0.560784, 1 )
-position = Vector2( 966.065, 242.681 )
+position = Vector2( 962.701, 242.681 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 7 )
 region_enabled = true
@@ -253,6 +254,13 @@ texture = ExtResource( 7 )
 region_enabled = true
 region_rect = Rect2( 316.319, 70.4946, 82.2405, 55.3542 )
 
+[node name="Final Scene" type="Sprite" parent="Map/Sections"]
+modulate = Color( 0.560784, 0.560784, 0.560784, 1 )
+position = Vector2( 574.71, 270.659 )
+scale = Vector2( 2, 2 )
+region_enabled = true
+region_rect = Rect2( 316.319, 70.4946, 82.2405, 55.3542 )
+
 [node name="Backgrounds" type="Node2D" parent="Map"]
 
 [node name="Sprite" type="Sprite" parent="Map/Backgrounds"]
@@ -263,7 +271,6 @@ z_index = -1
 texture = ExtResource( 6 )
 
 [node name="Scene Transtion" type="Control" parent="."]
-visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 __meta__ = {
@@ -298,7 +305,7 @@ position = Vector2( 500, 200 )
 scale = Vector2( 15, 15 )
 z_index = 1
 frames = SubResource( 7 )
-frame = 1
+frame = 3
 playing = true
 
 [node name="Effects" type="Node2D" parent="Power Up Explainer"]

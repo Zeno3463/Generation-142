@@ -163,6 +163,6 @@ position = Vector2( 184.875, -108.122 )
 [node name="Power Up" parent="Power Ups" instance=ExtResource( 6 )]
 position = Vector2( -491.556, -251.808 )
 title = "Dash"
-description = "Congratulations! You have found an ore of wistom. With this ore, you are granted the power to perform a dash. Press \"Z\" to perform a dash."
+description = "Congratulations! You have found an ore of wistom. With this ore, you are granted the power to perform a dash. Press \"Z\" or \"J\" to perform a dash."
 power_up = "can_dash"
 doors_to_open = [ NodePath("../../Doors/Door"), NodePath("../../Doors/Door2") ]
