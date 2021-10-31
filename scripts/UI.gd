@@ -29,7 +29,6 @@ var filable_heart_sprite = preload("res://sprites/UIs/Fillable Heart.png")
 func _ready():
 	if OS.get_name() == "Windows": OS.window_fullscreen = true
 	reset_lives()
-	display_current_level("Section 1: Green Forest")
 	
 func _process(_delta):
 	# if the player presses F11, exit full screen mode

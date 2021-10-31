@@ -305,7 +305,7 @@ position = Vector2( 500, 200 )
 scale = Vector2( 15, 15 )
 z_index = 1
 frames = SubResource( 7 )
-frame = 3
+frame = 2
 playing = true
 
 [node name="Effects" type="Node2D" parent="Power Up Explainer"]
@@ -378,7 +378,6 @@ margin_right = 1020.0
 margin_bottom = 598.0
 custom_fonts/font = SubResource( 11 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
-text = "Green Forest"
 autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
