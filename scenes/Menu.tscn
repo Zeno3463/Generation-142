@@ -1,0 +1,189 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://sprites/Menu/Background Layer 2.png" type="Texture" id=1]
+[ext_resource path="res://sprites/Menu/Background Layer 1.png" type="Texture" id=2]
+[ext_resource path="res://sprites/Backgrounds/Blue Forest/Layer 5.png" type="Texture" id=3]
+[ext_resource path="res://sprites/Lighting/APfkB6p - Imgur.png" type="Texture" id=4]
+[ext_resource path="res://sprites/Lighting/White Square.png" type="Texture" id=5]
+[ext_resource path="res://fonts/IndieFlower-Regular.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://tilesets/default tileset.tres" type="TileSet" id=7]
+[ext_resource path="res://scripts/Menu.gd" type="Script" id=8]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 256, 150 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 1 )
+region = Rect2( 256, 0, 256, 150 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 1 )
+region = Rect2( 512, 0, 256, 150 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 1 )
+region = Rect2( 768, 0, 256, 150 )
+
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="DynamicFont" id=6]
+size = 100
+font_data = ExtResource( 6 )
+
+[sub_resource type="StyleBoxEmpty" id=9]
+
+[sub_resource type="StyleBoxEmpty" id=10]
+
+[sub_resource type="StyleBoxEmpty" id=8]
+
+[sub_resource type="DynamicFont" id=7]
+size = 50
+font_data = ExtResource( 6 )
+
+[node name="Menu" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+script = ExtResource( 8 )
+
+[node name="Background" type="Control" parent="CanvasLayer"]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="Sprite" parent="CanvasLayer/Background"]
+position = Vector2( 511.182, 300.882 )
+scale = Vector2( 4, 4 )
+z_index = 1
+texture = ExtResource( 2 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="CanvasLayer/Background"]
+position = Vector2( 511.182, 300.882 )
+scale = Vector2( 4, 4 )
+z_index = 1
+frames = SubResource( 5 )
+frame = 1
+speed_scale = 2.0
+playing = true
+
+[node name="Sprite" type="Sprite" parent="CanvasLayer/Background"]
+position = Vector2( 450.115, 300.869 )
+scale = Vector2( 3.11827, 3.11827 )
+texture = ExtResource( 3 )
+
+[node name="Sprite2" type="Sprite" parent="CanvasLayer/Background"]
+position = Vector2( 1346.78, 300.869 )
+scale = Vector2( 3.11827, 3.11827 )
+texture = ExtResource( 3 )
+
+[node name="Effects" type="Node2D" parent="CanvasLayer/Background"]
+
+[node name="Light2D" type="Light2D" parent="CanvasLayer/Background/Effects"]
+position = Vector2( 221.357, 400.788 )
+scale = Vector2( 1, 1 )
+z_index = 2
+texture = ExtResource( 4 )
+
+[node name="Shadow" type="Sprite" parent="CanvasLayer/Background/Effects"]
+modulate = Color( 0.133333, 0.133333, 0.133333, 0.45098 )
+position = Vector2( 512.524, 298.264 )
+scale = Vector2( 33.0327, 19.6415 )
+texture = ExtResource( 5 )
+
+[node name="Texts and Buttons" type="Control" parent="CanvasLayer"]
+margin_right = 40.0
+margin_bottom = 40.0
+rect_pivot_offset = Vector2( -323.247, 20 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CanvasLayer/Texts and Buttons"]
+margin_left = 401.458
+margin_top = 4.13278
+margin_right = 1016.46
+margin_bottom = 132.133
+custom_fonts/font = SubResource( 6 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Generation 142"
+autowrap = true
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Continue" type="Button" parent="CanvasLayer/Texts and Buttons"]
+margin_left = 826.111
+margin_top = 212.114
+margin_right = 998.111
+margin_bottom = 292.114
+custom_styles/focus = SubResource( 9 )
+custom_styles/disabled = SubResource( 10 )
+custom_styles/normal = SubResource( 8 )
+custom_fonts/font = SubResource( 7 )
+text = "Continue"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="New Game" type="Button" parent="CanvasLayer/Texts and Buttons"]
+margin_left = 772.172
+margin_top = 283.93
+margin_right = 998.172
+margin_bottom = 363.93
+custom_styles/focus = SubResource( 9 )
+custom_styles/normal = SubResource( 8 )
+custom_fonts/font = SubResource( 7 )
+text = "New Game"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Settings" type="Button" parent="CanvasLayer/Texts and Buttons"]
+margin_left = 772.172
+margin_top = 360.888
+margin_right = 998.172
+margin_bottom = 440.888
+custom_styles/focus = SubResource( 9 )
+custom_styles/normal = SubResource( 8 )
+custom_fonts/font = SubResource( 7 )
+text = "Settings"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Quit" type="Button" parent="CanvasLayer/Texts and Buttons"]
+margin_left = 772.172
+margin_top = 446.999
+margin_right = 998.172
+margin_bottom = 526.999
+custom_styles/focus = SubResource( 9 )
+custom_styles/normal = SubResource( 8 )
+custom_fonts/font = SubResource( 7 )
+text = "Quit"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TileMap" type="TileMap" parent="."]
+position = Vector2( 7, 0 )
+z_index = 2
+tile_set = ExtResource( 7 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( -131073, 3, 0, -65538, 3, 0, -131072, 3, 0, -2, 3, 0, -65536, 3, 0, 65534, 3, 0, 0, 3, 0, 131071, 3, 0 )
+
+[connection signal="button_down" from="CanvasLayer/Texts and Buttons/Continue" to="CanvasLayer" method="_on_Continue_button_down"]
+[connection signal="button_down" from="CanvasLayer/Texts and Buttons/New Game" to="CanvasLayer" method="_on_New_Game_button_down"]

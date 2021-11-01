@@ -39,7 +39,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Generation 142"
-run/main_scene="res://scenes/Levels/Blue Forest/Blue Forest Section 0.tscn"
+run/main_scene="res://scenes/Menu.tscn"
 config/use_custom_user_dir=true
 config/icon="res://icon.png"
 

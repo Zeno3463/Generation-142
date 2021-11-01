@@ -21,8 +21,9 @@ var curr_section_starting_pos = Vector2.ZERO
 var curr_section_name = "Section 1: Green Forest"
 var visited_section = ["res://scenes/Levels/Blue Forest/Blue Forest Section 0.tscn"]
 
-func _ready():
-	load_game()
+func clear_stored_data():
+	var dir = Directory.new()
+	dir.remove("user://save.dat")
 
 func save_game():
 	
