@@ -89,7 +89,14 @@ func take_out_one_life():
 		get_tree().reload_current_scene() # warning-ignore:return_value_discarded
 		
 		# reset the player position to the spawn position
-		if is_instance_valid(player) and is_instance_valid(player_starting_pos): player.global_position = player_starting_pos.global_position
+		if is_instance_valid(player) and is_instance_valid(player_starting_pos):
+			player.get_node("Camera2D").smoothing_enabled = false
+			player.global_position = player_starting_pos.global_position
+			
+			# snap the camera to the player
+			player.get_node("Camera2D").position = Vector2.ZERO
+			yield(get_tree().create_timer(0.1), "timeout")
+			player.get_node("Camera2D").smoothing_enabled = true
 	else:
 		var child = $Lives.get_child($Lives.get_child_count()-1)
 		$Lives.remove_child(child)

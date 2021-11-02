@@ -75,4 +75,10 @@ func load_game():
 			yield(get_tree().create_timer(0.01), "timeout")
 			
 			# teleport the player to the level starting pos
+			get_parent().get_node("/root/Player/Camera2D").smoothing_enabled = false
 			get_parent().get_node("/root/Player").global_position = get_parent().get_node("/root/Level Node/Player Starting Pos").global_position
+			
+			# snap the camera to the player
+			get_parent().get_node("/root/Player/Camera2D").position = Vector2.ZERO
+			yield(get_tree().create_timer(0.1), "timeout")
+			get_parent().get_node("/root/Player/Camera2D").smoothing_enabled = true

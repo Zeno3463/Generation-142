@@ -15,7 +15,7 @@ extents = Vector2( 10, 285.082 )
 size = 30
 font_data = ExtResource( 3 )
 
-[node name="Final Scene" type="Node2D"]
+[node name="Level Node" type="Node2D"]
 
 [node name="Layer 12" type="Sprite" parent="."]
 modulate = Color( 0, 0, 0, 1 )
@@ -84,3 +84,6 @@ autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Player Starting Pos" type="Position2D" parent="."]
+position = Vector2( 3646, -1078.26 )
