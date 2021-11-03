@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://tilesets/default tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://sprites/Backgrounds/Blue Forest/Layer 1 (2).png" type="Texture" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://scenes/Objects/Crate.tscn" type="PackedScene" id=6]
 [ext_resource path="res://sprites/Objects/Sign.png" type="Texture" id=7]
 [ext_resource path="res://sprites/Lighting/APfkB6p - Imgur.png" type="Texture" id=8]
+[ext_resource path="res://scenes/Checkpoint.tscn" type="PackedScene" id=9]
 [ext_resource path="res://scenes/Next Level Teleporter.tscn" type="PackedScene" id=11]
 
 [sub_resource type="AtlasTexture" id=1]
@@ -91,7 +92,6 @@ position = Vector2( -1.04089, 9.93918 )
 [node name="NPC" parent="NPCs" instance=ExtResource( 3 )]
 position = Vector2( 1344.21, 496.012 )
 frames = SubResource( 3 )
-frame = 1
 content = [ "Oh, hello there! It is my pleasure to finally meet you. You might not know who I am, so allow me to introduce myself.", "I am the signwriter. I wrote all those signs you encountered earlier. You see, I am just like you. I was also put into this world without knowing why. However, I am fortunate enough to realize that we can stomp on enemies to kill them.", "I wrote my finds down on a sign so that those who come after me will know. I continued studying this world, trying to figure out why we were here in the first place.", "I ended up here, in the middle of this Under Cave. I wished to go further, but the obstacle ahead of me was too difficult to pass. My journey ended here, but not yours. You are the first one I met that survived for this long. I believe that you can overcome the obstacle that I cannot overcome.", "Good luck, my friend." ]
 
 [node name="NPC2" parent="NPCs" instance=ExtResource( 3 )]
@@ -216,3 +216,8 @@ position = Vector2( 952.108, 410.872 )
 scale = Vector2( 0.109514, 0.109514 )
 texture = ExtResource( 8 )
 color = Color( 1, 0.937255, 0, 1 )
+
+[node name="Checkpoints" type="Node2D" parent="."]
+
+[node name="Checkpoint" parent="Checkpoints" instance=ExtResource( 9 )]
+position = Vector2( 1124.22, 665.012 )

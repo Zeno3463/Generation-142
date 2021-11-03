@@ -34,6 +34,7 @@ func save_game():
 		"can_dash": can_dash,
 		"can_attack": can_attack,
 		"can_power_blast": can_power_blast,
+		"curr_section_starting_pos": curr_section_starting_pos,
 		"curr_section_path": curr_section_path,
 		"curr_section_name": curr_section_name,
 		"visited_section": visited_section,
@@ -60,6 +61,7 @@ func load_game():
 			can_dash = data["can_dash"]
 			can_attack = data["can_attack"]
 			can_power_blast = data["can_power_blast"]
+			curr_section_starting_pos = data["curr_section_starting_pos"]
 			curr_section_path = data["curr_section_path"]
 			curr_section_name = data["curr_section_name"]
 			visited_section = data["visited_section"]
@@ -76,7 +78,7 @@ func load_game():
 			
 			# teleport the player to the level starting pos
 			get_parent().get_node("/root/Player/Camera2D").smoothing_enabled = false
-			get_parent().get_node("/root/Player").global_position = get_parent().get_node("/root/Level Node/Player Starting Pos").global_position
+			get_parent().get_node("/root/Player").global_position = curr_section_starting_pos
 			
 			# snap the camera to the player
 			get_parent().get_node("/root/Player/Camera2D").position = Vector2.ZERO

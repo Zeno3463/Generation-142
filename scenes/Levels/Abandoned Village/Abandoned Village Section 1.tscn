@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://sprites/Backgrounds/Blue Forest/Layer 1.png" type="Texture" id=1]
 [ext_resource path="res://sprites/Backgrounds/Blue Forest/Layer 2.png" type="Texture" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://sprites/Backgrounds/Blue Forest/Layer 3.png" type="Texture" id=10]
 [ext_resource path="res://sprites/Backgrounds/Blue Forest/Layer 5.png" type="Texture" id=11]
 [ext_resource path="res://sprites/Objects/Sign.png" type="Texture" id=12]
+[ext_resource path="res://scenes/Checkpoint.tscn" type="PackedScene" id=13]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -133,6 +134,12 @@ position = Vector2( -1573.14, -393.863 )
 [node name="Armored Skeleton2" parent="Enemies" instance=ExtResource( 4 )]
 position = Vector2( -994.979, -428.003 )
 
+[node name="Skeleton5" parent="Enemies" instance=ExtResource( 5 )]
+position = Vector2( -1458.21, -268.214 )
+
+[node name="Skeleton6" parent="Enemies" instance=ExtResource( 5 )]
+position = Vector2( -1627.52, -250.983 )
+
 [node name="Next Level Teleporters" type="Node2D" parent="."]
 
 [node name="Next Level Teleporter4" parent="Next Level Teleporters" instance=ExtResource( 7 )]
@@ -166,11 +173,13 @@ position = Vector2( -1112.03, -422.069 )
 frames = SubResource( 1 )
 content = [ "Not all enemies can be killed by stomping on them." ]
 
+[node name="Checkpoints" type="Node2D" parent="."]
+
+[node name="Checkpoint" parent="Checkpoints" instance=ExtResource( 13 )]
+position = Vector2( -1287.71, -246.956 )
+
+[node name="Checkpoint2" parent="Checkpoints" instance=ExtResource( 13 )]
+position = Vector2( -735.585, -422.935 )
+
 [node name="Player Starting Pos" type="Position2D" parent="."]
 position = Vector2( -1212.66, -262.46 )
-
-[node name="Skeleton" parent="." instance=ExtResource( 5 )]
-position = Vector2( -1458.21, -268.214 )
-
-[node name="Skeleton2" parent="." instance=ExtResource( 5 )]
-position = Vector2( -1627.52, -250.983 )

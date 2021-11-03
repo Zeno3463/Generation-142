@@ -15,11 +15,8 @@ func _on_Next_Level_Teleporter_body_entered(body):
 			# check if the player had already fought the boss
 			if global_variables.player_has_entered_scene[next_section_path]:
 				return
-			else:
-				global_variables.player_has_entered_scene[next_section_path] = true
 		
-		global_variables.curr_section_path = next_section_path
-		if next_level_name != "":
+		if next_level_name != "" and not is_boss_fight:
 			global_variables.curr_section_name = next_level_name
 		
 		if not next_section_path in global_variables.visited_section:

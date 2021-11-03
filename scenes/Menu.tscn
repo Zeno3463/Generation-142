@@ -37,17 +37,17 @@ animations = [ {
 size = 100
 font_data = ExtResource( 6 )
 
-[sub_resource type="StyleBoxEmpty" id=11]
-
-[sub_resource type="StyleBoxEmpty" id=12]
-
 [sub_resource type="StyleBoxEmpty" id=7]
 
 [sub_resource type="StyleBoxEmpty" id=8]
 
 [sub_resource type="StyleBoxEmpty" id=9]
 
-[sub_resource type="DynamicFont" id=10]
+[sub_resource type="StyleBoxEmpty" id=10]
+
+[sub_resource type="StyleBoxEmpty" id=11]
+
+[sub_resource type="DynamicFont" id=12]
 size = 50
 font_data = ExtResource( 6 )
 
@@ -74,7 +74,7 @@ position = Vector2( 511.182, 300.882 )
 scale = Vector2( 4, 4 )
 z_index = 1
 frames = SubResource( 5 )
-frame = 3
+frame = 1
 speed_scale = 2.0
 playing = true
 
@@ -128,12 +128,12 @@ margin_left = 826.111
 margin_top = 212.114
 margin_right = 998.111
 margin_bottom = 292.114
-custom_styles/hover = SubResource( 11 )
-custom_styles/pressed = SubResource( 12 )
-custom_styles/focus = SubResource( 7 )
-custom_styles/disabled = SubResource( 8 )
-custom_styles/normal = SubResource( 9 )
-custom_fonts/font = SubResource( 10 )
+custom_styles/hover = SubResource( 7 )
+custom_styles/pressed = SubResource( 8 )
+custom_styles/focus = SubResource( 9 )
+custom_styles/disabled = SubResource( 10 )
+custom_styles/normal = SubResource( 11 )
+custom_fonts/font = SubResource( 12 )
 custom_colors/font_color_disabled = Color( 0.439216, 0.439216, 0.439216, 0.317647 )
 custom_colors/font_color = Color( 0.592157, 0.592157, 0.592157, 1 )
 custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
@@ -149,11 +149,11 @@ margin_left = 772.172
 margin_top = 283.93
 margin_right = 998.172
 margin_bottom = 363.93
-custom_styles/hover = SubResource( 11 )
-custom_styles/pressed = SubResource( 12 )
-custom_styles/focus = SubResource( 7 )
-custom_styles/normal = SubResource( 9 )
-custom_fonts/font = SubResource( 10 )
+custom_styles/hover = SubResource( 7 )
+custom_styles/pressed = SubResource( 8 )
+custom_styles/focus = SubResource( 9 )
+custom_styles/normal = SubResource( 11 )
+custom_fonts/font = SubResource( 12 )
 custom_colors/font_color_disabled = Color( 0.439216, 0.439216, 0.439216, 0.317647 )
 custom_colors/font_color = Color( 0.592157, 0.592157, 0.592157, 1 )
 custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
@@ -169,11 +169,11 @@ margin_left = 772.172
 margin_top = 360.888
 margin_right = 998.172
 margin_bottom = 440.888
-custom_styles/hover = SubResource( 11 )
-custom_styles/pressed = SubResource( 12 )
-custom_styles/focus = SubResource( 7 )
-custom_styles/normal = SubResource( 9 )
-custom_fonts/font = SubResource( 10 )
+custom_styles/hover = SubResource( 7 )
+custom_styles/pressed = SubResource( 8 )
+custom_styles/focus = SubResource( 9 )
+custom_styles/normal = SubResource( 11 )
+custom_fonts/font = SubResource( 12 )
 custom_colors/font_color_disabled = Color( 0.439216, 0.439216, 0.439216, 0.317647 )
 custom_colors/font_color = Color( 0.592157, 0.592157, 0.592157, 1 )
 custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
@@ -189,11 +189,11 @@ margin_left = 772.172
 margin_top = 446.999
 margin_right = 998.172
 margin_bottom = 526.999
-custom_styles/hover = SubResource( 11 )
-custom_styles/pressed = SubResource( 12 )
-custom_styles/focus = SubResource( 7 )
-custom_styles/normal = SubResource( 9 )
-custom_fonts/font = SubResource( 10 )
+custom_styles/hover = SubResource( 7 )
+custom_styles/pressed = SubResource( 8 )
+custom_styles/focus = SubResource( 9 )
+custom_styles/normal = SubResource( 11 )
+custom_fonts/font = SubResource( 12 )
 custom_colors/font_color_disabled = Color( 0.439216, 0.439216, 0.439216, 0.317647 )
 custom_colors/font_color = Color( 0.592157, 0.592157, 0.592157, 1 )
 custom_colors/font_color_hover = Color( 1, 1, 1, 1 )

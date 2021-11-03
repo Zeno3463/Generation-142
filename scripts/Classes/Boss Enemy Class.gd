@@ -11,6 +11,7 @@ export(NodePath) var player_stuck_on_wall_handler = null
 # node references
 var life_bar: TextureProgress = null
 var damage_animation_name = ""
+onready var global_variables = get_tree().get_root().get_node("/root/GlobalVariables")
 
 # private variables
 onready var life = life_count
@@ -33,6 +34,10 @@ func boss_take_damage():
 
 func boss_die():
 	die()
+	
+	# notify the game that player had already won the boss fight
+	global_variables.player_has_entered_scene[get_tree().current_scene.filename] = true
+	global_variables.save_game()
 	
 	# destroy the player stuck on wall handler
 	if player_stuck_on_wall_handler != null:

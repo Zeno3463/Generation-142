@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://tilesets/default tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://sprites/Backgrounds/Blue Forest/Layer 1 (2).png" type="Texture" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://scenes/Objects/NPC.tscn" type="PackedScene" id=6]
 [ext_resource path="res://sprites/Objects/Sign.png" type="Texture" id=7]
 [ext_resource path="res://sprites/Lighting/APfkB6p - Imgur.png" type="Texture" id=8]
+[ext_resource path="res://scenes/Checkpoint.tscn" type="PackedScene" id=9]
 [ext_resource path="res://scenes/Next Level Teleporter.tscn" type="PackedScene" id=11]
 
 [sub_resource type="SpriteFrames" id=1]
@@ -167,3 +168,8 @@ position = Vector2( -568.232, 539.385 )
 scale = Vector2( 0.109514, 0.109514 )
 texture = ExtResource( 8 )
 color = Color( 1, 0.937255, 0, 1 )
+
+[node name="Checkpoints" type="Node2D" parent="."]
+
+[node name="Checkpoint" parent="Checkpoints" instance=ExtResource( 9 )]
+position = Vector2( 152.941, 744.968 )

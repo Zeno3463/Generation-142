@@ -18,6 +18,7 @@ var is_displaying_level = false
 
 # node references
 onready var player = get_tree().get_root().get_node("/root/Player")
+onready var global_variables = get_tree().get_root().get_node("/root/GlobalVariables")
 
 # sprite references
 var heart_sprite = preload("res://sprites/UIs/Heart.png")
@@ -64,10 +65,6 @@ func add_one_life():
 func take_out_one_life():
 	# if the player ran out of lives, restart the scene
 	if $Lives.get_child_count() <= 1:
-		
-		# get the player respawn pos of the scene
-		var player_starting_pos = get_tree().get_root().get_node("/root/Level Node/Player Starting Pos")
-		
 		player.is_dead = true
 		
 		# play player dead animation and wait for it to finish before executing the next line
@@ -86,12 +83,12 @@ func take_out_one_life():
 		reset_lives()
 		
 		# reload the scene
-		get_tree().reload_current_scene() # warning-ignore:return_value_discarded
+		get_tree().change_scene(global_variables.curr_section_path) # warning-ignore:return_value_discarded
 		
 		# reset the player position to the spawn position
-		if is_instance_valid(player) and is_instance_valid(player_starting_pos):
+		if is_instance_valid(player):
 			player.get_node("Camera2D").smoothing_enabled = false
-			player.global_position = player_starting_pos.global_position
+			player.global_position = global_variables.curr_section_starting_pos
 			
 			# snap the camera to the player
 			player.get_node("Camera2D").position = Vector2.ZERO
