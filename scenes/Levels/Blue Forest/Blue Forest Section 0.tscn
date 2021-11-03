@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://tilesets/default tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://sprites/Backgrounds/Blue Forest/Layer 1 (2).png" type="Texture" id=2]
@@ -12,7 +12,6 @@
 [ext_resource path="res://scenes/Objects/Crate.tscn" type="PackedScene" id=10]
 [ext_resource path="res://scenes/Next Level Teleporter.tscn" type="PackedScene" id=11]
 [ext_resource path="res://sprites/Objects/Sign.png" type="Texture" id=12]
-[ext_resource path="res://scenes/Checkpoint.tscn" type="PackedScene" id=13]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -231,10 +230,5 @@ position = Vector2( -1216.78, 10.0784 )
 
 [node name="Crate7" parent="Crates" instance=ExtResource( 10 )]
 position = Vector2( -1216.85, -2.91466 )
-
-[node name="Checkpoints" type="Node2D" parent="."]
-
-[node name="Checkpoint" parent="Checkpoints" instance=ExtResource( 13 )]
-position = Vector2( -883.736, -54.9913 )
 
 [node name="Player Starting Pos" type="Position2D" parent="."]

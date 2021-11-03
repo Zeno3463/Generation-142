@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=2]
+[gd_scene load_steps=42 format=2]
 
 [ext_resource path="res://scenes/Enemies/Blue Forest/Slime.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Enemies/Under Cave/Bat.tscn" type="PackedScene" id=2]
@@ -11,7 +11,6 @@
 [ext_resource path="res://scenes/Enemies/Under Cave/Wizard.tscn" type="PackedScene" id=9]
 [ext_resource path="res://sprites/Backgrounds/Grand Mansion/Layer 1.png" type="Texture" id=10]
 [ext_resource path="res://sprites/Backgrounds/Blue Forest/Layer 5.png" type="Texture" id=11]
-[ext_resource path="res://scenes/Checkpoint.tscn" type="PackedScene" id=12]
 [ext_resource path="res://scenes/Objects/Crate.tscn" type="PackedScene" id=13]
 
 [sub_resource type="OccluderPolygon2D" id=1]
@@ -628,8 +627,3 @@ position = Vector2( 763.504, -663.663 )
 
 [node name="Player Starting Pos" type="Position2D" parent="."]
 position = Vector2( 1029.89, -597.446 )
-
-[node name="Checkpoints" type="Node2D" parent="."]
-
-[node name="Checkpoint" parent="Checkpoints" instance=ExtResource( 12 )]
-position = Vector2( 1888.76, -662.977 )

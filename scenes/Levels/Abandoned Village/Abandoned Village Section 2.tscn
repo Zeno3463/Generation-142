@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://sprites/Backgrounds/Blue Forest/Layer 1.png" type="Texture" id=1]
 [ext_resource path="res://sprites/Backgrounds/Blue Forest/Layer 2.png" type="Texture" id=2]
@@ -13,7 +13,6 @@
 [ext_resource path="res://sprites/Backgrounds/Blue Forest/Layer 5.png" type="Texture" id=11]
 [ext_resource path="res://sprites/Objects/Sign.png" type="Texture" id=12]
 [ext_resource path="res://scenes/Objects/Crate.tscn" type="PackedScene" id=13]
-[ext_resource path="res://scenes/Checkpoint.tscn" type="PackedScene" id=14]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -216,14 +215,6 @@ position = Vector2( 750.422, -663.588 )
 
 [node name="Crate12" parent="Crates" instance=ExtResource( 13 )]
 position = Vector2( 763.504, -663.663 )
-
-[node name="Checkpoints" type="Node2D" parent="."]
-
-[node name="Checkpoint" parent="Checkpoints" instance=ExtResource( 14 )]
-position = Vector2( 562.471, -247.001 )
-
-[node name="Checkpoint2" parent="Checkpoints" instance=ExtResource( 14 )]
-position = Vector2( 145.488, -422.976 )
 
 [node name="Player Starting Pos" type="Position2D" parent="."]
 position = Vector2( 201.242, -251.155 )
