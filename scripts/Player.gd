@@ -12,6 +12,12 @@ func _ready():
 	power_blast_area = $"Power Blast Area"
 	power_blast_particle_system = $"Effects/Power Blast/CPUParticles2D"
 	light = $Effects/Light/Light2D
+	audio_player = $Effects/Sound/AudioStreamPlayer
+	jump_sound = preload("res://sound effects/Jump.wav")
+	hurt_sound = preload("res://sound effects/Player Hurt.wav")
+	power_blast_sound = preload("res://sound effects/Power Blast.wav")
+	attack_sound = preload("res://sound effects/Attack.wav")
+	dash_sound = preload("res://sound effects/Dash.wav")
 	
 	# connect the signals
 	$"Attack Area".connect("body_entered", self, "_on_Attack_Area_body_entered") # warning-ignore:return_value_discarded
@@ -46,6 +52,8 @@ func _physics_process(_delta):
 	if is_on_wall():
 		is_dashing = false
 	if global_variables.can_dash and Input.is_action_just_pressed("dash") and not is_dashing and not dashed:
+		audio_player.stream = dash_sound
+		audio_player.play()
 		dashed = true
 		start_performing_an_action("is_dashing", dash_duration)
 	if is_dashing: dash()
@@ -54,6 +62,8 @@ func _physics_process(_delta):
 	# attack
 	if global_variables.can_attack and Input.is_action_just_pressed("attack"):
 		start_performing_an_action("is_attacking", attack_duration)
+		audio_player.stream = attack_sound
+		audio_player.play()
 	if is_attacking: attack()
 		
 	# power blast

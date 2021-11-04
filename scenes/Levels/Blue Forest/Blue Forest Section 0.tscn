@@ -203,11 +203,6 @@ position = Vector2( -913.775, 153.969 )
 frames = SubResource( 1 )
 content = [ "Can't reach? Don't worry about this part yet. You will be able to figure this out soon." ]
 
-[node name="NPC10" parent="NPCs" instance=ExtResource( 8 )]
-position = Vector2( -852.744, -54.0187 )
-frames = SubResource( 1 )
-content = [ "This is a checkpoint. If you die, you respawn here. Touch it to activate the checkpoint." ]
-
 [node name="Crates" type="Node2D" parent="."]
 
 [node name="Crate" parent="Crates" instance=ExtResource( 10 )]

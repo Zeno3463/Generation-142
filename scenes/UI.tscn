@@ -270,6 +270,8 @@ scale = Vector2( 41.1751, 24.0814 )
 z_index = -1
 texture = ExtResource( 6 )
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Map"]
+
 [node name="Scene Transtion" type="Control" parent="."]
 margin_right = 40.0
 margin_bottom = 40.0
@@ -305,7 +307,6 @@ position = Vector2( 500, 200 )
 scale = Vector2( 15, 15 )
 z_index = 1
 frames = SubResource( 7 )
-frame = 2
 playing = true
 
 [node name="Effects" type="Node2D" parent="Power Up Explainer"]

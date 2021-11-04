@@ -74,7 +74,6 @@ position = Vector2( 511.182, 300.882 )
 scale = Vector2( 4, 4 )
 z_index = 1
 frames = SubResource( 5 )
-frame = 1
 speed_scale = 2.0
 playing = true
 
@@ -101,7 +100,7 @@ position = Vector2( 512.524, 298.264 )
 scale = Vector2( 33.0327, 19.6415 )
 texture = ExtResource( 5 )
 
-[node name="Texts and Buttons" type="Control" parent="CanvasLayer"]
+[node name="Menu" type="Control" parent="CanvasLayer"]
 margin_right = 40.0
 margin_bottom = 40.0
 rect_pivot_offset = Vector2( -323.247, 20 )
@@ -109,7 +108,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="CanvasLayer/Texts and Buttons"]
+[node name="Label" type="Label" parent="CanvasLayer/Menu"]
 margin_left = 401.458
 margin_top = 4.13278
 margin_right = 1016.46
@@ -123,7 +122,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Continue" type="Button" parent="CanvasLayer/Texts and Buttons"]
+[node name="Continue" type="Button" parent="CanvasLayer/Menu"]
 margin_left = 826.111
 margin_top = 212.114
 margin_right = 998.111
@@ -144,7 +143,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="New Game" type="Button" parent="CanvasLayer/Texts and Buttons"]
+[node name="New Game" type="Button" parent="CanvasLayer/Menu"]
 margin_left = 772.172
 margin_top = 283.93
 margin_right = 998.172
@@ -164,7 +163,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Settings" type="Button" parent="CanvasLayer/Texts and Buttons"]
+[node name="Settings" type="Button" parent="CanvasLayer/Menu"]
 margin_left = 772.172
 margin_top = 360.888
 margin_right = 998.172
@@ -184,7 +183,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Quit" type="Button" parent="CanvasLayer/Texts and Buttons"]
+[node name="Quit" type="Button" parent="CanvasLayer/Menu"]
 margin_left = 772.172
 margin_top = 446.999
 margin_right = 998.172
@@ -212,5 +211,6 @@ cell_size = Vector2( 16, 16 )
 format = 1
 tile_data = PoolIntArray( -131073, 3, 0, -65538, 3, 0, -131072, 3, 0, -2, 3, 0, -65536, 3, 0, 65534, 3, 0, 0, 3, 0, 131071, 3, 0 )
 
-[connection signal="button_down" from="CanvasLayer/Texts and Buttons/Continue" to="CanvasLayer" method="_on_Continue_button_down"]
-[connection signal="button_down" from="CanvasLayer/Texts and Buttons/New Game" to="CanvasLayer" method="_on_New_Game_button_down"]
+[connection signal="button_down" from="CanvasLayer/Menu/Continue" to="CanvasLayer" method="_on_Continue_button_down"]
+[connection signal="button_down" from="CanvasLayer/Menu/New Game" to="CanvasLayer" method="_on_New_Game_button_down"]
+[connection signal="button_down" from="CanvasLayer/Menu/Quit" to="CanvasLayer" method="_on_Quit_button_down"]

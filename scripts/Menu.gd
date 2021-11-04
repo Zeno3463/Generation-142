@@ -25,3 +25,6 @@ func _on_New_Game_button_down():
 	ui.get_node("Lives").visible = true
 	ui.display_current_level("Section 1: Green Forest")
 	ui.load_fade_out_animation()
+
+func _on_Quit_button_down():
+	get_tree().quit()

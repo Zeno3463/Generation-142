@@ -48,6 +48,7 @@ func move_right():
 	
 func jump():
 	vel.y = jump_force
+	var audio_player = AudioStreamPlayer.new()
 	
 func stop_moving():
 	vel.x = 0
@@ -103,6 +104,12 @@ func die(add_num_of_hits=true, spawn_particle=true):
 		explosive_particle_instance.color = particle_color
 		explosive_particle_instance.emitting = true
 	
+	# load hurt sound
+	var audio_player = AudioStreamPlayer.new()
+	add_child(audio_player)
+	audio_player.stream = preload("res://sound effects/Enemy Hurt.wav")
+	audio_player.play()
+	
 	# play animation
 	enemy_animated_sprite.play(enemy_dead_animation_name)
 	enemy_animated_sprite.speed_scale = die_animation_speed
@@ -121,7 +128,7 @@ func _physics_process(_delta):
 		if enemy_vunerable_area.overlaps_body(player) and not player.is_hurt and not is_dead:
 			enemy_dead_animation_name = "die by stomp"
 			player.jump_count = 0
-			player.jump()
+			player.jump(false)
 			die()
 		
 func _on_Deadly_Area_body_entered(body):

@@ -1,10 +1,13 @@
 extends Control
 
 onready var global_variables = get_tree().get_root().get_node("/root/GlobalVariables")
+var open_map_sound = preload("res://sound effects/Open Map.wav")
 
 func _process(_delta):
 	if Input.is_action_just_pressed("open map"):
 		visible = not visible
+		$AudioStreamPlayer.stream = open_map_sound
+		$AudioStreamPlayer.play()
 	for children in $Sections.get_children():
 		children.visible = false
 	for section in global_variables.visited_section:

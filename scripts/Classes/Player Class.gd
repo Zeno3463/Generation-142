@@ -59,6 +59,12 @@ var camera: Camera2D = null
 var power_blast_area: Area2D = null
 var power_blast_particle_system: CPUParticles2D = null
 var light: Light2D = null
+var audio_player: AudioStreamPlayer = null
+var jump_sound = null
+var hurt_sound = null
+var power_blast_sound = null
+var attack_sound = null
+var dash_sound = null
 onready var ui_controller = get_tree().get_root().get_node("/root/Ui")
 
 # public functions
@@ -92,11 +98,14 @@ func fall():
 	else:
 		vel.y += gravity
 
-func jump():
+func jump(play_sound = true):
 	is_dashing = false
 	dashed = false
 	vel.y = jump_force
 	jump_count += 1
+	if play_sound:
+		audio_player.stream = jump_sound
+		audio_player.play()
 
 func load_animation_according_to_current_action():
 	if is_attacking:
@@ -164,6 +173,11 @@ func power_blast():
 	# cut down the player's life by a half
 	while ui_controller.get_node("Lives").get_child_count() > 3:
 		ui_controller.take_out_one_life()
+	
+	# play power blast sound effects
+	if not audio_player.playing:
+		audio_player.stream = power_blast_sound
+		audio_player.play()
 
 func dash():
 	vel.y = 0
@@ -179,6 +193,8 @@ func take_damage():
 	reset_everything_to_default()
 	ui_controller.take_out_one_life()
 	start_performing_an_action("is_hurt", hurt_duration)
+	audio_player.stream = hurt_sound
+	audio_player.play()
 	
 # private functions
 func _flip_player_sprite_to_face_the_direction_it_is_moving():
