@@ -26,6 +26,9 @@ func _on_Area2D_body_entered(body):
 		power_up_explainer.get_node("Description").text = description
 		power_up_animation_player.play("Fade In")
 		
+		# play sound
+		power_up_explainer.get_node("AudioStreamPlayer").play()
+		
 		# pause the game
 		get_tree().paused = true
 		

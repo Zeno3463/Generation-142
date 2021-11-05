@@ -10,6 +10,8 @@ func _ready():
 	enemy_vunerable_area = $"Vunerable Area"
 
 func _physics_process(_delta):
+	if is_dead: return
+	
 	if player_in_range and not jumped:
 		jump_onto_object(player.global_position, speed)
 	

@@ -27,13 +27,19 @@ func _process(_delta):
 		boss_die()
 
 func boss_take_damage():
+	var audio_player = AudioStreamPlayer.new()
+	add_child(audio_player)
+	audio_player.stream = preload("res://sound effects/Enemy Hurt.wav")
+	audio_player.play()
 	life -= 1
 	$AnimatedSprite.play(damage_animation_name)
 	yield($AnimatedSprite, "animation_finished")
 	$AnimatedSprite.play("default")
+	yield(audio_player, "finished")
+	audio_player.queue_free()
 
 func boss_die():
-	die()
+	die(true, true, false)
 	
 	# notify the game that player had already won the boss fight
 	global_variables.player_has_entered_scene[get_tree().current_scene.filename] = true

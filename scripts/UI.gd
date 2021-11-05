@@ -49,8 +49,12 @@ func _process(_delta):
 		
 	# hide the power up explainer when escape is pressed
 	if Input.is_action_just_pressed("ui_cancel"):
+		$"Power Up Explainer/AudioStreamPlayer".stream = preload("res://sound effects/Open Map.wav")
+		$"Power Up Explainer/AudioStreamPlayer".play()
 		$"Power Up Explainer".visible = false
 		get_tree().paused = false
+		yield($"Power Up Explainer/AudioStreamPlayer", "finished")
+		$"Power Up Explainer/AudioStreamPlayer".stream = preload("res://sound effects/Power Up.wav")
 		
 # public functions
 func add_one_life():
@@ -118,15 +122,21 @@ func reset_lives():
 		add_one_life()
 		
 func display_the_dialogue(content):
+	var audio_player = AudioStreamPlayer.new()
+	add_child(audio_player)
+	audio_player.stream = preload("res://sound effects/NPC.wav")
 	is_displaying_dialogue = true
 	for sentence in content:
 		for character in sentence:
 			$Dialogue/Label.text += character
 			if character == ".": yield(get_tree().create_timer(display_dialogue_speed_btw_sentence), "timeout")
 			else: yield(get_tree().create_timer(display_dialogue_speed_btw_char), "timeout")
+			if not audio_player.playing: audio_player.play()
 		yield(get_tree().create_timer(display_dialogue_speed_btw_sections), "timeout")
 		$Dialogue/Label.text = ""
+	audio_player.queue_free()
 	is_displaying_dialogue = false
+
 	
 func display_current_level(current_level):
 	is_displaying_level = true

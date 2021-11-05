@@ -10,7 +10,7 @@ func _physics_process(_delta):
 
 func _on_Area2D_body_entered(body):
 	if body is TileMap or body is StaticBody2D:
-		die(false)
+		die(false, true, false)
 	elif body == player:
 		player.take_damage()
-		die(false)
+		die(false, false, false)

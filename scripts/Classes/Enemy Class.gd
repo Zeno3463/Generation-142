@@ -87,7 +87,7 @@ func fall():
 	else:
 		vel.y += gravity
 	
-func die(add_num_of_hits=true, spawn_particle=true):
+func die(add_num_of_hits=true, spawn_particle=true, play_sound=true):
 	is_dead = true
 	
 	if add_num_of_hits: 
@@ -108,12 +108,17 @@ func die(add_num_of_hits=true, spawn_particle=true):
 	var audio_player = AudioStreamPlayer.new()
 	add_child(audio_player)
 	audio_player.stream = preload("res://sound effects/Enemy Hurt.wav")
-	audio_player.play()
+	if play_sound:
+		audio_player.play()
 	
 	# play animation
 	enemy_animated_sprite.play(enemy_dead_animation_name)
 	enemy_animated_sprite.speed_scale = die_animation_speed
 	yield(enemy_animated_sprite, "animation_finished")
+	enemy_animated_sprite.visible = false
+	
+	if play_sound and audio_player.playing: yield(audio_player, "finished")
+	
 	queue_free()
 	
 # system functions

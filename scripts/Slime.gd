@@ -10,6 +10,7 @@ func _ready():
 	$"Edge Detector".connect("body_exited", self, "_on_Edge_Detector_body_exited") # warning-ignore:return_value_discarded
 
 func _physics_process(_delta):
+	if is_dead: return
 	if is_going_left:
 		$"Edge Detector".scale.x = -1
 		move_left()

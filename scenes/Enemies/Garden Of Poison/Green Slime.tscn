@@ -21,19 +21,19 @@ atlas = ExtResource( 6 )
 region = Rect2( 0, 0, 16, 16 )
 
 [sub_resource type="AtlasTexture" id=4]
-atlas = ExtResource( 3 )
+atlas = ExtResource( 4 )
 region = Rect2( 48, 0, 16, 16 )
 
 [sub_resource type="AtlasTexture" id=5]
-atlas = ExtResource( 3 )
+atlas = ExtResource( 4 )
 region = Rect2( 64, 0, 16, 16 )
 
 [sub_resource type="AtlasTexture" id=6]
-atlas = ExtResource( 4 )
+atlas = ExtResource( 3 )
 region = Rect2( 48, 0, 16, 16 )
 
 [sub_resource type="AtlasTexture" id=7]
-atlas = ExtResource( 4 )
+atlas = ExtResource( 3 )
 region = Rect2( 64, 0, 16, 16 )
 
 [sub_resource type="SpriteFrames" id=8]
@@ -55,12 +55,12 @@ animations = [ {
 }, {
 "frames": [ SubResource( 4 ), SubResource( 5 ) ],
 "loop": true,
-"name": "die by stomp",
+"name": "die by hit",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 6 ), SubResource( 7 ) ],
 "loop": true,
-"name": "die by hit",
+"name": "die by stomp",
 "speed": 5.0
 } ]
 

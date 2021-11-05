@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://sprites/UIs/Empty Heart.png" type="Texture" id=1]
 [ext_resource path="res://scripts/UI.gd" type="Script" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://sprites/Lighting/White Square.png" type="Texture" id=6]
 [ext_resource path="res://sprites/Maps/Full Map.png" type="Texture" id=7]
 [ext_resource path="res://scripts/Map.gd" type="Script" id=8]
+[ext_resource path="res://sound effects/Power Up.wav" type="AudioStream" id=9]
 
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 3 )
@@ -143,7 +144,7 @@ __meta__ = {
 [node name="Sections" type="Node2D" parent="Map"]
 
 [node name="Blue Forest Section 0" type="Sprite" parent="Map/Sections"]
-modulate = Color( 0.560784, 0.560784, 0.560784, 1 )
+modulate = Color( 0.223529, 0.223529, 0.223529, 1 )
 position = Vector2( 413.957, 379.431 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 7 )
@@ -307,6 +308,7 @@ position = Vector2( 500, 200 )
 scale = Vector2( 15, 15 )
 z_index = 1
 frames = SubResource( 7 )
+frame = 2
 playing = true
 
 [node name="Effects" type="Node2D" parent="Power Up Explainer"]
@@ -364,6 +366,10 @@ __meta__ = {
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Power Up Explainer"]
 "anims/Fade In" = SubResource( 10 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Power Up Explainer"]
+pause_mode = 2
+stream = ExtResource( 9 )
 
 [node name="Level Displayer" type="Control" parent="."]
 margin_right = 40.0
