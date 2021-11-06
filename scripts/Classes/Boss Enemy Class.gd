@@ -15,9 +15,12 @@ onready var global_variables = get_tree().get_root().get_node("/root/GlobalVaria
 
 # private variables
 onready var life = life_count
+onready var boss_dead_audio_player = AudioStreamPlayer.new()
 	
 func _ready():
 	life = life_count
+	add_child(boss_dead_audio_player)
+	boss_dead_audio_player.stream = preload("res://sound effects/Boss Dead.wav")
 	
 func _process(_delta):
 	# display the life count
@@ -40,6 +43,9 @@ func boss_take_damage():
 
 func boss_die():
 	die(true, true, false)
+	
+	# play sound
+	if not boss_dead_audio_player.playing: boss_dead_audio_player.play()
 	
 	# notify the game that player had already won the boss fight
 	global_variables.player_has_entered_scene[get_tree().current_scene.filename] = true

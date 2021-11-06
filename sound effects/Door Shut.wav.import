@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Door Shut.wav-5ae004dbfef1e66593e80fd96370c92e.sample"
+
+[deps]
+
+source_file="res://sound effects/Door Shut.wav"
+dest_files=[ "res://.import/Door Shut.wav-5ae004dbfef1e66593e80fd96370c92e.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

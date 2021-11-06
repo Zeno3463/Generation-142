@@ -13,6 +13,7 @@ func _ready():
 	power_blast_particle_system = $"Effects/Power Blast/CPUParticles2D"
 	light = $Effects/Light/Light2D
 	audio_player = $Effects/Sound/AudioStreamPlayer
+	power_blast_player = $"Effects/Sound/Power Blast Player"
 	jump_sound = preload("res://sound effects/Jump.wav")
 	hurt_sound = preload("res://sound effects/Player Hurt.wav")
 	power_blast_sound = preload("res://sound effects/Power Blast.wav")

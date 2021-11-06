@@ -43,6 +43,7 @@ texture = ExtResource( 2 )
 [node name="Next Level Teleporter7" parent="Next Level Teleporters" instance=ExtResource( 11 )]
 position = Vector2( 1504.65, 501.383 )
 next_section_path = "res://scenes/Levels/Under Cave/Under Cave Section 1.tscn"
+next_level_name = "Section 4: Under Cave"
 
 [node name="Player Starting Pos" type="Position2D" parent="."]
 position = Vector2( 1555.42, 507.245 )

@@ -117,6 +117,7 @@ doors_to_open = [ NodePath("../../Doors/Door2") ]
 position = Vector2( -2855.36, -949.611 )
 scale = Vector2( 1, 10 )
 next_section_path = "res://scenes/Levels/Garden Of Poison/Garden Of Poison Section 2.tscn"
+next_level_name = "Section 3: Garden Of Poison"
 
 [node name="NPCs" type="Node2D" parent="."]
 

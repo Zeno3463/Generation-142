@@ -128,6 +128,7 @@ player_stuck_on_wall_handler = NodePath("../../Player Stuck On Wall Handler2")
 position = Vector2( -1579.72, 158.758 )
 scale = Vector2( 1, 13.6 )
 next_section_path = "res://scenes/Levels/Blue Forest/Blue Forest Section 0.tscn"
+next_level_name = "Section 1: Green Forest"
 
 [node name="Player Starting Pos" type="Position2D" parent="."]
 position = Vector2( -1620.15, 183.073 )
@@ -190,8 +191,12 @@ script = ExtResource( 14 )
 position = Vector2( 1669.33, 318.937 )
 shape = SubResource( 4 )
 
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Player Stuck On Wall Handler2"]
+position = Vector2( 1701.09, 612.93 )
+shape = SubResource( 4 )
+
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Player Stuck On Wall Handler2"]
-position = Vector2( 1856.14, 443.517 )
+position = Vector2( 1850.52, 443.142 )
 shape = SubResource( 5 )
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Player Stuck On Wall Handler2"]

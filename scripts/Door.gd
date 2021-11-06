@@ -1,6 +1,7 @@
 extends StaticBody2D
 
 func _ready():
+	$AudioStreamPlayer.play()
 	close()
 
 func close():

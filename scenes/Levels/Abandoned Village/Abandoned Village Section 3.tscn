@@ -115,11 +115,13 @@ next_level_name = "Section 1: Green Forest"
 position = Vector2( -137.633, -582.346 )
 scale = Vector2( 1, 50 )
 next_section_path = "res://scenes/Levels/Abandoned Village/Abandoned Village Section 2.tscn"
+next_level_name = "Section 2: Abandoned Village"
 
 [node name="Next Level Teleporter6" parent="Next Level Teleporters" instance=ExtResource( 7 )]
 position = Vector2( -552.311, -590.539 )
 scale = Vector2( 1, 50 )
 next_section_path = "res://scenes/Levels/Abandoned Village/Abandoned Village Section 1.tscn"
+next_level_name = "Section 2: Abandoned Village"
 
 [node name="Doors" type="Node2D" parent="."]
 

@@ -90,6 +90,8 @@ func fall():
 func die(add_num_of_hits=true, spawn_particle=true, play_sound=true):
 	is_dead = true
 	
+	get_node("CollisionShape2D").disabled = true
+	
 	if add_num_of_hits: 
 		# screen shake
 		camera.start(amplitude, frequency, time)

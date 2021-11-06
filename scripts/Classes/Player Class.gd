@@ -60,6 +60,7 @@ var power_blast_area: Area2D = null
 var power_blast_particle_system: CPUParticles2D = null
 var light: Light2D = null
 var audio_player: AudioStreamPlayer = null
+var power_blast_player: AudioStreamPlayer = null
 var jump_sound = null
 var hurt_sound = null
 var power_blast_sound = null
@@ -175,9 +176,9 @@ func power_blast():
 		ui_controller.take_out_one_life()
 	
 	# play power blast sound effects
-	if not audio_player.playing:
-		audio_player.stream = power_blast_sound
-		audio_player.play()
+	if not power_blast_player.playing:
+		power_blast_player.stream = power_blast_sound
+		power_blast_player.play()
 
 func dash():
 	vel.y = 0
@@ -193,8 +194,12 @@ func take_damage():
 	reset_everything_to_default()
 	ui_controller.take_out_one_life()
 	start_performing_an_action("is_hurt", hurt_duration)
-	audio_player.stream = hurt_sound
-	audio_player.play()
+	var hurt_audio_player = AudioStreamPlayer.new()
+	add_child(hurt_audio_player)
+	hurt_audio_player.stream = hurt_sound
+	hurt_audio_player.play()
+	yield(hurt_audio_player, "finished")
+	hurt_audio_player.queue_free()
 	
 # private functions
 func _flip_player_sprite_to_face_the_direction_it_is_moving():
