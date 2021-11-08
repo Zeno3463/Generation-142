@@ -38,6 +38,10 @@ animations = [ {
 size = 100
 font_data = ExtResource( 6 )
 
+[sub_resource type="DynamicFont" id=12]
+size = 50
+font_data = ExtResource( 6 )
+
 [sub_resource type="StyleBoxEmpty" id=7]
 
 [sub_resource type="StyleBoxEmpty" id=8]
@@ -47,10 +51,6 @@ font_data = ExtResource( 6 )
 [sub_resource type="StyleBoxEmpty" id=10]
 
 [sub_resource type="StyleBoxEmpty" id=11]
-
-[sub_resource type="DynamicFont" id=12]
-size = 50
-font_data = ExtResource( 6 )
 
 [node name="Menu" type="Node2D"]
 
@@ -115,8 +115,8 @@ margin_left = 401.458
 margin_top = 4.13278
 margin_right = 1016.46
 margin_bottom = 132.133
-custom_fonts/font = SubResource( 6 )
 custom_colors/font_color = Color( 0.592157, 0.592157, 0.592157, 1 )
+custom_fonts/font = SubResource( 6 )
 text = "Generation 142"
 autowrap = true
 clip_text = true
@@ -124,81 +124,86 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Continue" type="Button" parent="CanvasLayer/Menu"]
-margin_left = 826.111
-margin_top = 212.114
-margin_right = 998.111
-margin_bottom = 292.114
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Menu"]
+margin_left = 777.751
+margin_top = 179.445
+margin_right = 1003.75
+margin_bottom = 625.445
+custom_constants/separation = 20
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Continue" type="Button" parent="CanvasLayer/Menu/VBoxContainer"]
+margin_right = 226.0
+margin_bottom = 74.0
+custom_colors/font_color_disabled = Color( 0.439216, 0.439216, 0.439216, 0.317647 )
+custom_colors/font_color = Color( 0.592157, 0.592157, 0.592157, 1 )
+custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
+custom_colors/font_color_pressed = Color( 0.423529, 0.423529, 0.423529, 1 )
+custom_fonts/font = SubResource( 12 )
 custom_styles/hover = SubResource( 7 )
 custom_styles/pressed = SubResource( 8 )
 custom_styles/focus = SubResource( 9 )
 custom_styles/disabled = SubResource( 10 )
 custom_styles/normal = SubResource( 11 )
-custom_fonts/font = SubResource( 12 )
-custom_colors/font_color_disabled = Color( 0.439216, 0.439216, 0.439216, 0.317647 )
-custom_colors/font_color = Color( 0.592157, 0.592157, 0.592157, 1 )
-custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
-custom_colors/font_color_pressed = Color( 0.423529, 0.423529, 0.423529, 1 )
 text = "Continue"
 align = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="New Game" type="Button" parent="CanvasLayer/Menu"]
-margin_left = 772.172
-margin_top = 283.93
-margin_right = 998.172
-margin_bottom = 363.93
-custom_styles/hover = SubResource( 7 )
-custom_styles/pressed = SubResource( 8 )
-custom_styles/focus = SubResource( 9 )
-custom_styles/normal = SubResource( 11 )
-custom_fonts/font = SubResource( 12 )
+[node name="New Game" type="Button" parent="CanvasLayer/Menu/VBoxContainer"]
+margin_top = 94.0
+margin_right = 226.0
+margin_bottom = 168.0
 custom_colors/font_color_disabled = Color( 0.439216, 0.439216, 0.439216, 0.317647 )
 custom_colors/font_color = Color( 0.592157, 0.592157, 0.592157, 1 )
 custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
 custom_colors/font_color_pressed = Color( 0.423529, 0.423529, 0.423529, 1 )
+custom_fonts/font = SubResource( 12 )
+custom_styles/hover = SubResource( 7 )
+custom_styles/pressed = SubResource( 8 )
+custom_styles/focus = SubResource( 9 )
+custom_styles/normal = SubResource( 11 )
 text = "New Game"
 align = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Settings" type="Button" parent="CanvasLayer/Menu"]
-margin_left = 772.172
-margin_top = 360.888
-margin_right = 998.172
-margin_bottom = 440.888
-custom_styles/hover = SubResource( 7 )
-custom_styles/pressed = SubResource( 8 )
-custom_styles/focus = SubResource( 9 )
-custom_styles/normal = SubResource( 11 )
-custom_fonts/font = SubResource( 12 )
+[node name="Settings" type="Button" parent="CanvasLayer/Menu/VBoxContainer"]
+margin_top = 188.0
+margin_right = 226.0
+margin_bottom = 262.0
 custom_colors/font_color_disabled = Color( 0.439216, 0.439216, 0.439216, 0.317647 )
 custom_colors/font_color = Color( 0.592157, 0.592157, 0.592157, 1 )
 custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
 custom_colors/font_color_pressed = Color( 0.423529, 0.423529, 0.423529, 1 )
+custom_fonts/font = SubResource( 12 )
+custom_styles/hover = SubResource( 7 )
+custom_styles/pressed = SubResource( 8 )
+custom_styles/focus = SubResource( 9 )
+custom_styles/normal = SubResource( 11 )
 text = "Settings"
 align = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Quit" type="Button" parent="CanvasLayer/Menu"]
-margin_left = 772.172
-margin_top = 446.999
-margin_right = 998.172
-margin_bottom = 526.999
-custom_styles/hover = SubResource( 7 )
-custom_styles/pressed = SubResource( 8 )
-custom_styles/focus = SubResource( 9 )
-custom_styles/normal = SubResource( 11 )
-custom_fonts/font = SubResource( 12 )
+[node name="Quit" type="Button" parent="CanvasLayer/Menu/VBoxContainer"]
+margin_top = 282.0
+margin_right = 226.0
+margin_bottom = 356.0
 custom_colors/font_color_disabled = Color( 0.439216, 0.439216, 0.439216, 0.317647 )
 custom_colors/font_color = Color( 0.592157, 0.592157, 0.592157, 1 )
 custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
 custom_colors/font_color_pressed = Color( 0.423529, 0.423529, 0.423529, 1 )
+custom_fonts/font = SubResource( 12 )
+custom_styles/hover = SubResource( 7 )
+custom_styles/pressed = SubResource( 8 )
+custom_styles/focus = SubResource( 9 )
+custom_styles/normal = SubResource( 11 )
 text = "Quit"
 align = 2
 __meta__ = {
@@ -216,6 +221,6 @@ cell_size = Vector2( 16, 16 )
 format = 1
 tile_data = PoolIntArray( -131073, 3, 0, -65538, 3, 0, -131072, 3, 0, -2, 3, 0, -65536, 3, 0, 65534, 3, 0, 0, 3, 0, 131071, 3, 0 )
 
-[connection signal="button_down" from="CanvasLayer/Menu/Continue" to="CanvasLayer" method="_on_Continue_button_down"]
-[connection signal="button_down" from="CanvasLayer/Menu/New Game" to="CanvasLayer" method="_on_New_Game_button_down"]
-[connection signal="button_down" from="CanvasLayer/Menu/Quit" to="CanvasLayer" method="_on_Quit_button_down"]
+[connection signal="button_down" from="CanvasLayer/Menu/VBoxContainer/Continue" to="CanvasLayer" method="_on_Continue_button_down"]
+[connection signal="button_down" from="CanvasLayer/Menu/VBoxContainer/New Game" to="CanvasLayer" method="_on_New_Game_button_down"]
+[connection signal="button_down" from="CanvasLayer/Menu/VBoxContainer/Quit" to="CanvasLayer" method="_on_Quit_button_down"]

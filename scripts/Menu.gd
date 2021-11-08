@@ -6,11 +6,11 @@ onready var global_variables = get_tree().get_root().get_node("/root/GlobalVaria
 func _ready():
 	var file = File.new()
 	if not file.file_exists("user://save.dat"):
-		$"Menu/Continue".disabled = true
+		$"Menu/VBoxContainer/Continue".disabled = true
 		
 	ui.get_node("Lives").visible = false
 	
-	for child in $Menu.get_children():
+	for child in $Menu/VBoxContainer.get_children():
 		if child is Button and not child.disabled:
 			child.connect("mouse_entered", self, "_on_button_hover")
 		

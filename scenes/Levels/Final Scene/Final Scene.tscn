@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://sprites/Backgrounds/Grand Mansion/Layer 1.png" type="Texture" id=1]
 [ext_resource path="res://scripts/Final Dialogue.gd" type="Script" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://sprites/Backgrounds/Blue Forest/Layer 1 (2).png" type="Texture" id=4]
 [ext_resource path="res://sprites/Lighting/APfkB6p - Imgur.png" type="Texture" id=5]
 [ext_resource path="res://sprites/Lighting/White Square.png" type="Texture" id=6]
+[ext_resource path="res://sound effects/Alarm.wav" type="AudioStream" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 486.502, 10 )
@@ -68,8 +69,8 @@ margin_left = 19.0
 margin_top = 19.0
 margin_right = 507.0
 margin_bottom = 324.0
-custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 3 )
 autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -80,12 +81,16 @@ margin_left = 671.0
 margin_top = 338.0
 margin_right = 1023.0
 margin_bottom = 595.0
-custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 3 )
 autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="CanvasLayer/Control"]
+stream = ExtResource( 7 )
+autoplay = true
 
 [node name="Light" type="Node2D" parent="."]
 
@@ -93,12 +98,15 @@ __meta__ = {
 position = Vector2( 3627.6, -1220.5 )
 texture = ExtResource( 5 )
 color = Color( 1, 0, 0, 1 )
+energy = 3.0
 
 [node name="Sprite" type="Sprite" parent="Light"]
-modulate = Color( 0.0588235, 0.0588235, 0.0588235, 1 )
+modulate = Color( 0.0588235, 0.0588235, 0.0588235, 0.423529 )
 position = Vector2( 3654.33, -1115.64 )
 scale = Vector2( 39.0859, 39.0859 )
 texture = ExtResource( 6 )
 
 [node name="Player Starting Pos" type="Position2D" parent="."]
 position = Vector2( 3646, -1078.26 )
+
+[connection signal="finished" from="CanvasLayer/Control/AudioStreamPlayer" to="CanvasLayer/Control" method="_on_AudioStreamPlayer_finished"]

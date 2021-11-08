@@ -2,20 +2,19 @@ extends Control
 
 export(Array, String, MULTILINE) var person_a
 export(Array, String, MULTILINE) var person_b
-export var wait_time = 10
 export var display_dialogue_speed_btw_char = 0.06
 export var display_dialogue_speed_btw_sentence = 0.5
 export var display_dialogue_speed_btw_sections = 1
 
-var time = 0
+var elapsed_time = 0
+var start_the_dialogue = false
 var is_person_a_turn = true
 var is_displaying_dialogue = false
 
 func _process(delta):
-	time += delta
 	
 	# when the wait time is over
-	if time > wait_time:
+	if start_the_dialogue:
 		# blacken the screen
 		$TextureRect.visible = true
 		
@@ -49,3 +48,12 @@ func _process(delta):
 			yield(get_tree().create_timer(display_dialogue_speed_btw_sections), "timeout")
 			label.text = ""
 			is_displaying_dialogue = false
+	else:
+		if elapsed_time >= 0.5:
+			elapsed_time = 0
+			get_parent().get_parent().get_node("Light").visible = not get_parent().get_parent().get_node("Light").visible
+		else:
+			elapsed_time += delta
+
+func _on_AudioStreamPlayer_finished():
+	start_the_dialogue = true

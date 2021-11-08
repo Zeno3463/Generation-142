@@ -20,6 +20,7 @@ func _process(_delta):
 	
 # start the screen shake
 func start(_amplitude=amplitude, _frequency=frequency, _time=time):
+	return
 	if done:
 		done = false
 		shake_amplitude = _amplitude
@@ -29,6 +30,7 @@ func start(_amplitude=amplitude, _frequency=frequency, _time=time):
 	
 # the shake mechanism
 func shake():
+	return
 	var rand = Vector2.ZERO
 	rand.x = rand_range(-shake_amplitude, shake_amplitude)
 	rand.y = rand_range(-shake_amplitude, shake_amplitude)
@@ -44,6 +46,7 @@ func shake():
 
 # the reset mechanism
 func reset():
+	return
 	$Tween.interpolate_property(self, 
 	"offset", 
 	self.offset, 
@@ -56,5 +59,6 @@ func reset():
 	$Tween.stop_all()
 
 func _on_Timer_timeout():
+	return
 	done = true
 

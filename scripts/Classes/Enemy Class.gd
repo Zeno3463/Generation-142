@@ -48,7 +48,6 @@ func move_right():
 	
 func jump():
 	vel.y = jump_force
-	var audio_player = AudioStreamPlayer.new()
 	
 func stop_moving():
 	vel.x = 0
@@ -90,7 +89,7 @@ func fall():
 func die(add_num_of_hits=true, spawn_particle=true, play_sound=true):
 	is_dead = true
 	
-	get_node("CollisionShape2D").disabled = true
+	get_node("CollisionShape2D").set_deferred("disabled", true)
 	
 	if add_num_of_hits: 
 		# screen shake
