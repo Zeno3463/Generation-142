@@ -13,7 +13,7 @@ var is_displaying_dialogue = false
 
 func _process(delta):
 	
-	# when the wait time is over
+	# when the alarm has ended
 	if start_the_dialogue:
 		# blacken the screen
 		$TextureRect.visible = true
@@ -49,6 +49,24 @@ func _process(delta):
 			for character in content:
 				label.text += character
 				if character == ".": yield(get_tree().create_timer(display_dialogue_speed_btw_sentence), "timeout")
+				
+				# if the dialogue has reached an end, start the credit scene
+				elif character == "-":
+					
+					# hide all the dialogues
+					$LabelA.queue_free()
+					$LabelB.queue_free()
+					
+					# play restart simulation sound effect
+					var restart_simulation_audio_player = AudioStreamPlayer.new()
+					add_child(restart_simulation_audio_player)
+					restart_simulation_audio_player.stream = preload("res://sound effects/Restart Simulation.wav")
+					restart_simulation_audio_player.play()
+					yield(restart_simulation_audio_player, "finished")
+					
+					# TODO: play end credit
+					queue_free()
+					return
 				else: yield(get_tree().create_timer(display_dialogue_speed_btw_char), "timeout")
 				if not audio_player.playing: audio_player.play()
 			yield(get_tree().create_timer(display_dialogue_speed_btw_sections), "timeout")
@@ -56,6 +74,7 @@ func _process(delta):
 			label.text = ""
 			is_displaying_dialogue = false
 	else:
+		# if the alarm has not ended yet, flash the red light
 		if elapsed_time >= 0.5:
 			elapsed_time = 0
 			get_parent().get_parent().get_node("Light").visible = not get_parent().get_parent().get_node("Light").visible
@@ -63,4 +82,11 @@ func _process(delta):
 			elapsed_time += delta
 
 func _on_AudioStreamPlayer_finished():
+	# start the dialogue
 	start_the_dialogue = true
+	
+	# play restart simulation sound effect
+	var restart_simulation_audio_player = AudioStreamPlayer.new()
+	add_child(restart_simulation_audio_player)
+	restart_simulation_audio_player.stream = preload("res://sound effects/Restart Simulation.wav")
+	restart_simulation_audio_player.play()
