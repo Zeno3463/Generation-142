@@ -23,7 +23,12 @@ func _process(delta):
 		
 		# start the conversation
 		if not is_displaying_dialogue:
-			
+
+			# spawn a new audio player
+			var audio_player = AudioStreamPlayer.new()
+			add_child(audio_player)
+			audio_player.stream = preload("res://sound effects/Final Level Conversation.wav")
+
 			# let person A and person B talk alternatively
 			var content = ""
 			var label = null
@@ -45,7 +50,9 @@ func _process(delta):
 				label.text += character
 				if character == ".": yield(get_tree().create_timer(display_dialogue_speed_btw_sentence), "timeout")
 				else: yield(get_tree().create_timer(display_dialogue_speed_btw_char), "timeout")
+				if not audio_player.playing: audio_player.play()
 			yield(get_tree().create_timer(display_dialogue_speed_btw_sections), "timeout")
+			audio_player.queue_free()
 			label.text = ""
 			is_displaying_dialogue = false
 	else:
