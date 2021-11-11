@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://sprites/Menu/Background Layer 2.png" type="Texture" id=1]
 [ext_resource path="res://sprites/Menu/Background Layer 1.png" type="Texture" id=2]
@@ -9,6 +9,8 @@
 [ext_resource path="res://tilesets/default tileset.tres" type="TileSet" id=7]
 [ext_resource path="res://scripts/Menu.gd" type="Script" id=8]
 [ext_resource path="res://sound effects/Hover Button.wav" type="AudioStream" id=9]
+[ext_resource path="res://sprites/Menu/Slider Grabber.png" type="Texture" id=10]
+[ext_resource path="res://sprites/Menu/Slider Grabber Hover.png" type="Texture" id=11]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 1 )
@@ -52,6 +54,40 @@ font_data = ExtResource( 6 )
 
 [sub_resource type="StyleBoxEmpty" id=11]
 
+[sub_resource type="StyleBoxFlat" id=15]
+bg_color = Color( 0.592157, 0.592157, 0.592157, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id=17]
+bg_color = Color( 0.592157, 0.592157, 0.592157, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id=16]
+bg_color = Color( 0.305882, 0.305882, 0.305882, 0.521569 )
+border_width_top = 3
+border_width_bottom = 3
+border_color = Color( 0.305882, 0.305882, 0.305882, 0.521569 )
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+
+[sub_resource type="DynamicFont" id=14]
+size = 30
+font_data = ExtResource( 6 )
+
+[sub_resource type="Theme" id=13]
+HSlider/icons/grabber = ExtResource( 10 )
+HSlider/icons/grabber_highlight = ExtResource( 11 )
+HSlider/styles/grabber_area = SubResource( 15 )
+HSlider/styles/grabber_area_highlight = SubResource( 17 )
+HSlider/styles/slider = SubResource( 16 )
+Label/fonts/font = SubResource( 14 )
+
 [node name="Menu" type="Node2D"]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -75,7 +111,7 @@ position = Vector2( 511.182, 300.882 )
 scale = Vector2( 4, 4 )
 z_index = 1
 frames = SubResource( 5 )
-frame = 2
+frame = 3
 speed_scale = 2.0
 playing = true
 
@@ -103,6 +139,7 @@ scale = Vector2( 33.0327, 19.6415 )
 texture = ExtResource( 5 )
 
 [node name="Menu" type="Control" parent="CanvasLayer"]
+visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 rect_pivot_offset = Vector2( -323.247, 20 )
@@ -205,6 +242,86 @@ custom_styles/pressed = SubResource( 8 )
 custom_styles/focus = SubResource( 9 )
 custom_styles/normal = SubResource( 11 )
 text = "Quit"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Settings" type="Control" parent="CanvasLayer"]
+margin_right = 40.0
+margin_bottom = 40.0
+rect_pivot_offset = Vector2( -323.247, 20 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CanvasLayer/Settings"]
+margin_left = 401.0
+margin_top = 4.0
+margin_right = 1016.0
+margin_bottom = 159.0
+custom_colors/font_color = Color( 0.592157, 0.592157, 0.592157, 1 )
+custom_fonts/font = SubResource( 6 )
+text = "Settings"
+align = 2
+autowrap = true
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Settings"]
+margin_left = 712.161
+margin_top = 176.081
+margin_right = 1014.16
+margin_bottom = 622.081
+theme = SubResource( 13 )
+custom_constants/separation = 10
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CanvasLayer/Settings/VBoxContainer"]
+margin_right = 302.0
+margin_bottom = 45.0
+custom_colors/font_color = Color( 0.592157, 0.592157, 0.592157, 1 )
+text = "Music"
+align = 2
+
+[node name="HSlider" type="HSlider" parent="CanvasLayer/Settings/VBoxContainer"]
+margin_top = 55.0
+margin_right = 302.0
+margin_bottom = 87.0
+value = 100.0
+
+[node name="Label2" type="Label" parent="CanvasLayer/Settings/VBoxContainer"]
+margin_top = 97.0
+margin_right = 302.0
+margin_bottom = 142.0
+custom_colors/font_color = Color( 0.592157, 0.592157, 0.592157, 1 )
+text = "Sound Effects"
+align = 2
+
+[node name="HSlider2" type="HSlider" parent="CanvasLayer/Settings/VBoxContainer"]
+margin_top = 152.0
+margin_right = 302.0
+margin_bottom = 184.0
+value = 100.0
+
+[node name="Quit" type="Button" parent="CanvasLayer/Settings/VBoxContainer"]
+margin_top = 194.0
+margin_right = 302.0
+margin_bottom = 268.0
+custom_colors/font_color_disabled = Color( 0.439216, 0.439216, 0.439216, 0.317647 )
+custom_colors/font_color = Color( 0.592157, 0.592157, 0.592157, 1 )
+custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
+custom_colors/font_color_pressed = Color( 0.423529, 0.423529, 0.423529, 1 )
+custom_fonts/font = SubResource( 12 )
+custom_styles/hover = SubResource( 7 )
+custom_styles/pressed = SubResource( 8 )
+custom_styles/focus = SubResource( 9 )
+custom_styles/normal = SubResource( 11 )
+text = "Back"
 align = 2
 __meta__ = {
 "_edit_use_anchors_": false
