@@ -47,13 +47,13 @@ func shoot():
 	$Timer.start()
 
 func _on_Attack_Trigger_Area_body_entered(body):
-	# if player triggers the attack area, start attacking the player
-	if body == player and not is_dead:
+	# if Player triggers the attack area, start attacking the Player
+	if body == Player and not is_dead:
 		is_attacking = true
 
 func _on_Attack_Trigger_Area_body_exited(body):
-	# if player leaves the attack area, stop attacking the player
-	if body == player and not is_dead:
+	# if Player leaves the attack area, stop attacking the Player
+	if body == Player and not is_dead:
 		enemy_animated_sprite.play("default")
 		is_attacking = false
 		

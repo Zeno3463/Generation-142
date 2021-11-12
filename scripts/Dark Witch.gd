@@ -29,7 +29,7 @@ func _ready():
 func _physics_process(_delta):
 	if is_dead: return
 	
-	follow_object(player)
+	follow_object(Player)
 	
 	move_and_slide(vel, Vector2.UP) # warning-ignore:return_value_discarded
 
@@ -45,15 +45,15 @@ func _on_Timer_timeout():
 	enemy_animated_sprite.play("default")
 
 func _on_Vunerable_Area_body_entered(body):
-	# if player stomped the enemy, damage the enemy
-	if body == player and not player.is_hurt:
+	# if Player stomped the enemy, damage the enemy
+	if body == Player and not Player.is_hurt:
 		boss_take_damage()
 		
 func special_attack_1():
 	for position in positions:
 		var bat_instance = bat_reference.instance()
 		bat_instance.global_position = position.global_position
-		bat_instance.constantly_follow_player = true
+		bat_instance.constantly_follow_Player = true
 		get_parent().add_child(bat_instance)
 		
 func special_attack_2():

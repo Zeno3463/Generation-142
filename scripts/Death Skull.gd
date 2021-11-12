@@ -12,7 +12,7 @@ var is_attacking = false
 var is_resting = false
 var jumped = false
 onready var normal_animation_speed = $AnimatedSprite.speed_scale
-var curr_player_x_pos = 0
+var curr_Player_x_pos = 0
 var attack_count = 0
 
 func _ready():
@@ -44,15 +44,15 @@ func _physics_process(_delta):
 		stop_moving()
 		rest()
 	else:
-		# else if the death skull is ready to attack the player, attack player
+		# else if the death skull is ready to attack the Player, attack Player
 		if is_attacking:
 			use_special_attack()
-		# else, walk towards the player
+		# else, walk towards the Player
 		else:
 			if not is_on_floor(): fall()
-			if global_position.x > player.global_position.x:
+			if position.x > Player.global_position.x:
 				move_left()
-			elif global_position.x < player.global_position.x:
+			elif global_position.x < Player.global_position.x:
 				move_right()
 			else:
 				stop_moving()
@@ -60,15 +60,15 @@ func _physics_process(_delta):
 	move_and_slide(vel, Vector2.UP) # warning-ignore:return_value_discarded
 
 func _on_Vunerable_Area_body_entered(body):
-	# if player stomped the enemy, damage the enemy
-	if body == player and not player.is_hurt:
+	# if Player stomped the enemy, damage the enemy
+	if body == Player and not Player.is_hurt:
 		boss_take_damage()
 
 func _on_Timer_timeout():
 	# if the timer ran out of time, start the special attack
 	is_attacking = true
 	attack_count += 1
-	curr_player_x_pos = player.global_position.x
+	curr_Player_x_pos = Player.global_position.x
 	$Timer.stop()
 	
 func rest():
@@ -85,9 +85,9 @@ func rest():
 	if $"Rest Timer".time_left <= 0: $"Rest Timer".start()
 	
 func use_special_attack():
-	# follow player
+	# follow Player
 	if not jumped:
-		jump_onto_object(Vector2(curr_player_x_pos, 0), attack_move_speed)
+		jump_onto_object(Vector2(curr_Player_x_pos, 0), attack_move_speed)
 	
 	# jump
 	if is_on_floor():
@@ -111,8 +111,8 @@ func use_special_attack():
 		fall()
 	
 func _on_Attack_Area_body_entered(body):
-	if body == player:
-		player.take_damage()
+	if body == Player:
+		Player.take_damage()
 
 func _on_Rest_Timer_timeout():
 	attack_count = 0

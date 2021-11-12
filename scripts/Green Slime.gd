@@ -1,6 +1,6 @@
 extends Enemy_Class
 
-var player_in_range = false
+var Player_in_range = false
 var jumped = false
 
 func _ready():
@@ -12,11 +12,11 @@ func _ready():
 func _physics_process(_delta):
 	if is_dead: return
 	
-	if player_in_range and not jumped:
-		jump_onto_object(player.global_position, speed)
+	if Player_in_range and not jumped:
+		jump_onto_object(Player.global_position, speed)
 	
 	# change animated sprite
-	if not player_in_range:
+	if not Player_in_range:
 		enemy_animated_sprite.play("default")
 	elif vel.y < 0:
 		enemy_animated_sprite.play("jump")
@@ -27,7 +27,7 @@ func _physics_process(_delta):
 		vel.y = 0
 
 	if is_on_floor():
-		if not jumped and player_in_range:
+		if not jumped and Player_in_range:
 			jump()
 			jumped = true
 		else:
@@ -39,9 +39,9 @@ func _physics_process(_delta):
 	move_and_slide(vel, Vector2.UP) # warning-ignore:return_value_discarded
 
 func _on_Attack_Trigger_Area_body_entered(body):
-	if body == player:
-		player_in_range = true
+	if body == Player:
+		Player_in_range = true
 
 func _on_Attack_Trigger_Area_body_exited(body):
-	if body == player:
-		player_in_range = false
+	if body == Player:
+		Player_in_range = false

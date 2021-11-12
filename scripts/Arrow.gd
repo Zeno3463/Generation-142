@@ -13,7 +13,7 @@ func _physics_process(_delta):
 	move_and_slide(vel, Vector2.UP) # warning-ignore:return_value_discarded
 
 func _on_Area2D_body_entered(body):
-	# if the arrow hits the player, damage the player and queue free
+	# if the arrow hits the Player, damage the Player and queue free
 	if body is Player_Class:
 		body.take_damage()
 		queue_free()

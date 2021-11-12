@@ -1,6 +1,7 @@
 extends StaticBody2D
 
 func _ready():
+	$AudioStreamPlayer.volume_db = GlobalVariables.sound_volume
 	$AudioStreamPlayer.play()
 	close()
 

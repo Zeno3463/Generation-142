@@ -9,10 +9,11 @@ var time = 0.05
 onready var camera = get_tree().get_root().get_node("/root/Player/Camera2D")
 
 func explode():
-	var audio_player = AudioStreamPlayer.new()
-	add_child(audio_player)
-	audio_player.stream = preload("res://sound effects/Enemy Hurt.wav")
-	audio_player.play()
+	var audio_Player = AudioStreamPlayer.new()
+	add_child(audio_Player)
+	audio_Player.stream = preload("res://sound effects/Enemy Hurt.wav")
+	audio_Player.volume_db = GlobalVariables.sound_volume
+	audio_Player.play()
 	camera.start(amplitude, frequency, time)
 	$AnimatedSprite.play("explode")
 	yield($AnimatedSprite, "animation_finished")

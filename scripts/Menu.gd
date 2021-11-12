@@ -1,7 +1,6 @@
 extends CanvasLayer
 
 onready var ui = get_tree().get_root().get_node("/root/Ui")
-onready var global_variables = get_tree().get_root().get_node("/root/GlobalVariables")
 
 func _ready():
 	var file = File.new()
@@ -21,12 +20,12 @@ func _on_Continue_button_down():
 	yield(get_tree().create_timer(1), "timeout")
 	get_tree().change_scene("res://scenes/Levels/Blue Forest/Blue Forest Section 0.tscn") # warning-ignore:return_value_discarded
 	ui.get_node("Lives").visible = true
-	global_variables.load_game()
+	GlobalVariables.load_game()
 	ui.load_fade_out_animation()
 
 func _on_New_Game_button_down():
 	play_click_sound()
-	global_variables.clear_stored_data()
+	GlobalVariables.clear_stored_data()
 	ui.load_fade_in_animation()
 	yield(get_tree().create_timer(1), "timeout")
 	get_tree().change_scene("res://scenes/Levels/Blue Forest/Blue Forest Section 0.tscn") # warning-ignore:return_value_discarded

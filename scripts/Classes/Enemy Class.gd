@@ -28,14 +28,13 @@ var is_dead = false
 var is_going_left = false
 var can_shoot = true
 onready var ui_controller = get_tree().get_root().get_node("/root/Ui")
-onready var player = get_tree().get_root().get_node("/root/Player")
 
 # node references
 var enemy_animated_sprite: AnimatedSprite = null
 var enemy_dead_animation_name = ""
 var enemy_shoot_animation_name = ""
 var enemy_vunerable_area: Area2D = null
-onready var camera: Camera2D = player.get_node("Camera2D")
+onready var camera: Camera2D = Player.get_node("Camera2D")
 
 # functions
 func move_left():
@@ -70,7 +69,7 @@ func follow_object(object):
 	else: enemy_animated_sprite.flip_h = false
 	
 func jump_onto_object(object_pos, jump_move_speed):
-	# follow player
+	# follow Player
 	var dist_to_object = global_position.x - object_pos.x
 	vel.x = gravity * dist_to_object / jump_force * jump_move_speed
 	
@@ -94,7 +93,7 @@ func die(add_num_of_hits=true, spawn_particle=true, play_sound=true):
 	if add_num_of_hits: 
 		# screen shake
 		camera.start(amplitude, frequency, time)
-		# add one life to player
+		# add one life to Player
 		ui_controller.num_of_hits += 1
 		
 	if spawn_particle:
@@ -106,11 +105,12 @@ func die(add_num_of_hits=true, spawn_particle=true, play_sound=true):
 		explosive_particle_instance.emitting = true
 	
 	# load hurt sound
-	var audio_player = AudioStreamPlayer.new()
-	add_child(audio_player)
-	audio_player.stream = preload("res://sound effects/Enemy Hurt.wav")
+	var audio_Player = AudioStreamPlayer.new()
+	add_child(audio_Player)
+	audio_Player.volume_db = GlobalVariables.sound_volume
+	audio_Player.stream = preload("res://sound effects/Enemy Hurt.wav")
 	if play_sound:
-		audio_player.play()
+		audio_Player.play()
 	
 	# play animation
 	enemy_animated_sprite.play(enemy_dead_animation_name)
@@ -118,7 +118,7 @@ func die(add_num_of_hits=true, spawn_particle=true, play_sound=true):
 	yield(enemy_animated_sprite, "animation_finished")
 	enemy_animated_sprite.visible = false
 	
-	if play_sound and audio_player.playing: yield(audio_player, "finished")
+	if play_sound and audio_Player.playing: yield(audio_Player, "finished")
 	
 	queue_free()
 	
@@ -129,17 +129,17 @@ func _on_Edge_Detector_body_exited(body):
 		is_going_left = not is_going_left
 		
 func _physics_process(_delta):
-	# if player stomped enemy, damage the enemy
+	# if Player stomped enemy, damage the enemy
 	if enemy_vunerable_area != null:
-		if enemy_vunerable_area.overlaps_body(player) and not player.is_hurt and not is_dead:
+		if enemy_vunerable_area.overlaps_body(Player) and not Player.is_hurt and not is_dead:
 			enemy_dead_animation_name = "die by stomp"
-			player.jump_count = 0
-			player.jump(false)
+			Player.jump_count = 0
+			Player.jump(false)
 			die()
 		
 func _on_Deadly_Area_body_entered(body):
-	# if player touches enemy, damage the player
-	if body == player and not player.is_hurt:
-		player.jump_count = 0
-		player.jump()
-		player.take_damage()
+	# if Player touches enemy, damage the Player
+	if body == Player and not Player.is_hurt:
+		Player.jump_count = 0
+		Player.jump()
+		Player.take_damage()

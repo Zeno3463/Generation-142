@@ -26,6 +26,11 @@ func _ready():
 	$Timer.connect("timeout", self, "_on_Timer_timeout") # warning-ignore:return_value_discarded
 	$AnimatedSprite.connect("animation_finished", self, "_on_AnimatedSprite_animation_finished") # warning-ignore:return_value_discarded
 
+	# set the volume of the audio stream Players
+	GlobalVariables.load_settings()
+	$Effects/Sound/AudioStreamPlayer.volume_db = GlobalVariables.sound_volume
+	$"Effects/Sound/Power Blast Player".volume_db = GlobalVariables.sound_volume
+
 func _physics_process(_delta):
 	if is_dead: return
 	
@@ -44,7 +49,7 @@ func _physics_process(_delta):
 		jump()
 		
 	# double jump
-	if global_variables.can_double_jump:
+	if GlobalVariables.can_double_jump:
 		jump_count_limit = 2
 	else:
 		jump_count_limit = 1
@@ -52,8 +57,9 @@ func _physics_process(_delta):
 	# dash
 	if is_on_wall():
 		is_dashing = false
-	if global_variables.can_dash and Input.is_action_just_pressed("dash") and not is_dashing and not dashed:
+	if GlobalVariables.can_dash and Input.is_action_just_pressed("dash") and not is_dashing and not dashed:
 		audio_player.stream = dash_sound
+		audio_player.volume_db = GlobalVariables.sound_volume
 		audio_player.play()
 		dashed = true
 		start_performing_an_action("is_dashing", dash_duration)
@@ -61,14 +67,15 @@ func _physics_process(_delta):
 	else: trail_effect.visible = false
 		
 	# attack
-	if global_variables.can_attack and Input.is_action_just_pressed("attack"):
+	if GlobalVariables.can_attack and Input.is_action_just_pressed("attack"):
 		start_performing_an_action("is_attacking", attack_duration)
 		audio_player.stream = attack_sound
+		audio_player.volume_db = GlobalVariables.sound_volume
 		audio_player.play()
 	if is_attacking: attack()
 		
 	# power blast
-	if global_variables.can_power_blast and Input.is_action_just_pressed("power blast") and ui_controller.get_node("Lives").get_child_count() > ui_controller.lives:
+	if GlobalVariables.can_power_blast and Input.is_action_just_pressed("power blast") and ui_controller.get_node("Lives").get_child_count() > ui_controller.lives:
 		start_performing_an_action("is_power_blasting", power_blast_duration)
 	if is_power_blasting: power_blast()
 		

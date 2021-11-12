@@ -45,9 +45,6 @@ var is_dead = false
 var is_hurt = false
 var is_power_blasting = false
 
-# can perform abilities
-onready var global_variables = get_tree().get_root().get_node("/root/GlobalVariables")
-
 # node references
 var player_animated_sprite: AnimatedSprite = null
 var attack_effect_animated_sprite: AnimatedSprite = null
@@ -116,7 +113,7 @@ func load_animation_according_to_current_action():
 		player_animated_sprite.speed_scale = attack_animation_speed
 	elif is_power_blasting:
 		player_animated_sprite.play("power blast")
-	elif jump_count == jump_count_limit and not double_jump_animation_played and global_variables.can_double_jump:
+	elif jump_count == jump_count_limit and not double_jump_animation_played and GlobalVariables.can_double_jump:
 		player_animated_sprite.play("double jump")
 		player_animated_sprite.speed_scale = double_jump_animation_speed
 	elif is_hurt:
@@ -197,6 +194,7 @@ func take_damage():
 	var hurt_audio_player = AudioStreamPlayer.new()
 	add_child(hurt_audio_player)
 	hurt_audio_player.stream = hurt_sound
+	hurt_audio_player.volume_db = GlobalVariables.sound_volume
 	hurt_audio_player.play()
 	yield(hurt_audio_player, "finished")
 	hurt_audio_player.queue_free()

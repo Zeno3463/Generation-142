@@ -28,7 +28,7 @@ func _physics_process(_delta):
 	if is_dead: return
 	
 	if is_dashing:
-		follow_object(player)
+		follow_object(Player)
 		speed = dash_speed
 	else:
 		move_diagonal()
@@ -53,6 +53,6 @@ func _on_Timer_timeout():
 		$Timer.start()
 
 func _on_Vunerable_Area_body_entered(body):
-	# if player stomped the enemy, damage the enemy
-	if body == player and not player.is_hurt and not is_dashing:
+	# if Player stomped the enemy, damage the enemy
+	if body == Player and not Player.is_hurt and not is_dashing:
 		boss_take_damage()

@@ -35,8 +35,8 @@ func _on_Timer_timeout():
 	enemy_animated_sprite.play("default")
 
 func _on_Vunerable_Area_body_entered(body):
-	# if player stomped the enemy, damage the enemy
-	if body == player and not player.is_hurt:
+	# if Player stomped the enemy, damage the enemy
+	if body == Player and not Player.is_hurt:
 		boss_take_damage()
 
 func special_attack():

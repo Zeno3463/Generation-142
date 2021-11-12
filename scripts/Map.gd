@@ -1,7 +1,9 @@
 extends Control
 
-onready var global_variables = get_tree().get_root().get_node("/root/GlobalVariables")
 var open_map_sound = preload("res://sound effects/Open Map.wav")
+
+func _ready():
+	$AudioStreamPlayer.volume_db = GlobalVariables.sound_volume
 
 func _process(_delta):
 	if Input.is_action_just_pressed("open map"):
@@ -10,10 +12,10 @@ func _process(_delta):
 		$AudioStreamPlayer.play()
 	for children in $Sections.get_children():
 		children.visible = false
-	for section in global_variables.visited_section:
+	for section in GlobalVariables.visited_section:
 		$Sections.get_node(section_path_to_name(section)).visible = true
 		$Sections.get_node(section_path_to_name(section)).modulate = Color8(0, 0, 0)
-	$Sections.get_node(section_path_to_name(global_variables.curr_section_path)).modulate = Color(1.5, 1.5, 1.5)
+	$Sections.get_node(section_path_to_name(GlobalVariables.curr_section_path)).modulate = Color(1.5, 1.5, 1.5)
 
 func section_path_to_name(section_path):
 	var section_name = section_path.replace("res://scenes/Levels/", "").replace(".tscn", "")

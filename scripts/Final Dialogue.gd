@@ -24,10 +24,10 @@ func _process(delta):
 		# start the conversation
 		if not is_displaying_dialogue:
 
-			# spawn a new audio player
-			var audio_player = AudioStreamPlayer.new()
-			add_child(audio_player)
-			audio_player.stream = preload("res://sound effects/Final Level Conversation.wav")
+			# spawn a new audio Player
+			var audio_Player = AudioStreamPlayer.new()
+			add_child(audio_Player)
+			audio_Player.stream = preload("res://sound effects/Final Level Conversation.wav")
 
 			# let person A and person B talk alternatively
 			var content = ""
@@ -58,19 +58,19 @@ func _process(delta):
 					$LabelB.queue_free()
 					
 					# play restart simulation sound effect
-					var restart_simulation_audio_player = AudioStreamPlayer.new()
-					add_child(restart_simulation_audio_player)
-					restart_simulation_audio_player.stream = preload("res://sound effects/Restart Simulation.wav")
-					restart_simulation_audio_player.play()
-					yield(restart_simulation_audio_player, "finished")
+					var restart_simulation_audio_Player = AudioStreamPlayer.new()
+					add_child(restart_simulation_audio_Player)
+					restart_simulation_audio_Player.stream = preload("res://sound effects/Restart Simulation.wav")
+					restart_simulation_audio_Player.play()
+					yield(restart_simulation_audio_Player, "finished")
 					
 					# TODO: play end credit
 					queue_free()
 					return
 				else: yield(get_tree().create_timer(display_dialogue_speed_btw_char), "timeout")
-				if not audio_player.playing: audio_player.play()
+				if not audio_Player.playing: audio_Player.play()
 			yield(get_tree().create_timer(display_dialogue_speed_btw_sections), "timeout")
-			audio_player.queue_free()
+			audio_Player.queue_free()
 			label.text = ""
 			is_displaying_dialogue = false
 	else:
@@ -86,7 +86,7 @@ func _on_AudioStreamPlayer_finished():
 	start_the_dialogue = true
 	
 	# play restart simulation sound effect
-	var restart_simulation_audio_player = AudioStreamPlayer.new()
-	add_child(restart_simulation_audio_player)
-	restart_simulation_audio_player.stream = preload("res://sound effects/Restart Simulation.wav")
-	restart_simulation_audio_player.play()
+	var restart_simulation_audio_Player = AudioStreamPlayer.new()
+	add_child(restart_simulation_audio_Player)
+	restart_simulation_audio_Player.stream = preload("res://sound effects/Restart Simulation.wav")
+	restart_simulation_audio_Player.play()
