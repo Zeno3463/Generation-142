@@ -153,7 +153,7 @@ func start_performing_an_action(action_name, action_duration):
 
 func power_blast():
 	vel = Vector2.ZERO
-	camera.start()
+	camera.shake()
 	light.energy = light_energy_while_blasting
 	power_blast_particle_system.emitting = true
 	
@@ -187,7 +187,7 @@ func attack():
 	attack_area.get_node("CollisionShape2D").disabled = false
 	
 func take_damage():
-	camera.start()
+	camera.shake()
 	reset_everything_to_default()
 	ui_controller.take_out_one_life()
 	start_performing_an_action("is_hurt", hurt_duration)

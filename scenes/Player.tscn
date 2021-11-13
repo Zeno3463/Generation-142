@@ -150,9 +150,9 @@ animations = [ {
 "name": "default",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 5 ) ],
+"frames": [ SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ) ],
 "loop": true,
-"name": "fall",
+"name": "attack",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 4 ) ],
@@ -160,9 +160,9 @@ animations = [ {
 "name": "jump",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ) ],
+"frames": [ ExtResource( 5 ) ],
 "loop": true,
-"name": "attack",
+"name": "fall",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ) ],
@@ -254,7 +254,7 @@ modulate = Color( 0.482353, 0.482353, 0.482353, 1 )
 position = Vector2( 0, -0.370039 )
 z_index = 1
 frames = SubResource( 33 )
-frame = 1
+frame = 3
 speed_scale = 2.0
 playing = true
 

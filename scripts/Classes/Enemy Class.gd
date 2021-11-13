@@ -15,7 +15,6 @@ var dir = Vector2.ONE
 
 # screen shake variables
 export var amplitude = 200
-export var frequency = 0.5
 export var time = 0.05
 
 # explosive particle variables
@@ -92,7 +91,7 @@ func die(add_num_of_hits=true, spawn_particle=true, play_sound=true):
 	
 	if add_num_of_hits: 
 		# screen shake
-		camera.start(amplitude, frequency, time)
+		camera.shake(amplitude, time)
 		# add one life to Player
 		ui_controller.num_of_hits += 1
 		
