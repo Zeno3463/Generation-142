@@ -254,7 +254,7 @@ modulate = Color( 0.482353, 0.482353, 0.482353, 1 )
 position = Vector2( 0, -0.370039 )
 z_index = 1
 frames = SubResource( 33 )
-frame = 3
+frame = 1
 speed_scale = 2.0
 playing = true
 

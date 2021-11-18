@@ -26,6 +26,7 @@ func _ready():
 	$Timer.connect("timeout", self, "_on_Timer_timeout") # warning-ignore:return_value_discarded
 	$AnimatedSprite.connect("animation_finished", self, "_on_AnimatedSprite_animation_finished") # warning-ignore:return_value_discarded
 
+func _process(_delta):
 	# set the volume of the audio stream Players
 	GlobalVariables.load_settings()
 	$Effects/Sound/AudioStreamPlayer.volume_db = GlobalVariables.sound_volume

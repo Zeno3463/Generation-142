@@ -112,7 +112,7 @@ position = Vector2( 511.182, 300.882 )
 scale = Vector2( 4, 4 )
 z_index = 1
 frames = SubResource( 5 )
-frame = 2
+frame = 1
 speed_scale = 2.0
 playing = true
 
@@ -248,8 +248,8 @@ __meta__ = {
 }
 
 [node name="Settings" type="Control" parent="CanvasLayer"]
-visible = false
-margin_right = 40.0
+margin_left = 782.881
+margin_right = 822.881
 margin_bottom = 40.0
 rect_pivot_offset = Vector2( -323.247, 20 )
 script = ExtResource( 12 )
@@ -312,7 +312,7 @@ margin_bottom = 184.0
 min_value = -80.0
 max_value = 0.0
 
-[node name="Quit" type="Button" parent="CanvasLayer/Settings/VBoxContainer"]
+[node name="Back" type="Button" parent="CanvasLayer/Settings/VBoxContainer"]
 margin_top = 194.0
 margin_right = 301.0
 margin_bottom = 268.0
@@ -334,6 +334,8 @@ __meta__ = {
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="CanvasLayer"]
 stream = ExtResource( 9 )
 
+[node name="Tween" type="Tween" parent="CanvasLayer"]
+
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2( 7, 0 )
 z_index = 2
@@ -344,6 +346,8 @@ tile_data = PoolIntArray( -131073, 3, 0, -65538, 3, 0, -131072, 3, 0, -2, 3, 0, 
 
 [connection signal="button_down" from="CanvasLayer/Menu/VBoxContainer/Continue" to="CanvasLayer" method="_on_Continue_button_down"]
 [connection signal="button_down" from="CanvasLayer/Menu/VBoxContainer/New Game" to="CanvasLayer" method="_on_New_Game_button_down"]
+[connection signal="button_down" from="CanvasLayer/Menu/VBoxContainer/Settings" to="CanvasLayer" method="_on_Settings_button_down"]
 [connection signal="button_down" from="CanvasLayer/Menu/VBoxContainer/Quit" to="CanvasLayer" method="_on_Quit_button_down"]
 [connection signal="value_changed" from="CanvasLayer/Settings/VBoxContainer/Music Slider" to="CanvasLayer/Settings" method="_on_Music_Slider_value_changed"]
 [connection signal="value_changed" from="CanvasLayer/Settings/VBoxContainer/Sound Slider" to="CanvasLayer/Settings" method="_on_Sound_Slider_value_changed"]
+[connection signal="button_down" from="CanvasLayer/Settings/VBoxContainer/Back" to="CanvasLayer" method="_on_Back_button_down"]
