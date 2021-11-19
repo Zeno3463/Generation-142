@@ -90,20 +90,23 @@ func load_game():
 			visited_section = data["visited_section"]
 			file.close()
 			
-			# display the current level name to the screen
-			ui.display_current_level(curr_section_name)
+	# display the current level name to the screen
+	ui.display_current_level(curr_section_name)
+	
+	# change scene to the level
+	get_tree().change_scene(curr_section_path) # warning-ignore:return_value_discarded
 			
-			# change scene to the level
-			get_tree().change_scene(curr_section_path) # warning-ignore:return_value_discarded
-			
-			# wait for 0.01 second
-			yield(get_tree().create_timer(0.01), "timeout")
-			
-			# teleport the Player to the level starting pos
-			get_parent().get_node("/root/Player/Camera2D").smoothing_enabled = false
-			get_parent().get_node("/root/Player").global_position = get_parent().get_node("/root/Level Node/Player Starting Pos").global_position
-			
-			# snap the camera to the Player
-			get_parent().get_node("/root/Player/Camera2D").position = Vector2.ZERO
-			yield(get_tree().create_timer(0.1), "timeout")
-			get_parent().get_node("/root/Player/Camera2D").smoothing_enabled = true
+	# wait for 0.01 second
+	yield(get_tree().create_timer(0.01), "timeout")
+	
+	# teleport the Player to the level starting pos
+	get_parent().get_node("/root/Player/Camera2D").smoothing_enabled = false
+	get_parent().get_node("/root/Player").global_position = get_parent().get_node("/root/Level Node/Player Starting Pos").global_position
+	
+	# reset the Player's velocity
+	Player.vel = Vector2.ZERO
+	
+	# snap the camera to the Player
+	get_parent().get_node("/root/Player/Camera2D").position = Vector2.ZERO
+	yield(get_tree().create_timer(0.1), "timeout")
+	get_parent().get_node("/root/Player/Camera2D").smoothing_enabled = true
