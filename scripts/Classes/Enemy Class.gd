@@ -132,8 +132,6 @@ func _physics_process(_delta):
 	if enemy_vunerable_area != null:
 		if enemy_vunerable_area.overlaps_body(Player) and not Player.is_hurt and not is_dead:
 			enemy_dead_animation_name = "die by stomp"
-			Player.jump_count = 0
-			Player.jump(false)
 			die()
 		
 func _on_Deadly_Area_body_entered(body):

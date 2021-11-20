@@ -119,9 +119,6 @@ texture = ExtResource( 2 )
 [node name="Slime" parent="Enemies" instance=ExtResource( 9 )]
 position = Vector2( -494.691, -12.4481 )
 
-[node name="Slime4" parent="Enemies" instance=ExtResource( 9 )]
-position = Vector2( -1320.01, -73.643 )
-
 [node name="Slime5" parent="Enemies" instance=ExtResource( 9 )]
 position = Vector2( -1239.56, -72.6002 )
 

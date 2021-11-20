@@ -92,6 +92,7 @@ Label/fonts/font = SubResource( 14 )
 [node name="Menu" type="Node2D"]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+pause_mode = 2
 script = ExtResource( 8 )
 
 [node name="Background" type="Control" parent="CanvasLayer"]

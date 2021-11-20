@@ -11,10 +11,15 @@ var start_the_dialogue = false
 var is_person_a_turn = true
 var is_displaying_dialogue = false
 
+func _ready():
+	$AudioStreamPlayer.volume_db = GlobalVariables.sound_volume
+
 func _process(delta):
 	
 	# when the alarm has ended
 	if start_the_dialogue:
+		get_tree().paused = true
+		
 		# blacken the screen
 		$TextureRect.visible = true
 		
