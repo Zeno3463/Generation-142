@@ -17,8 +17,9 @@ func _physics_process(_delta):
 	else: vel = Vector2.ZERO
 
 	# if bat hits Player, damage the Player and die
-	if $"Deadly Area".overlaps_body(Player) and not Player.is_hurt:
-		Player.take_damage()
+	if $"Deadly Area".overlaps_body(Player):
+		if not Player.is_hurt:
+			Player.take_damage()
 		die(false, false, false)
 	
 	move_and_slide(vel, Vector2.UP) # warning-ignore:return_value_discarded

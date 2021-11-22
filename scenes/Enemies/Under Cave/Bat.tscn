@@ -73,7 +73,6 @@ speed = 50
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 modulate = Color( 0.482353, 0.482353, 0.482353, 1 )
 frames = SubResource( 8 )
-frame = 2
 speed_scale = 2.0
 playing = true
 

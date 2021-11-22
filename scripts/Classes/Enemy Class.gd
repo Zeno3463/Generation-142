@@ -62,8 +62,7 @@ func move_diagonal():
 		dir = Vector2(rand_range(-1, 1), rand_range(-1, 1)).normalized()
 	
 func follow_object(object):
-	var angle = get_angle_to(object.global_position)
-	vel = Vector2(cos(angle), sin(angle)) * speed
+	vel = (object.global_position - global_position).normalized() * speed
 	if vel.x < 0: enemy_animated_sprite.flip_h = true
 	else: enemy_animated_sprite.flip_h = false
 	

@@ -29,9 +29,10 @@ func _ready():
 func _physics_process(_delta):
 	if is_dead: return
 	
-	follow_object(Player)
+	if not Player.is_hurt:
+		follow_object(Player)
 	
-	move_and_slide(vel, Vector2.UP) # warning-ignore:return_value_discarded
+		move_and_slide(vel, Vector2.UP) # warning-ignore:return_value_discarded
 
 func _on_Timer_timeout():
 	if is_dead: return
