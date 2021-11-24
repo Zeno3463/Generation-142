@@ -21,7 +21,9 @@ func _ready():
 	life = life_count
 	add_child(boss_dead_audio_Player)
 	boss_dead_audio_Player.stream = preload("res://sound effects/Boss Dead.wav")
-	
+	if GlobalVariables.Player_has_entered_scene[get_tree().current_scene.filename] == true:
+		boss_die(false)
+
 func _process(_delta):
 	# display the life count
 	life_bar.value = life
@@ -42,11 +44,12 @@ func boss_take_damage():
 	yield(audio_Player, "finished")
 	audio_Player.queue_free()
 
-func boss_die():
-	die(true, true, false)
-	
-	# play sound
-	if not boss_dead_audio_Player.playing: boss_dead_audio_Player.play()
+func boss_die(play_animation=true):
+	if play_animation:
+		die(true, true, false)
+		
+		# play sound
+		if not boss_dead_audio_Player.playing: boss_dead_audio_Player.play()
 	
 	# notify the game that Player had already won the boss fight
 	GlobalVariables.Player_has_entered_scene[get_tree().current_scene.filename] = true
@@ -61,3 +64,5 @@ func boss_die():
 	for door in doors_to_open:
 		get_node(door).open()
 		doors_to_open.pop_front()
+
+	if not play_animation: queue_free()

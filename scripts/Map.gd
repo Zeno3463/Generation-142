@@ -2,10 +2,8 @@ extends Control
 
 var open_map_sound = preload("res://sound effects/Open Map.wav")
 
-func _ready():
-	$AudioStreamPlayer.volume_db = GlobalVariables.sound_volume
-
 func _process(_delta):
+	$AudioStreamPlayer.volume_db = GlobalVariables.sound_volume
 	if Input.is_action_just_pressed("open map"):
 		visible = not visible
 		$AudioStreamPlayer.stream = open_map_sound

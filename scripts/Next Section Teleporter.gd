@@ -13,8 +13,6 @@ func _on_Next_Level_Teleporter_body_entered(body):
 			# check if the Player had already fought the boss
 			if GlobalVariables.Player_has_entered_scene[next_section_path]:
 				return
-			else:
-				GlobalVariables.Player_has_entered_scene[next_section_path] = true
 		
 		GlobalVariables.curr_section_path = next_section_path
 		if next_level_name != "":
