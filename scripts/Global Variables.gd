@@ -27,6 +27,19 @@ var sound_volume = 0
 func clear_stored_data():
 	var dir = Directory.new()
 	dir.remove("user://save.dat")
+	Player_has_entered_scene = {
+		"res://scenes/Levels/Blue Forest/Blue Forest Section 3.tscn": false,
+		"res://scenes/Levels/Abandoned Village/Abandoned Village Section 3.tscn": false,
+		"res://scenes/Levels/Garden Of Poison/Garden Of Poison Section 3.tscn": false,
+		"res://scenes/Levels/Under Cave/Under Cave Section 2.tscn": false
+	}
+	can_double_jump = false
+	can_dash = false
+	can_attack = false
+	can_power_blast = false
+	curr_section_path = "res://scenes/Levels/Blue Forest/Blue Forest Section 0.tscn"
+	curr_section_name = "Section 1: Green Forest"
+	visited_section = ["res://scenes/Levels/Blue Forest/Blue Forest Section 0.tscn"]
 
 func save_settings():
 	var data = {
