@@ -6,7 +6,8 @@ var Player_has_entered_scene = {
 	"res://scenes/Levels/Blue Forest/Blue Forest Section 3.tscn": false,
 	"res://scenes/Levels/Abandoned Village/Abandoned Village Section 3.tscn": false,
 	"res://scenes/Levels/Garden Of Poison/Garden Of Poison Section 3.tscn": false,
-	"res://scenes/Levels/Under Cave/Under Cave Section 2.tscn": false
+	"res://scenes/Levels/Under Cave/Under Cave Section 2.tscn": false,
+	"res://scenes/Levels/The Grand Mansion/The Grand Mansion Section 3.tscn": false
 }
 
 # can perform abilities
@@ -31,7 +32,8 @@ func clear_stored_data():
 		"res://scenes/Levels/Blue Forest/Blue Forest Section 3.tscn": false,
 		"res://scenes/Levels/Abandoned Village/Abandoned Village Section 3.tscn": false,
 		"res://scenes/Levels/Garden Of Poison/Garden Of Poison Section 3.tscn": false,
-		"res://scenes/Levels/Under Cave/Under Cave Section 2.tscn": false
+		"res://scenes/Levels/Under Cave/Under Cave Section 2.tscn": false,
+		"res://scenes/Levels/The Grand Mansion/The Grand Mansion Section 3.tscn": false
 	}
 	can_double_jump = false
 	can_dash = false
