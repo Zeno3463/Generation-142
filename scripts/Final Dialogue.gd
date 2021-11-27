@@ -69,7 +69,7 @@ func _process(delta):
 					restart_simulation_audio_Player.play()
 					yield(restart_simulation_audio_Player, "finished")
 					
-					# TODO: play end credit
+					get_parent().get_node("Credit Scene").play()
 					queue_free()
 					return
 				else: yield(get_tree().create_timer(display_dialogue_speed_btw_char), "timeout")
@@ -78,6 +78,7 @@ func _process(delta):
 			audio_Player.queue_free()
 			label.text = ""
 			is_displaying_dialogue = false
+		
 	else:
 		# if the alarm has not ended yet, flash the red light
 		if elapsed_time >= 0.5:
