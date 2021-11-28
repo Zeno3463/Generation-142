@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://sprites/Menu/Background Layer 2.png" type="Texture" id=1]
 [ext_resource path="res://sprites/Menu/Background Layer 1.png" type="Texture" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://sprites/Menu/Slider Grabber.png" type="Texture" id=10]
 [ext_resource path="res://sprites/Menu/Slider Grabber Hover.png" type="Texture" id=11]
 [ext_resource path="res://scripts/Settings.gd" type="Script" id=12]
+[ext_resource path="res://scripts/Start Screen.gd" type="Script" id=13]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 1 )
@@ -89,6 +90,44 @@ HSlider/styles/grabber_area_highlight = SubResource( 17 )
 HSlider/styles/slider = SubResource( 16 )
 Label/fonts/font = SubResource( 14 )
 
+[sub_resource type="DynamicFont" id=18]
+size = 150
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=19]
+size = 50
+font_data = ExtResource( 6 )
+
+[sub_resource type="Animation" id=20]
+resource_name = "Fade In"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Disclaimer Sign/RichTextLabel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=21]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Disclaimer Sign/RichTextLabel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+
 [node name="Menu" type="Node2D"]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -116,6 +155,7 @@ position = Vector2( 511.182, 300.882 )
 scale = Vector2( 4, 4 )
 z_index = 1
 frames = SubResource( 5 )
+frame = 1
 speed_scale = 2.0
 playing = true
 
@@ -353,6 +393,44 @@ align = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Start Screen" type="Control" parent="CanvasLayer"]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 13 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="CanvasLayer/Start Screen"]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 518.077, 308.304 )
+scale = Vector2( 33.3798, 20.269 )
+z_index = 1
+texture = ExtResource( 5 )
+
+[node name="Disclaimer Sign" type="Node2D" parent="CanvasLayer/Start Screen"]
+z_index = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Start Screen/Disclaimer Sign"]
+modulate = Color( 1, 1, 1, 0 )
+margin_top = 97.0
+margin_right = 1024.0
+margin_bottom = 601.0
+custom_fonts/bold_font = SubResource( 18 )
+custom_fonts/normal_font = SubResource( 19 )
+bbcode_enabled = true
+bbcode_text = "
+[center]This game is not meant to be played on the web. It is recommended for you to download the game. If you wish to continue, please be aware of some performance issues.[/center]"
+text = "
+This game is not meant to be played on the web. It is recommended for you to download the game. If you wish to continue, please be aware of some performance issues."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Start Screen"]
+"anims/Fade In" = SubResource( 20 )
+anims/RESET = SubResource( 21 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="CanvasLayer"]
 pause_mode = 2

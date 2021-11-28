@@ -100,6 +100,8 @@ credits = [ "
 [center][b]Generation 142[/b][/center]", "
 [center]Made By
 [b]Zeno[/b][/center]", "
+[center]Game Engine
+[b]Godot[/b][/center]", "
 [center]Pixel Art
 [b]Zeno[/b][/center]", "
 [center]Sound Effects
@@ -135,11 +137,11 @@ custom_fonts/bold_font = SubResource( 7 )
 custom_fonts/normal_font = SubResource( 4 )
 bbcode_enabled = true
 bbcode_text = "
-[center]To Be Continued In[b]
-Project Eteria[/b][/center]"
+[center]Game Engine
+[b]Godot[/b][/center]"
 text = "
-To Be Continued In
-Project Eteria"
+Game Engine
+Godot"
 __meta__ = {
 "_edit_use_anchors_": false
 }
