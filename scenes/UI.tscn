@@ -159,6 +159,7 @@ __meta__ = {
 }
 
 [node name="ColorRect" type="ColorRect" parent="Scene Transtion"]
+modulate = Color( 1, 1, 1, 0 )
 margin_left = -48.0
 margin_top = -33.0
 margin_right = 1061.0
@@ -327,6 +328,7 @@ position = Vector2( 500, 200 )
 scale = Vector2( 15, 15 )
 z_index = 1
 frames = SubResource( 7 )
+frame = 2
 playing = true
 
 [node name="Effects" type="Node2D" parent="Power Up Explainer"]
