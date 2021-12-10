@@ -1,0 +1,300 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://fonts/IndieFlower-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://fonts/Nunito-Bold.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://sprites/Lighting/White Square.png" type="Texture" id=3]
+[ext_resource path="res://scripts/Start Screen.gd" type="Script" id=4]
+[ext_resource path="res://sprites/Branding/Regular_triangle.png" type="Texture" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+size = 150
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 50
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 110
+font_data = ExtResource( 2 )
+
+[sub_resource type="Animation" id=4]
+resource_name = "Fade Out"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "Load Brand"
+length = 1.8
+tracks/0/type = "value"
+tracks/0/path = NodePath("Branding/Sprite3:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.6, 1.8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 582.737, 194.223 ), Vector2( 582.737, 194.223 ), Vector2( 582.737, 259.91 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Branding/Sprite3:rotation_degrees")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.6, 1.8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 45.0, 45.0, 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Branding/Sprite:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.4, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 439.919, 234.313 ), Vector2( 439.919, 234.313 ), Vector2( 439.919, 300 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Branding/Sprite:rotation_degrees")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.4, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 45.0, 45.0, 0.0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Branding/Sprite2:position")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 1.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 338.03, 267.74 ), Vector2( 338.03, 333.427 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Branding/Sprite2:rotation_degrees")
+tracks/5/interp = 2
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 1.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 45.0, 0.0 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Branding/Label:modulate")
+tracks/6/interp = 2
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.9, 1.8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Branding/Sprite2:modulate")
+tracks/7/interp = 2
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 1.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0.141176, 0.439216, 0.454902, 0 ), Color( 0.141176, 0.439216, 0.454902, 0.654902 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Branding/Sprite:modulate")
+tracks/8/interp = 2
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 0.4, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0.317647, 0.705882, 0.690196, 0 ), Color( 0.317647, 0.705882, 0.690196, 0 ), Color( 0.317647, 0.705882, 0.690196, 0.737255 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Branding/Sprite3:modulate")
+tracks/9/interp = 2
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 0.6, 1.8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0.529412, 0.996078, 0.941176, 0 ), Color( 0.529412, 0.996078, 0.941176, 0 ), Color( 0.529412, 0.996078, 0.941176, 0.737255 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("Branding/Label:rect_position")
+tracks/10/interp = 2
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0, 0.9, 1.8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 278.485, 434.377 ), Vector2( 278.485, 434.377 ), Vector2( 278.485, 379.673 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("Branding:visible")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "Load Disclaimer"
+length = 6.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Disclaimer Sign:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Disclaimer Sign/RichTextLabel:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1, 5, 6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[node name="Start Screen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+pause_mode = 2
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 512.78, 305.125 )
+scale = Vector2( 33.3798, 20.269 )
+z_index = 2
+texture = ExtResource( 3 )
+
+[node name="Disclaimer Sign" type="Node2D" parent="."]
+pause_mode = 2
+z_index = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Disclaimer Sign"]
+modulate = Color( 1, 1, 1, 0 )
+margin_top = 97.0
+margin_right = 1024.0
+margin_bottom = 601.0
+custom_fonts/bold_font = SubResource( 1 )
+custom_fonts/normal_font = SubResource( 2 )
+bbcode_enabled = true
+bbcode_text = "
+[center]This game is not meant to be played on the web. It is recommended for you to download the game. If you wish to continue, please be aware of some performance issues.[/center]"
+text = "
+This game is not meant to be played on the web. It is recommended for you to download the game. If you wish to continue, please be aware of some performance issues."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Branding" type="Node2D" parent="."]
+pause_mode = 2
+z_index = 2
+
+[node name="Sprite2" type="Sprite" parent="Branding"]
+modulate = Color( 0.141176, 0.439216, 0.454902, 0 )
+position = Vector2( 338.03, 267.74 )
+rotation = 0.785398
+scale = Vector2( 0.434059, 0.434059 )
+texture = ExtResource( 5 )
+
+[node name="Sprite" type="Sprite" parent="Branding"]
+modulate = Color( 0.317647, 0.705882, 0.690196, 0 )
+position = Vector2( 439.919, 234.313 )
+rotation = 0.785398
+scale = Vector2( 0.660589, 0.660589 )
+texture = ExtResource( 5 )
+
+[node name="Sprite3" type="Sprite" parent="Branding"]
+modulate = Color( 0.529412, 0.996078, 0.941176, 0 )
+position = Vector2( 582.737, 194.223 )
+rotation = 0.785398
+scale = Vector2( 0.932313, 0.932313 )
+texture = ExtResource( 5 )
+
+[node name="Label" type="Label" parent="Branding"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 278.485
+margin_top = 434.377
+margin_right = 774.485
+margin_bottom = 599.378
+custom_fonts/font = SubResource( 3 )
+text = "ZenoDev"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+"anims/Fade Out" = SubResource( 4 )
+"anims/Load Brand" = SubResource( 5 )
+"anims/Load Disclaimer" = SubResource( 6 )

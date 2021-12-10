@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/End Credit Music.mp3-fb703a09339e37ff056d7883890c58d3.mp3str"
+
+[deps]
+
+source_file="res://musics/End Credit Music.mp3"
+dest_files=[ "res://.import/End Credit Music.mp3-fb703a09339e37ff056d7883890c58d3.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
