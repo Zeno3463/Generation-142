@@ -185,7 +185,7 @@ __meta__ = {
 
 [node name="Continue" type="Button" parent="CanvasLayer/Menu/VBoxContainer"]
 pause_mode = 2
-margin_right = 226.0
+margin_right = 225.0
 margin_bottom = 59.0
 custom_colors/font_color_disabled = Color( 0.439216, 0.439216, 0.439216, 0.317647 )
 custom_colors/font_color = Color( 0.592157, 0.592157, 0.592157, 1 )
@@ -206,7 +206,7 @@ __meta__ = {
 [node name="New Game" type="Button" parent="CanvasLayer/Menu/VBoxContainer"]
 pause_mode = 2
 margin_top = 79.0
-margin_right = 226.0
+margin_right = 225.0
 margin_bottom = 138.0
 custom_colors/font_color_disabled = Color( 0.439216, 0.439216, 0.439216, 0.317647 )
 custom_colors/font_color = Color( 0.592157, 0.592157, 0.592157, 1 )
@@ -226,7 +226,7 @@ __meta__ = {
 [node name="Controls" type="Button" parent="CanvasLayer/Menu/VBoxContainer"]
 pause_mode = 2
 margin_top = 158.0
-margin_right = 226.0
+margin_right = 225.0
 margin_bottom = 217.0
 custom_colors/font_color_disabled = Color( 0.439216, 0.439216, 0.439216, 0.317647 )
 custom_colors/font_color = Color( 0.592157, 0.592157, 0.592157, 1 )
@@ -246,7 +246,7 @@ __meta__ = {
 [node name="Settings" type="Button" parent="CanvasLayer/Menu/VBoxContainer"]
 pause_mode = 2
 margin_top = 237.0
-margin_right = 226.0
+margin_right = 225.0
 margin_bottom = 296.0
 custom_colors/font_color_disabled = Color( 0.439216, 0.439216, 0.439216, 0.317647 )
 custom_colors/font_color = Color( 0.592157, 0.592157, 0.592157, 1 )
@@ -266,7 +266,7 @@ __meta__ = {
 [node name="Quit" type="Button" parent="CanvasLayer/Menu/VBoxContainer"]
 pause_mode = 2
 margin_top = 316.0
-margin_right = 226.0
+margin_right = 225.0
 margin_bottom = 375.0
 custom_colors/font_color_disabled = Color( 0.439216, 0.439216, 0.439216, 0.317647 )
 custom_colors/font_color = Color( 0.592157, 0.592157, 0.592157, 1 )

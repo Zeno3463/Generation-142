@@ -12,6 +12,7 @@ var is_person_a_turn = true
 var is_displaying_dialogue = false
 
 func _ready():
+	Music.stop()
 	$AudioStreamPlayer.volume_db = GlobalVariables.sound_volume
 
 func _process(delta):
