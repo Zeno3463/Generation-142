@@ -6,6 +6,8 @@ export var time_btw_texts = 1
 
 func play():
 	Music.play()
+	
+	# load the credits
 	$TextureRect2.visible = true
 	for i in credits:
 		$RichTextLabel.bbcode_text = i
@@ -15,4 +17,6 @@ func play():
 		$AnimationPlayer.play_backwards("Fade In")
 		yield($AnimationPlayer, "animation_finished")
 		yield(get_tree().create_timer(time_btw_texts), "timeout")
-	get_tree().change_scene("res://scenes/Menu.tscn")
+	
+	# go back to menu
+	get_tree().change_scene("res://scenes/Menu.tscn") # warning-ignore:return_value_discarded
