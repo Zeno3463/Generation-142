@@ -31,6 +31,7 @@ func _process(_delta):
 	GlobalVariables.load_settings()
 	$Effects/Sound/AudioStreamPlayer.volume_db = GlobalVariables.sound_volume
 	$"Effects/Sound/Power Blast Player".volume_db = GlobalVariables.sound_volume
+	Music.volume_db = GlobalVariables.music_volume
 
 func _physics_process(_delta):
 	if is_dead: return

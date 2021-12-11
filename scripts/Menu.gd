@@ -25,6 +25,7 @@ func _ready():
 func _process(_delta):
 	# adjust the volume of the buttons
 	$AudioStreamPlayer.volume_db = GlobalVariables.sound_volume
+	Music.volume_db = GlobalVariables.music_volume
 
 func _on_Continue_button_down():
 	play_click_sound()
@@ -66,5 +67,11 @@ func _on_Settings_button_down():
 
 func _on_Back_button_down():
 	$Tween.interpolate_property($Settings, "rect_global_position", $Settings.rect_global_position, settings_start_pos, 0.5, Tween.TRANS_SINE, Tween.EASE_IN_OUT)
+	$Tween.interpolate_property($Controls, "rect_global_position", $Controls.rect_global_position, settings_start_pos, 0.5, Tween.TRANS_SINE, Tween.EASE_IN_OUT)
 	$Tween.interpolate_property($Menu, "rect_global_position", $Menu.rect_global_position, menu_start_pos, 0.5, Tween.TRANS_SINE, Tween.EASE_IN_OUT)
+	$Tween.start()
+
+func _on_Controls_button_down():
+	$Tween.interpolate_property($Controls, "rect_global_position", $Controls.rect_global_position, menu_start_pos, 0.5, Tween.TRANS_SINE, Tween.EASE_IN_OUT)
+	$Tween.interpolate_property($Menu, "rect_global_position", $Menu.rect_global_position, settings_start_pos, 0.5, Tween.TRANS_SINE, Tween.EASE_IN_OUT)
 	$Tween.start()

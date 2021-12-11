@@ -43,7 +43,7 @@ size = 100
 font_data = ExtResource( 6 )
 
 [sub_resource type="DynamicFont" id=12]
-size = 50
+size = 40
 font_data = ExtResource( 6 )
 
 [sub_resource type="StyleBoxEmpty" id=7]
@@ -117,7 +117,6 @@ position = Vector2( 511.182, 300.882 )
 scale = Vector2( 4, 4 )
 z_index = 1
 frames = SubResource( 5 )
-frame = 2
 speed_scale = 2.0
 playing = true
 
@@ -176,9 +175,9 @@ __meta__ = {
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Menu"]
 pause_mode = 2
 margin_left = 777.751
-margin_top = 179.445
+margin_top = 163.591
 margin_right = 1003.75
-margin_bottom = 625.445
+margin_bottom = 613.591
 custom_constants/separation = 20
 __meta__ = {
 "_edit_use_anchors_": false
@@ -187,7 +186,7 @@ __meta__ = {
 [node name="Continue" type="Button" parent="CanvasLayer/Menu/VBoxContainer"]
 pause_mode = 2
 margin_right = 226.0
-margin_bottom = 74.0
+margin_bottom = 59.0
 custom_colors/font_color_disabled = Color( 0.439216, 0.439216, 0.439216, 0.317647 )
 custom_colors/font_color = Color( 0.592157, 0.592157, 0.592157, 1 )
 custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
@@ -206,9 +205,9 @@ __meta__ = {
 
 [node name="New Game" type="Button" parent="CanvasLayer/Menu/VBoxContainer"]
 pause_mode = 2
-margin_top = 94.0
+margin_top = 79.0
 margin_right = 226.0
-margin_bottom = 168.0
+margin_bottom = 138.0
 custom_colors/font_color_disabled = Color( 0.439216, 0.439216, 0.439216, 0.317647 )
 custom_colors/font_color = Color( 0.592157, 0.592157, 0.592157, 1 )
 custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
@@ -224,11 +223,31 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Controls" type="Button" parent="CanvasLayer/Menu/VBoxContainer"]
+pause_mode = 2
+margin_top = 158.0
+margin_right = 226.0
+margin_bottom = 217.0
+custom_colors/font_color_disabled = Color( 0.439216, 0.439216, 0.439216, 0.317647 )
+custom_colors/font_color = Color( 0.592157, 0.592157, 0.592157, 1 )
+custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
+custom_colors/font_color_pressed = Color( 0.423529, 0.423529, 0.423529, 1 )
+custom_fonts/font = SubResource( 12 )
+custom_styles/hover = SubResource( 7 )
+custom_styles/pressed = SubResource( 8 )
+custom_styles/focus = SubResource( 9 )
+custom_styles/normal = SubResource( 11 )
+text = "Controls"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Settings" type="Button" parent="CanvasLayer/Menu/VBoxContainer"]
 pause_mode = 2
-margin_top = 188.0
+margin_top = 237.0
 margin_right = 226.0
-margin_bottom = 262.0
+margin_bottom = 296.0
 custom_colors/font_color_disabled = Color( 0.439216, 0.439216, 0.439216, 0.317647 )
 custom_colors/font_color = Color( 0.592157, 0.592157, 0.592157, 1 )
 custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
@@ -246,9 +265,9 @@ __meta__ = {
 
 [node name="Quit" type="Button" parent="CanvasLayer/Menu/VBoxContainer"]
 pause_mode = 2
-margin_top = 282.0
+margin_top = 316.0
 margin_right = 226.0
-margin_bottom = 356.0
+margin_bottom = 375.0
 custom_colors/font_color_disabled = Color( 0.439216, 0.439216, 0.439216, 0.317647 )
 custom_colors/font_color = Color( 0.592157, 0.592157, 0.592157, 1 )
 custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
@@ -340,7 +359,76 @@ max_value = 0.0
 pause_mode = 2
 margin_top = 194.0
 margin_right = 301.0
-margin_bottom = 268.0
+margin_bottom = 253.0
+custom_colors/font_color_disabled = Color( 0.439216, 0.439216, 0.439216, 0.317647 )
+custom_colors/font_color = Color( 0.592157, 0.592157, 0.592157, 1 )
+custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
+custom_colors/font_color_pressed = Color( 0.423529, 0.423529, 0.423529, 1 )
+custom_fonts/font = SubResource( 12 )
+custom_styles/hover = SubResource( 7 )
+custom_styles/pressed = SubResource( 8 )
+custom_styles/focus = SubResource( 9 )
+custom_styles/normal = SubResource( 11 )
+text = "Back"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Controls" type="Control" parent="CanvasLayer"]
+pause_mode = 2
+margin_left = 782.881
+margin_right = 822.881
+margin_bottom = 40.0
+rect_pivot_offset = Vector2( -323.247, 20 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Controls" type="Label" parent="CanvasLayer/Controls"]
+pause_mode = 2
+margin_left = 401.0
+margin_top = 4.0
+margin_right = 1016.0
+margin_bottom = 159.0
+custom_colors/font_color = Color( 0.592157, 0.592157, 0.592157, 1 )
+custom_fonts/font = SubResource( 6 )
+text = "Controls"
+align = 2
+autowrap = true
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/Controls"]
+pause_mode = 2
+margin_left = 645.861
+margin_top = 176.081
+margin_right = 1011.86
+margin_bottom = 622.081
+theme = SubResource( 13 )
+custom_constants/separation = 10
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CanvasLayer/Controls/VBoxContainer2"]
+pause_mode = 2
+margin_right = 366.0
+margin_bottom = 189.0
+custom_colors/font_color = Color( 0.592157, 0.592157, 0.592157, 1 )
+text = "WASD or Arrow Keys - move
+J or Z - dash
+K or X - Attack
+L or C - Power Blast"
+align = 2
+
+[node name="Back" type="Button" parent="CanvasLayer/Controls/VBoxContainer2"]
+pause_mode = 2
+margin_top = 199.0
+margin_right = 366.0
+margin_bottom = 258.0
 custom_colors/font_color_disabled = Color( 0.439216, 0.439216, 0.439216, 0.317647 )
 custom_colors/font_color = Color( 0.592157, 0.592157, 0.592157, 1 )
 custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
@@ -375,8 +463,10 @@ tile_data = PoolIntArray( -131073, 3, 0, -65538, 3, 0, -131072, 3, 0, -2, 3, 0, 
 
 [connection signal="button_down" from="CanvasLayer/Menu/VBoxContainer/Continue" to="CanvasLayer" method="_on_Continue_button_down"]
 [connection signal="button_down" from="CanvasLayer/Menu/VBoxContainer/New Game" to="CanvasLayer" method="_on_New_Game_button_down"]
+[connection signal="button_down" from="CanvasLayer/Menu/VBoxContainer/Controls" to="CanvasLayer" method="_on_Controls_button_down"]
 [connection signal="button_down" from="CanvasLayer/Menu/VBoxContainer/Settings" to="CanvasLayer" method="_on_Settings_button_down"]
 [connection signal="button_down" from="CanvasLayer/Menu/VBoxContainer/Quit" to="CanvasLayer" method="_on_Quit_button_down"]
 [connection signal="value_changed" from="CanvasLayer/Settings/VBoxContainer/Music Slider" to="CanvasLayer/Settings" method="_on_Music_Slider_value_changed"]
 [connection signal="value_changed" from="CanvasLayer/Settings/VBoxContainer/Sound Slider" to="CanvasLayer/Settings" method="_on_Sound_Slider_value_changed"]
 [connection signal="button_down" from="CanvasLayer/Settings/VBoxContainer/Back" to="CanvasLayer" method="_on_Back_button_down"]
+[connection signal="button_down" from="CanvasLayer/Controls/VBoxContainer2/Back" to="CanvasLayer" method="_on_Back_button_down"]
