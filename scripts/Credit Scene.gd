@@ -19,4 +19,5 @@ func play():
 		yield(get_tree().create_timer(time_btw_texts), "timeout")
 	
 	# go back to menu
+	GlobalVariables.played_credit = false
 	get_tree().change_scene("res://scenes/Menu.tscn") # warning-ignore:return_value_discarded

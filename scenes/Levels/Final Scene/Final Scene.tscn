@@ -109,11 +109,8 @@ credits = [ "
 [center]Sound Effects
 [b]Bfxr[/b][/center]", "
 [center]Music
-[b]XXX[/b] by [b]XXX[/b][/center]", "
-[center]Music
-[b]XXX[/b] by [b]XXX[/b][/center]", "
-[center]Music
-[b]XXX[/b] by [b]XXX[/b][/center]", "
+[b]The Climb[/b] 
+Scott Buckley[/center]", "
 [center]To Be Continued In[b]
 Project Eteria[/b][/center]" ]
 
@@ -137,11 +134,11 @@ custom_fonts/bold_font = SubResource( 7 )
 custom_fonts/normal_font = SubResource( 4 )
 bbcode_enabled = true
 bbcode_text = "
-[center]Game Engine
-[b]Godot[/b][/center]"
+[center]Music
+[b]The Climb[/b] by [b]Scott Buckley[/b][/center]"
 text = "
-Game Engine
-Godot"
+Music
+The Climb by Scott Buckley"
 __meta__ = {
 "_edit_use_anchors_": false
 }

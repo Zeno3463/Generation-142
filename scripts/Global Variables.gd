@@ -25,6 +25,9 @@ var visited_section = ["res://scenes/Levels/Blue Forest/Blue Forest Section 0.ts
 var music_volume = 0
 var sound_volume = 0
 
+# credits
+var played_credit = false
+
 func clear_stored_data():
 	var dir = Directory.new()
 	dir.remove("user://save.dat")
