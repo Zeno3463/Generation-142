@@ -52,8 +52,9 @@ func boss_die(play_animation=true):
 		if not boss_dead_audio_Player.playing: boss_dead_audio_Player.play()
 	
 	# notify the game that Player had already won the boss fight
-	GlobalVariables.Player_has_entered_scene[get_tree().current_scene.filename] = true
-	GlobalVariables.save_game()
+	if get_tree().current_scene.filename != "res://scenes/Levels/The Grand Mansion/The Grand Mansion Section 3.tscn":
+		GlobalVariables.Player_has_entered_scene[get_tree().current_scene.filename] = true
+		GlobalVariables.save_game()
 	
 	# destroy the Player stuck on wall handler
 	if player_stuck_on_wall_handler != null:
